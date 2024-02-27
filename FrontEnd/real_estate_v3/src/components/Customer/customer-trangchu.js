@@ -1,0 +1,19 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import CustomerFillter from './customer-fillter';
+import Customertrangchubanvila from './customer-trangchu-banvila';
+import Customerchaomung from './customer-chaomung';
+import Customertrangchutinnoibat from './customer-trangchu-tinnoibat';
+
+
+export default function Trangchu() {
+
+    return (
+        <div>
+            <CustomerFillter />
+            <Customertrangchubanvila />
+            <Customerchaomung />
+            <Customertrangchutinnoibat />
+        </div>
+    );
+}
