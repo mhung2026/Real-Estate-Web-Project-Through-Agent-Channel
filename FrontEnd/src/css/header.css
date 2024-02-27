@@ -1,0 +1,247 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0 auto;
+    height: auto;
+}
+
+
+.header-container {
+    background-color: #ffffff;
+    display: flex;
+    padding: 10px;
+}
+
+.menu-list {
+    display: flex;
+    margin: 0 110px;
+    padding: 0;
+    list-style-type: none;
+    align-items: center;
+}
+
+.menu-item-container:hover .menu-item,
+.menu-item-container:hover i {
+
+    align-items: center;
+    color: #90c908;
+}
+
+.menu-item:hover {
+    color: #90c908;
+}
+
+.menu-item {
+
+    margin-left: 70px;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 17px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.logo-batdongsan {
+    width: 120px;
+    /* Kích thước logo */
+    height: auto;
+}
+
+.col-md-9 {
+    background-color: rgb(255, 255, 255);
+}
+
+
+/* noti */
+.logo_notification,
+.logo-taikhoan {
+    width: 30px;
+    height: 30px;
+}
+
+.logo_notification {
+    max-width: 30px;
+    margin-right: 20px;
+}
+
+.logo-taikhoan {
+    max-width: 30px;
+    margin-top: 14px;
+    margin-bottom: 10px;
+}
+
+.container-login {
+    display: flex;
+    align-items: center;
+    transform: translateX(-60px);
+}
+
+.login-link {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.login-link:hover {
+    color: #90c908;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-left: 10%;
+}
+
+.logo-header2 {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+}
+
+/* dropdown */
+
+
+.dropdown-menu1 {
+    display: none;
+    /* Ẩn menu ban đầu */
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 10px;
+    z-index: 1;
+    /* Đảm bảo menu hiển thị trên cùng */
+    transition: all 10s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    /* Thêm hiệu ứng chuyển động */
+}
+
+.dropdown:hover .dropdown-menu1 {
+    display: block;
+    /* Hiển thị menu khi hover */
+}
+
+.dropdown-menu1 {
+    position: absolute;
+    top: 100%;
+    /* Hiển thị dropdown-menu bên dưới menu item */
+    left: 50px;
+    display: none;
+    z-index: 1000;
+    width: 100%;
+}
+
+.dropdown-menu1 li {
+    padding: 10px;
+    list-style-type: none;
+}
+
+.dropdown-menu1 li a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+    /* Hiệu ứng màu khi hover */
+}
+
+.dropdown-menu1 li a:hover {
+    color: #90c908;
+    /* Màu chữ khi hover */
+}
+
+.dropdown:hover .dropdown-menu1 {
+    display: block;
+}
+
+.text-drop {
+    text-decoration: none;
+    color: black;
+}
+
+.text-drop:hover {
+    color: #90c908;
+}
+
+/* noti */
+.col-md-3.header {
+    display: flex;
+    align-items: center;
+}
+
+/* Căn chỉnh hình ảnh logo_notification */
+.logo_notification {
+    width: 100px;
+    height: auto;
+    transform: translateX(-80px);
+    /* Tinh chỉnh khoảng cách giữa logo và phần đăng nhập */
+}
+
+/* Căn chỉnh hình ảnh logo-taikhoan */
+.logo-taikhoan {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+    /* Tinh chỉnh khoảng cách giữa logo-taikhoan và nội dung đăng nhập */
+}
+
+/* Căn chỉnh văn bản đăng nhập */
+.login-link {
+    text-decoration: none;
+    color: #333;
+
+}
+
+/* Hiệu ứng dropdown khi hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    display: none;
+    /* Ẩn menu ban đầu */
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    top: 26px;
+    border-radius: 15px;
+    padding: 10px;
+    z-index: 1;
+    /* Đảm bảo menu hiển thị trên cùng */
+    transition: all 10s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+/* Các mục trong dropdown menu */
+.dropdown-item {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Màu nền khi hover vào mục dropdown */
+.dropdown-item:hover {
+    background-color: #f5f5f5;
+}
+
+/* banner */
+.text-overlay {
+    position: absolute;
+    /* Thiết lập vị trí tuyệt đối để chồng lên ảnh */
+    top: 260px;
+    /* Đặt vị trí từ trên xuống 50% */
+    left: 50%;
+    /* Đặt vị trí từ trái sang phải 50% */
+    transform: translate(-50%, -50%);
+    /* Dịch chuyển văn bản để nằm chính giữa */
+    color: white;
+    /* Màu chữ trắng, bạn có thể thay đổi màu sắc nếu cần */
+    font-size: 30px;
+    /* Kích thước chữ */
+    font-weight: 600;
+    /* Độ đậm của chữ */
+    /* Các thuộc tính khác của văn bản nếu cần */
+}
