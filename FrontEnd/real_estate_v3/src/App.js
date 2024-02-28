@@ -29,6 +29,10 @@ import Dangki from './components/Dangki';
 import Logout from './components/Logout';
 import Home2 from './components/Home2';
 
+import Adminmain from './components/Admin/admin-main';
+import Adminallaccount from './components/Admin/admin-allaccount';
+
+
 import InvestorDangtin from './components/Investor/investor-dangtin';
 import Quanlitindang from './components/Investor/investor-quanlitindang';
 import Investorthongtintaikhoan from './components/Investor/investor-thongtintaikhoan';
@@ -95,21 +99,26 @@ function App() {
           <Route path="/Logout" element={<Logout />} /> done
           <Route path="/dangki" element={<Dangki />} /> done
           <Route path="/trangchu" element={<TrangChu />} /> done
-          <Route path="/gioithieu" element={<Customergioithieu />} /> done
-          <Route path="/dondat" element={<Customerdondat />} /> done
-          <Route path="/lienhe" element={<Customerlienhe />} /> done
+
+          <Route path="/adminmain" element={<Adminmain />} />
+
           <Route path="/quanlitindang" element={<Quanlitindang />} />  done
-          <Route path="/chinhsuatindang" element={<InvestorTindang />} /> done
           <Route path="/acencytindang" element={<Agencytindang />} />done
-          <Route path="/inestortindangmain" element={<Investordangtinmain />} />done
           <Route path="/agencythongtinchitiet" element={<Agencythongtinchitiet />} />
           <Route path="/agencythongtinchitiet/:id" element={<Agencythongtinchitiet />} />
           <Route path="/xemlichdat" element={<Agencyxemlichdat />} /> done
           <Route path="/duyettindang" element={<Agencyduyettindang />} /> done
+
+          <Route path="/inestortindangmain" element={<Investordangtinmain />} />done
+          <Route path="/chinhsuatindang" element={<InvestorTindang />} /> done
           <Route path="/investorthongtintaikhoan" element={<Investorthongtintaikhoan />} /> chua
           <Route path="/investorthongtinchitiet" element={<Investorthongtinchitiet />} />done
           <Route path="/investorthongtinchitiet/:id" element={<Investorthongtinchitiet />} />done
           <Route path="/investordangtin" element={<InvestorDangtin />} /> done
+
+          <Route path="/gioithieu" element={<Customergioithieu />} /> done
+          <Route path="/dondat" element={<Customerdondat />} /> done
+          <Route path="/lienhe" element={<Customerlienhe />} /> done
           <Route path="/customerthongtintaikhoan" element={<Customerthongtintaikhoan />} />chua
           <Route path="/thongtinchitietbatdongsan" element={<Customerthongtinchitiet />} />
           <Route path="/thongtinchitietbatdongsan/:id" element={<Customerthongtinchitiet />} />

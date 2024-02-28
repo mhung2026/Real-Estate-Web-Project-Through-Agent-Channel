@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import CustomerFillter from './customer-fillter';
 import Customertrangchubanvila from './customer-trangchu-banvila';
 import Customerchaomung from './customer-chaomung';

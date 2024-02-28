@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import CallApi from './CallApi';
+import FormValidation from './FormValidation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -14,6 +16,21 @@ export default function Dangki() {
         email: '',
         diaChi: ''
     });
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const callDataAllAccount = await CallApi.getAllAccount();
+                callDataAllAccount.forEach(account => {
+                    console.log('Username:', account.username);
+                });
+
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData();
+    }, []);
 
     const handleRoleChange = (id) => {
         setRoleId(id);
@@ -31,23 +48,8 @@ export default function Dangki() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Kiểm tra các trường bắt buộc không được bỏ trống
-        for (let key in formData) {
-            if (formData[key].trim() === '') {
-                toast.error(`Vui lòng điền đầy đủ thông tin cho ${key}.`);
-                return;
-            }
-        }
-
-        // Kiểm tra xem tài khoản có chứa khoảng trắng không
-        if (/\s/.test(formData.taiKhoan)) {
-            toast.error('Tài khoản không được chứa khoảng trắng.');
-            return;
-        }
-
-        // Kiểm tra mật khẩu và xác nhận mật khẩu
-        if (formData.matKhau !== formData.xacNhanMatKhau) {
-            toast.error('Mật khẩu và xác nhận mật khẩu không khớp.');
+        if (!FormValidation.validateFormData(formData)) {
+            // Nếu dữ liệu không hợp lệ, không thực hiện tiếp các công việc khác
             return;
         }
 
@@ -58,12 +60,22 @@ export default function Dangki() {
             phoneNumber: formData.soDienThoai,
             email: formData.email,
             address: formData.diaChi,
+            createAt: new Date().toISOString(),
             status: true
         };
 
-        console.log("Data to be sent:", postData);
-
         try {
+            // Truy vấn tài khoản từ cơ sở dữ liệu
+            const callDataAllAccount = await CallApi.getAllAccount();
+
+            // Kiểm tra xem tài khoản đã tồn tại chưa
+            const existingAccount = callDataAllAccount.find(account => account.username === formData.taiKhoan);
+            if (existingAccount) {
+                toast.error('Tài khoản đã tồn tại. Vui lòng chọn tài khoản khác.');
+                return;
+            }
+
+            // Nếu tài khoản chưa tồn tại, thực hiện tạo mới
             const response = await axios.post('http://firstrealestate-001-site1.anytempurl.com/api/account/TaoTaiKhoan', postData);
             console.log('Đăng ký thành công:', response.data);
             toast.success('Đăng ký thành công');
@@ -75,6 +87,8 @@ export default function Dangki() {
             // Đặt logic xử lý khi đăng ký thất bại ở đây, ví dụ: hiển thị thông báo lỗi
         }
     };
+
+
 
     return (
         <div>

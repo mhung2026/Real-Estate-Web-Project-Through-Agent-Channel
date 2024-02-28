@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { removeToken } from '../authentication/Auth';
 
 export default function Logout() {

@@ -13,7 +13,7 @@ export default function Header() {
     const userLoginBasicInformationDto = JSON.parse(localStorage.getItem('userLoginBasicInformationDto'));
     const checkRoleID = userLoginBasicInformationDto ? userLoginBasicInformationDto.roleName : null;
     const token = getToken();
-    console.log('Token:', token);
+    // console.log('Token:', token);
 
     let headerItems;
     if (checkRoleID === 'Agency') {

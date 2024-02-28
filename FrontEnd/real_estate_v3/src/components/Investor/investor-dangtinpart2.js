@@ -1,15 +1,15 @@
 import Avatar from "@mui/material/Avatar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { storage } from "../../firebase/addimage";
 import { ref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage";
 
-export default function Agencydangtinpart2() {
+export default function Agencydangtinpart2({ sendData }) {
   const [frontImages, setFrontImages] = useState([]);
   const [leftImages, setLeftImages] = useState([]);
   const [rightImages, setRightImages] = useState([]);
   const [diagramImages, setDiagramImages] = useState([]);
   const [certificateImages, setCertificateImages] = useState([]);
-
+  const [listRealEstateImageUrl, setListRealEstateImageUrl] = useState([]);
   const handleImageChange = async (e, setImageFunction) => {
     const selectedImages = e.target.files;
     const newImages = [];
@@ -26,17 +26,37 @@ export default function Agencydangtinpart2() {
 
     setImageFunction(newImages);
   };
-
+  const getImageName = (setImageFunction) => {
+    switch (setImageFunction) {
+      case setFrontImages:
+        return 'Ảnh Mặt Trước';
+      case setLeftImages:
+        return 'Ảnh Mặt Trái';
+      case setRightImages:
+        return 'Ảnh Mặt Phải';
+      case setDiagramImages:
+        return 'Ảnh Sơ Đồ Đất';
+      case setCertificateImages:
+        return 'Ảnh Sổ Hồng';
+      default:
+        return 'Ảnh không xác định';
+    }
+  };
   const uploadImageToFirebase = (image, setImageFunction) => {
     const folder = getImageFolder(setImageFunction);
     const imageRef = ref(storage, `${folder}/${image.name}`);
+
     uploadBytes(imageRef, image)
       .then(() => {
         getDownloadURL(imageRef)
           .then((url) => {
-            console.log("Uploaded image URL:", url);
-            // Send the URL to the API
+            const imageName = getImageName(setImageFunction);
+            const imageUrl = url;
+            const status = true;
+            const updatedList = [...listRealEstateImageUrl, { imageName, imageUrl, status }];
+            setListRealEstateImageUrl(updatedList);
 
+            console.log(`"${imageName}" đã được tải lên thành công:`, imageUrl);
           })
           .catch((error) => {
             console.log(error.message, "error getting the image url");
@@ -47,6 +67,19 @@ export default function Agencydangtinpart2() {
       });
   };
 
+  useEffect(() => {
+    // Chuyển mảng thành chuỗi JSON
+
+    sendData(listRealEstateImageUrl);
+    // In ra console log
+    console.log("listRealEstateImageUrl:", listRealEstateImageUrl);
+  }, [listRealEstateImageUrl]);
+
+  // Kiểm tra xem tất cả các loại ảnh đã được tải lên chưa
+  const allImagesUploaded = () => {
+    // Thực hiện kiểm tra điều kiện phù hợp với ứng dụng của bạn
+    return frontImages.length > 0 && leftImages.length > 0 && rightImages.length > 0 && diagramImages.length > 0 && certificateImages.length > 0;
+  };
 
   const getImageState = (setImageFunction) => {
     switch (setImageFunction) {
@@ -64,6 +97,23 @@ export default function Agencydangtinpart2() {
         return [];
     }
   };
+  const getImageType = (setImageFunction) => {
+    switch (setImageFunction) {
+      case setFrontImages:
+        return 'ảnh mặt trước';
+      case setLeftImages:
+        return 'ảnh mặt trái';
+      case setRightImages:
+        return 'ảnh mặt phải';
+      case setDiagramImages:
+        return 'ảnh đất';
+      case setCertificateImages:
+        return 'ảnh sổ hồng';
+      default:
+        return '';
+    }
+  };
+
 
   const clearImagesInStorage = async (setImageFunction) => {
     const folder = getImageFolder(setImageFunction);

@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-
+import React from 'react';
 import Customergioithieupart1 from './customer-gioithieu-part1';
 import Customergioithieupart2 from './customer-gioithieu-part2';
 import Customergioithieupart3 from './customer-gioithieu-part3';

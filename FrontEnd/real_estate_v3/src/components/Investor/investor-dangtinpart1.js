@@ -4,6 +4,7 @@ import LocationSelector from '../../location/LocationSelector';
 
 export default function Agencydangtinpart1({ sendData }) {
     const [directs, setDirects] = useState([]);
+    const userLoginBasicInformationDto = JSON.parse(localStorage.getItem('userLoginBasicInformationDto'));
     const [selectedLocation, setSelectedLocation] = useState({
         provinceName: '',
         districtName: '',
@@ -11,19 +12,23 @@ export default function Agencydangtinpart1({ sendData }) {
         directsid: '', // Thêm directsid vào selectedLocation
     });
     const [propertyInfo, setPropertyInfo] = useState({
-        propertyName: '',
-        houseNumber: '',
-        description: '',
+        realestateName: '',
+        address: '',
+        discription: '',
         length: '',
         width: '',
         numberOfRooms: '',
         discount: '',
         area: '',
         price: '',
-        provinceName: '', // Thêm provinceName vào propertyInfo
-        districtName: '', // Thêm districtName vào propertyInfo
-        wardName: '', // Thêm wardName vào propertyInfo
-        directsid: '',
+        city: '', // Thêm provinceName vào propertyInfo
+        district: '', // Thêm districtName vào propertyInfo
+        ward: '', // Thêm wardName vào propertyInfo
+        directId: '2',
+        firebaseId: "",
+        investorId: userLoginBasicInformationDto.accountId,
+        payId: '1',
+        legalStatus: 'Sổ Hồng',
     });
 
     useEffect(() => {
@@ -91,7 +96,7 @@ export default function Agencydangtinpart1({ sendData }) {
             const integerValue = parseInt(value.replace(/,/g, ''), 10);
             // Kiểm tra nếu là số nguyên thì thực hiện chuyển đổi định dạng
             if (!isNaN(integerValue)) {
-                const formattedValue = integerValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                const formattedValue = integerValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
                 setPropertyInfo(prevState => ({
                     ...prevState,
                     [name]: formattedValue
@@ -108,9 +113,9 @@ export default function Agencydangtinpart1({ sendData }) {
                     <option key={direct.id} value={direct.id}>{direct.directName}</option>
                 ))}
             </select>
-            <input type="text" name="propertyName" value={propertyInfo.propertyName} onChange={handleInputChange} placeholder="Tên bất động sản" />
-            <input type="text" name="houseNumber" value={propertyInfo.houseNumber} onChange={handleInputChange} placeholder="Số nhà" />
-            <textarea name="description" value={propertyInfo.description} onChange={handleInputChange} placeholder="Mô tả" />
+            <input type="text" name="realestateName" value={propertyInfo.realestateName} onChange={handleInputChange} placeholder="Tên bất động sản" />
+            <input type="text" name="address" value={propertyInfo.address} onChange={handleInputChange} placeholder="Số nhà" />
+            <textarea name="discription" value={propertyInfo.discription} onChange={handleInputChange} placeholder="Mô tả" />
             <input type="text" name="length" value={propertyInfo.length} onChange={handleInputChange} placeholder="Chiều dài (đơn vị m)" />
             <input type="text" name="width" value={propertyInfo.width} onChange={handleInputChange} placeholder="Chiều rộng (đơn vị m)" />
             <input type="text" name="numberOfRooms" value={propertyInfo.numberOfRooms} onChange={handleInputChange} placeholder="Số phòng" />

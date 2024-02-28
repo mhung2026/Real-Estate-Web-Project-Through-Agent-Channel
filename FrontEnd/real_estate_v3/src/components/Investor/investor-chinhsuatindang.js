@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
 import UserInvestor from '../../list/userInvestor';
 import InvestorMenu from './investor-menu';
-import { getToken, removeToken } from '../../authentication/Auth';
+import { removeToken } from '../../authentication/Auth';
 import { useNavigate } from 'react-router-dom';
-import Investorthongtinchitiet from './investor-thongtinchitiet';
+
 // Import các module và components cần thiết
 
 export default function Agencytindang() {
@@ -52,14 +51,14 @@ export default function Agencytindang() {
                                 {/* <th>STT</th> */}
                                 <th>Tên bất động sản</th>
                                 {/* <th>Trạng thái</th> */}
-                            
+
                             </tr>
                         </thead>
                         <tbody>
                             {realEstates.map((estate, index) => (
                                 <tr key={estate.id}>
                                     <li key={index}>
-                                        {/* Sử dụng onClick để gọi hàm xử lý khi bấm vào tên bất động sản */} 
+                                        {/* Sử dụng onClick để gọi hàm xử lý khi bấm vào tên bất động sản */}
                                         {/* <td>{estate.id}</td> */}
                                         {/* <td>{estate.realestateName}</td> */}
                                         <p onClick={() => handleRealEstateClick(estate)}>{estate.realestateName}</p>
