@@ -39,6 +39,7 @@ import Investorthongtintaikhoan from './components/Investor/investor-thongtintai
 import InvestorTindang from './components/Investor/investor-chinhsuatindang';
 import Investorthongtinchitiet from './components/Investor/investor-thongtinchitiet';
 import Investordangtinmain from './components/Investor/investor-dangtinmain';
+import InvestorNaptien from './components/Investor/investor-naptien';
 
 import AuthRoleFilter from './authentication/AuthRoleFilter';
 import Agencytindang from './components/Agency/agency-tindang';
@@ -115,6 +116,7 @@ function App() {
           <Route path="/investorthongtinchitiet" element={<Investorthongtinchitiet />} />done
           <Route path="/investorthongtinchitiet/:id" element={<Investorthongtinchitiet />} />done
           <Route path="/investordangtin" element={<InvestorDangtin />} /> done
+          <Route path="/investornaptien" element={<InvestorNaptien />} />
 
           <Route path="/gioithieu" element={<Customergioithieu />} /> done
           <Route path="/dondat" element={<Customerdondat />} /> done

@@ -24,7 +24,7 @@ export default function Agencydangtinpart1({ sendData }) {
         city: '', // Thêm provinceName vào propertyInfo
         district: '', // Thêm districtName vào propertyInfo
         ward: '', // Thêm wardName vào propertyInfo
-        directId: '2',
+        directId: '',
         firebaseId: "",
         investorId: userLoginBasicInformationDto.accountId,
         payId: '1',
@@ -87,6 +87,7 @@ export default function Agencydangtinpart1({ sendData }) {
         }));
         console.log('Selected Direct ID:', directId);
     };
+
     const handlePriceInputChange = (e) => {
         const { name, value } = e.target;
         // Xử lý chỉ cho phép nhập số và dấu phẩy
@@ -113,6 +114,7 @@ export default function Agencydangtinpart1({ sendData }) {
                     <option key={direct.id} value={direct.id}>{direct.directName}</option>
                 ))}
             </select>
+
             <input type="text" name="realestateName" value={propertyInfo.realestateName} onChange={handleInputChange} placeholder="Tên bất động sản" />
             <input type="text" name="address" value={propertyInfo.address} onChange={handleInputChange} placeholder="Số nhà" />
             <textarea name="discription" value={propertyInfo.discription} onChange={handleInputChange} placeholder="Mô tả" />

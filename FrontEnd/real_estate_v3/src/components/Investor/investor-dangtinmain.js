@@ -6,6 +6,7 @@ import Agencydangtinpart2 from './investor-dangtinpart2';
 export default function Agencydangtinmain() {
     const [dataFromPart1, setDataFromPart1] = useState(null);
     const [dataFromPart2, setDataFromPart2] = useState(null);
+    const userLoginBasicInformationDto = JSON.parse(localStorage.getItem('userLoginBasicInformationDto'));
 
     const handleSendDataPart1 = (data) => {
         setDataFromPart1(data);
@@ -15,7 +16,6 @@ export default function Agencydangtinmain() {
         setDataFromPart2(data);
     };
 
-
     const handleSendDataToSwagger = () => {
         if (dataFromPart1) {
             const requestData = {
@@ -23,7 +23,8 @@ export default function Agencydangtinmain() {
                 listRealEstateImageUrl: dataFromPart2,
             };
             console.log("Data sent to Swagger:", requestData);
-            axios.post('http://firstrealestate-001-site1.anytempurl.com/api/invester/createNewRealEstate/2', requestData)
+            // axios.post('http://firstrealestate-001-site1.anytempurl.com/api/invester/createNewRealEstate/2', requestData)
+            axios.post('http://firstrealestate-001-site1.anytempurl.com/api/invester/createNewRealEstate/' + userLoginBasicInformationDto.accountId, requestData)
                 .then(response => {
                     console.log('Data sent to Swagger:', response.data);
                 })
