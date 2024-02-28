@@ -42,7 +42,7 @@ namespace RealEstateTestApi.Controllers
         }
 
         [HttpPost]
-        [Route("TaoTaiKhoan")]
+        [Route("createAccount")]
         public IActionResult CreateAccount(AccountDto dto)
         {
             try
