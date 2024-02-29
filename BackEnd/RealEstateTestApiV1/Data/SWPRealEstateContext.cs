@@ -25,6 +25,8 @@ namespace RealEstateTestApi.Data
         public virtual DbSet<RealEstateImage> RealEstateImages { get; set; } = null!;
         public virtual DbSet<Reservation> Reservations { get; set; } = null!;
         public virtual DbSet<Role> Roles { get; set; } = null!;
+        public virtual DbSet<Wallet> Wallets { get; set; } = null!;
+        public virtual DbSet<WalletHistory> WalletHistories { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -289,6 +291,44 @@ namespace RealEstateTestApi.Data
                     .HasColumnName("role_name");
 
                 entity.Property(e => e.Status).HasColumnName("status");
+            });
+
+            modelBuilder.Entity<Wallet>(entity =>
+            {
+                entity.ToTable("Wallet");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.AccountBalance).HasColumnName("account_balance");
+
+                entity.Property(e => e.InvestorId).HasColumnName("investor_id");
+
+                entity.Property(e => e.Status).HasColumnName("status");
+
+                entity.Property(e => e.WalletCreateAt)
+                    .HasColumnType("datetime")
+                    .HasColumnName("wallet_create_at");
+            });
+
+            modelBuilder.Entity<WalletHistory>(entity =>
+            {
+                entity.ToTable("Wallet_History");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.CreateAt)
+                    .HasColumnType("datetime")
+                    .HasColumnName("create_at");
+
+                entity.Property(e => e.Description).HasColumnName("description");
+
+                entity.Property(e => e.WalletId).HasColumnName("wallet_id");
+
+                entity.HasOne(d => d.Wallet)
+                    .WithMany(p => p.WalletHistories)
+                    .HasForeignKey(d => d.WalletId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Wallet_History_Wallet");
             });
 
             OnModelCreatingPartial(modelBuilder);

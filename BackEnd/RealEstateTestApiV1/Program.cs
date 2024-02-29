@@ -64,6 +64,8 @@ builder.Services.AddScoped<IRealEstateRepository, RealEstateRepository>();
 builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 builder.Services.AddScoped<IRealEstateImageRepository, RealEstateImageRepository>();
 builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
+builder.Services.AddScoped<IWalletRepository, WalletRepository>();
+builder.Services.AddScoped<IWalletHistoryRepository, WalletHistoryRepository>();
 
 
 
@@ -80,6 +82,9 @@ builder.Services.AddScoped<IRealEstateService, RealEstateServiceImpl>();
 builder.Services.AddScoped<IPaymentService, PaymentServiceImpl>();
 builder.Services.AddScoped<IRealEstateImageService, RealEstateImageServiceImpl>();
 builder.Services.AddScoped<IReservationService, ReservationServiceImpl>();
+builder.Services.AddScoped<IWalletService, WalletServiceImpl>();
+builder.Services.AddScoped<IWalletHistoryService, WalletHistoryServiceImpl>();
+
 
 
 
