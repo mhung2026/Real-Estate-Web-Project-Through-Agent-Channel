@@ -12,8 +12,10 @@ namespace RealEstateTestApi.Controllers
     public class AdminController : ControllerBase
     {
         private IAccountRepository accountRepository;
-        public AdminController(IAccountRepository accountRepository) {
+        private IReservationRepository reservationRepository;
+        public AdminController(IAccountRepository accountRepository, IReservationRepository reservationRepository) {
             this.accountRepository = accountRepository;
+            this.reservationRepository = reservationRepository;
         }    
         // GET: api/<AdminController>
         [HttpGet]
@@ -29,8 +31,23 @@ namespace RealEstateTestApi.Controllers
             {
                 return NotFound("Hệ thống đã xảy ra lỗi");
             }
-        }     
+        }
 
-      
+        [HttpGet]
+        [Route("GetAllReservation")]
+        public IActionResult AdminGetAllReservation()
+        {
+            List<Reservation> list = reservationRepository.GetAllReservation();
+            if (list != null)
+            {
+                //cho nay can to list vao trong repository
+                return Ok(list.ToList());
+            }
+            else
+            {
+                return BadRequest("Reservation trống");
+            }
+        }
+
     }
 }
