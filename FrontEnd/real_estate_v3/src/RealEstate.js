@@ -25,6 +25,8 @@ import './css/customer-thongtinchitiet.css';
 import './css/investor-dangtinmain.css';
 import './css/investor-naptien.css';
 
+
+
 // Component imports
 import Header from './header-footer/Header';
 import Header2 from './header-footer/Header2';
@@ -60,7 +62,7 @@ import Agencyxemlichdat from './components/Agency/agency-xemlichdat';
 import Adminmain from './components/Admin/admin-main';
 import AdminDetailBookingAgen from './components/Admin/admin-DetailBookingAgen';
 
-function App() {
+function RealEstate() {
   const [userInfo, setUserInfo] = useState(null);
   const [initialPageLoad, setInitialPageLoad] = useState(true);
 
@@ -113,4 +115,4 @@ function App() {
   );
 }
 
-export default App;
+export default RealEstate;
