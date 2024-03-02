@@ -60,9 +60,9 @@
     position: relative;
 }
 
-.main-image {
+/* .main-image {
     width: 100%;
-}
+} */
 
 .sub-images {
     display: flex;

@@ -32,7 +32,7 @@ export default function Header() {
             <div className="col-md-9">
                 <nav className='main-menu'>
                     <ul className='menu-list'>
-                        <img className='logo-batdongsan' src='/logoheader/logo-header-batdongsan.png' alt='logobatdongsan' />
+                        <a href='/trangchu'><img className='logo-batdongsan' src='/logoheader/logo-header-batdongsan.png' alt='logobatdongsan' /></a>
                         <li><Link className='menu-item' to='/trangchu'>TRANG CHỦ</Link></li>
                         <li><Link className='menu-item' to='/gioithieu'>GIỚI THIỆU</Link></li>
                         <li className='dropdown'>

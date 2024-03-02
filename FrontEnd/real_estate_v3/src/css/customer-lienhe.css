@@ -8,11 +8,14 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+    margin-bottom: 20px;
+    
 }
 .customerlienheghichu {
     background-color: #f9f9f9; /* Màu nền */
     padding: 20px; /* Khoảng cách nội dung từ các cạnh của phần tử */
     border-radius: 5px; /* Bo tròn viền */
+    border: 1px solid #ccc;
 }
 
 .customerlienheghichu span {

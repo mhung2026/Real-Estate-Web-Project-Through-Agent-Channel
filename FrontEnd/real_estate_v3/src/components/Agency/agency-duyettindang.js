@@ -142,18 +142,20 @@ export default function Agencyduyettindang() {
                 />
                 <div className='col-md-9 danhsachbdscanduyet'>
                     <h1>Danh sách bất động sản cần được duyệt</h1>
-                    <ul>
-                        {realEstates.map(realEstate => (
-                            <li key={realEstate.id}>
-                                {realEstate.realestateName}
-                                <select className= 'luachon' value={realEstate.status} onChange={(event) => handleStatusChange(event, realEstate.id)}>
-                                    {statusOptions.map(option => (
-                                        <option key={option.value} value={option.value}>{option.label}</option>
-                                    ))}
-                                </select>
-                            </li>
-                        ))}
-                    </ul>
+                    <div>
+                        <ul>
+                            {realEstates.map(realEstate => (
+                                <li key={realEstate.id} className='danhsachbdscanduyettheobds'>
+                                    {realEstate.realestateName}
+                                    <select className='luachon' value={realEstate.status} onChange={(event) => handleStatusChange(event, realEstate.id)}>
+                                        {statusOptions.map(option => (
+                                            <option key={option.value} value={option.value}>{option.label}</option>
+                                        ))}
+                                    </select>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                     {unsavedEstateIds.length > 0 && <button onClick={handleSaveData}>Lưu</button>}
                 </div>
             </div>

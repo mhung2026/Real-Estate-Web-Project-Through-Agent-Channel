@@ -45,7 +45,7 @@ export default function Agencytindang() {
             <div className="col-md-9 listrealfix ">
                 <h1>Danh sách tin đăng đã đăng</h1>
                 <div className='listreal1'>
-                    <table className="table">
+                    <table className="table1">
                         <thead>
                             <tr>
                                 {/* <th>STT</th> */}

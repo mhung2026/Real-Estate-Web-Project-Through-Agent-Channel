@@ -94,16 +94,16 @@ export default function Dangki() {
         <div>
             <ToastContainer /> {/* Container để hiển thị thông báo */}
             {!roleSelected && (
-                <div>
-                    <h2>Chọn Vai Trò</h2>
-                    <div>
-                        <button onClick={() => handleRoleChange(3)}>Customer</button>
-                        <button onClick={() => handleRoleChange(2)}>Investor</button>
+                <div className='rolemoi'>
+                    <h2 className='chonrole'>Chọn Vai Trò</h2>
+                    <div className='taorole'>
+                        <button onClick={() => handleRoleChange(3)} style={{ marginRight: '20px', padding: ' 24px', borderRadius: '10px' }}>Customer</button>
+                        <button onClick={() => handleRoleChange(2)} style={{ marginRight: '20px', padding: ' 24px', borderRadius: '10px' }}>Investor</button>
                     </div>
                 </div>
             )}
             {roleSelected && (
-                <div>
+                <div className='formdangkytaikhoan'>
                     <h2>Form Đăng Ký</h2>
                     <form onSubmit={handleSubmit}>
                         <div>

@@ -144,23 +144,23 @@ export default function AgencyThongTinChiTiet() {
         <div className='thongtin'>
             <h1>Thông tin chi tiết bất động sản:</h1>
 
-            <p><b>Real Estate Name:</b> {editing ? <input type="text" name="realestateName" value={editedRealEstate.realestateName} onChange={handleInputChange} /> : realEstate.realestateName}</p>
-            <p><b>Address:</b> {editing ? <input type="text" name="address" value={editedRealEstate.address} onChange={handleInputChange} /> : realEstate.address}</p>
-            <p><b>Room Number:</b> {editing ? <input type="text" name="roomNumber" value={editedRealEstate.roomNumber} onChange={handleInputChange} /> : realEstate.roomNumber}</p>
-            <p><b>Length:</b> {editing ? <input type="text" name="length" value={editedRealEstate.length} onChange={handleInputChange} /> : realEstate.length}</p>
-            <p><b>Width:</b> {editing ? <input type="text" name="width" value={editedRealEstate.width} onChange={handleInputChange} /> : realEstate.width}</p>
-            <p><b>Perimeter:</b> {editing ? <input type="text" name="perimeter" value={editedRealEstate.perimeter} onChange={handleInputChange} /> : realEstate.perimeter}</p>
-            <p><b>Area:</b> {editing ? <input type="text" name="area" value={editedRealEstate.area} onChange={handleInputChange} /> : realEstate.area}</p>
-            <p><b>Legal Status:</b> {editing ? <input type="text" name="legalStatus" value={editedRealEstate.legalStatus} onChange={handleInputChange} /> : realEstate.legalStatus}</p>
-            <p><b>Price:</b> {editing ? <input type="text" name="price" value={editedRealEstate.price} onChange={handleInputChange} /> : realEstate.price}</p>
-            <p><b>Direct ID:</b> {editing ? <input type="text" name="directId" value={editedRealEstate.directId} onChange={handleInputChange} /> : realEstate.directId}</p>
-            <p><b>Discount:</b> {editing ? <input type="text" name="discount" value={editedRealEstate.discount} onChange={handleInputChange} /> : realEstate.discount}</p>
-            <p><b>Description:</b> {editing ? <input type="text" name="description" value={editedRealEstate.discription} onChange={handleInputChange} /> : realEstate.discription}</p>
+            <p><b>Tên bất động sản:</b> {editing ? <input type="text" name="realestateName" value={editedRealEstate.realestateName} onChange={handleInputChange} /> : realEstate.realestateName}</p>
+            <p><b>Địa chỉ:</b> {editing ? <input type="text" name="address" value={editedRealEstate.address} onChange={handleInputChange} /> : realEstate.address}</p>
+            <p><b>Số phòng:</b> {editing ? <input type="text" name="roomNumber" value={editedRealEstate.roomNumber} onChange={handleInputChange} /> : realEstate.roomNumber}</p>
+            <p><b>Chiều dài:</b> {editing ? <input type="text" name="length" value={editedRealEstate.length} onChange={handleInputChange} /> : realEstate.length}</p>
+            <p><b>Chiều rộng:</b> {editing ? <input type="text" name="width" value={editedRealEstate.width} onChange={handleInputChange} /> : realEstate.width}</p>
+            <p><b>Chu vi:</b> {editing ? <input type="text" name="perimeter" value={editedRealEstate.perimeter} onChange={handleInputChange} /> : realEstate.perimeter}</p>
+            <p><b>Diện tích:</b> {editing ? <input type="text" name="area" value={editedRealEstate.area} onChange={handleInputChange} /> : realEstate.area}</p>
+            <p><b>Tình trạng sổ:</b> {editing ? <input type="text" name="legalStatus" value={editedRealEstate.legalStatus} onChange={handleInputChange} /> : realEstate.legalStatus}</p>
+            <p><b>Giá:</b> {editing ? <input type="text" name="price" value={editedRealEstate.price} onChange={handleInputChange} /> : realEstate.price}</p>
+            <p><b>Hướng:</b> {editing ? <input type="text" name="directId" value={editedRealEstate.directId} onChange={handleInputChange} /> : realEstate.directId}</p>
+            <p><b>Hoa hồng:</b> {editing ? <input type="text" name="discount" value={editedRealEstate.discount} onChange={handleInputChange} /> : realEstate.discount}</p>
+            <p><b>Mô tả:</b> {editing ? <input type="text" name="description" value={editedRealEstate.discription} onChange={handleInputChange} /> : realEstate.discription}</p>
             <div cName="select-location">
-                <span className='tieude1'>Địa chỉ</span>
+                <span className='tieude1' >Địa chỉ</span>
                 <LocationSelector onSelect={handleLocationSelect} selectedLocation={selectedLocation} />
             </div>
-            <h2>Real Estate Images</h2>
+            <h2 style={{marginTop: '20px', marginBottom: '20px'}}>Hình ảnh dự án bất động sản</h2>
             <ul>
                 {realEstate.realEstateImages.map(image => (
                     <li key={image.id}>

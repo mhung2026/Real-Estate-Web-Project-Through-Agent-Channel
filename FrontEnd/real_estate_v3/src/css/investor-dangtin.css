@@ -122,7 +122,7 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #000000;
+    /* border: 1px solid #000000; */
     width: 200px;
     height: 40px;
 }

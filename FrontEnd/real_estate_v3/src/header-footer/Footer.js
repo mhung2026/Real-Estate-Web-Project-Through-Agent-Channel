@@ -62,7 +62,7 @@ export default function Footer() {
                         <div className='list'>
                             <h5 className='text-email'>Email</h5>
                             <hr className='divider' />
-                            <span className='text-email'>Đăng ký Email để nhận tin tức mới nhất <br /> về các dự án.</span>
+                            <span className='text-email'>Đăng ký Email để nhận tin tức mới nhất về các dự án.</span>
                             <div className='buton-email'>
                                 <input className='input-email' placeholder='Email của bạn'></input>
                                 <button className='submit-email'>

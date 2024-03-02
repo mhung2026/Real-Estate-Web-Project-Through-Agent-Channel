@@ -81,7 +81,7 @@ export default function Customerthongtinchitiet() {
         const callDataReservations = await CallApi.getAllReservations();
         if (selectedDate && selectedTime && userLoginBasicInformationDto && userLoginBasicInformationDto.accountId && parsedId) {
             const formattedDate = formatISO(selectedDate, { representation: 'complete' });
-            const hasExistingReservation = callDataReservations.find(reservation => reservation.customerId === userLoginBasicInformationDto.accountId);
+            const hasExistingReservation = callDataReservations.find(reservation => reservation.customerId === userLoginBasicInformationDto.accountId && reservation.status === 1);
             if (hasExistingReservation) {
                 toast.error('Bạn đã đặt chỗ trước đó.');
                 return;

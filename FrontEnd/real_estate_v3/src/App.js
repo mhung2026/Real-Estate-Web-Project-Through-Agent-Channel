@@ -17,7 +17,8 @@ import './css/agency-xemlichdat.css';
 import './css/customer-dondat.css';
 import './css/investor-thongtinchitiet.css'
 import './css/customer-thongtinchitiet.css'
-
+import './css/investor-dangtinmain.css'
+import './css/investor-naptien.css'
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './header-footer/Header';
@@ -101,27 +102,27 @@ function App() {
           <Route path="/dangki" element={<Dangki />} /> done
           <Route path="/trangchu" element={<TrangChu />} /> done
 
-          <Route path="/adminmain" element={<Adminmain />} />
+          <Route path="/adminmain" element={<Adminmain />} /> done
 
           <Route path="/quanlitindang" element={<Quanlitindang />} />  done
           <Route path="/acencytindang" element={<Agencytindang />} />done
-          <Route path="/agencythongtinchitiet" element={<Agencythongtinchitiet />} />
+          <Route path="/agencythongtinchitiet" element={<Agencythongtinchitiet />} /> 
           <Route path="/agencythongtinchitiet/:id" element={<Agencythongtinchitiet />} />
           <Route path="/xemlichdat" element={<Agencyxemlichdat />} /> done
           <Route path="/duyettindang" element={<Agencyduyettindang />} /> done
 
           <Route path="/inestortindangmain" element={<Investordangtinmain />} />done
           <Route path="/chinhsuatindang" element={<InvestorTindang />} /> done
-          <Route path="/investorthongtintaikhoan" element={<Investorthongtintaikhoan />} /> chua
+          <Route path="/investorthongtintaikhoan" element={<Investorthongtintaikhoan />} /> done
           <Route path="/investorthongtinchitiet" element={<Investorthongtinchitiet />} />done
           <Route path="/investorthongtinchitiet/:id" element={<Investorthongtinchitiet />} />done
           <Route path="/investordangtin" element={<InvestorDangtin />} /> done
-          <Route path="/investornaptien" element={<InvestorNaptien />} />
+          <Route path="/investornaptien" element={<InvestorNaptien />} />done
 
           <Route path="/gioithieu" element={<Customergioithieu />} /> done
           <Route path="/dondat" element={<Customerdondat />} /> done
           <Route path="/lienhe" element={<Customerlienhe />} /> done
-          <Route path="/customerthongtintaikhoan" element={<Customerthongtintaikhoan />} />chua
+          <Route path="/customerthongtintaikhoan" element={<Customerthongtintaikhoan />} />done
           <Route path="/thongtinchitietbatdongsan" element={<Customerthongtinchitiet />} />
           <Route path="/thongtinchitietbatdongsan/:id" element={<Customerthongtinchitiet />} />
           {/* Remove the default route */}

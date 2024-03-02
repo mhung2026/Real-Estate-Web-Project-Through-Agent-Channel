@@ -16,11 +16,11 @@ export default function Agencyxemlichdat() {
         async function fetchData() {
             try {
                 const callDataReservations = await CallApi.getAllReservations();
+                const reservationsWithStatusOne = callDataReservations.filter(reservation => reservation.status === 1);
+                setReservations(reservationsWithStatusOne);
                 const callDataRealEstateData = await CallApi.getAllRealEstate();
-                const callDataAllAccount = await CallApi.getAllAccount();
-
-                setReservations(callDataReservations);
                 setRealEstates(callDataRealEstateData); // Set real estates data
+                const callDataAllAccount = await CallApi.getAllAccount();
                 setAccounts(callDataAllAccount); // Set accounts data
 
             } catch (error) {
@@ -58,12 +58,13 @@ export default function Agencyxemlichdat() {
 
     return (
         <div className='container'>
+
             <AgencyMenu
                 userLoginBasicInformationDto={userLoginBasicInformationDto}
                 UserMenu={UserAgency}
             />
             <div className='col-md-9 xemlich'>
-                <h1 style={{marginBottom: '30px'}}>Danh sách khách hàng đặt lịch:</h1>
+                <h1 style={{ marginBottom: '30px' }}>Danh sách khách hàng đặt lịch</h1>
                 <table>
                     <thead>
                         <tr>

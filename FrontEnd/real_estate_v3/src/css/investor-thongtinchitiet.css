@@ -44,9 +44,13 @@
     margin-bottom: 20px;
   }
   
+  .select-location .tieude1 {
+    margin-bottom: 20px;
+  }
   .tieude1 {
     font-size: 18px;
     font-weight: bold;
+    margin-top: 20px;
   }
   
   ul {

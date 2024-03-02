@@ -1,99 +1,108 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+/* Container styles */
+.rolemoi {
+    text-align: center; /* Centers the content horizontally */
 }
 
-/* Style for the container div */
-.form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Heading styles */
+.chonrole {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
     margin-top: 20px;
-
-}
-
-/* Style for the buttons */
-.button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-
-}
-
-.button-container h1 {
-    margin-bottom: 30px;
-
-}
-
-.customer-btn,
-.investor-btn {
-    padding: 15px 20px;
-    margin: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #90c908;
-    color: #fff;
-    font-size: 17px; 
-    margin-left: 92px; 
-}
-
-.motakhachhang {
-    height: 100%;
-    text-align: left;
-    margin-top: 20px;
-
-}
-
-.motachusan{
-height: 100%;
-text-align: left;
-margin-top: 20px;
-}
-
-.infobox .title {
     margin-bottom: 20px;
 }
 
-/* Style for the form */
-.infobox .custom-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.taorole{
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+
+
+/* Button styles */
+button {
+    background-color: #007bff; /* Blue background color */
+    color: #fff; /* White text color */
+    border: none; /* Removes default button border */
+    padding: 10px 20px; /* Adds padding around the text */
+    margin: 0 10px; /* Adds spacing between buttons */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    border-radius: 5px; /* Adds rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+/* Hover effect on buttons */
+button:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    button {
+        padding: 8px 16px; /* Adjusts padding for smaller screens */
+        font-size: 14px; /* Adjusts font size for smaller screens */
+    }
+}
+
+/* Container styles */
+.formdangkytaikhoan {
+    max-width: 400px; /* Sets maximum width for the form */
+    margin: 0 auto; /* Centers the form horizontally */
+    padding: 20px; /* Adds some padding around the form */
+    border: 1px solid #ccc; /* Adds a border around the form */
+    border-radius: 8px; /* Adds rounded corners */
     margin-top: 20px;
     margin-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
-.custom-form input {
-    /* Dịch chuyển các input xuống dưới 20px */
-    padding: 10px;
-    margin-top: 20px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 300px;
+/* Heading styles */
+.formdangkytaikhoan h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.title {
-    margin-top: -42px;
+/* Form field styles */
+.formdangkytaikhoan label {
+    display: block; /* Displays labels as block elements */
+    margin-bottom: 8px; /* Adds spacing below each label */
+    color: #555; /* Sets label text color */
+    font-weight: bold;
 }
 
-/* Style for the submit button */
-.submit-btn {
-    padding: 10px 20px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #90c908;
-    color: #fff;
-    font-size: 16px;
-    margin-bottom: 10px;
+.formdangkytaikhoan input {
+    width: 100%; /* Sets input width to 100% */
+    padding: 10px; /* Adds padding inside input fields */
+    margin-bottom: 16px; /* Adds spacing below each input field */
+    border: 1px solid #ccc; /* Adds a border around input fields */
+    border-radius: 5px; /* Adds rounded corners */
 }
 
-/* Style for the submit button on hover */
-.submit-btn:hover {
-    background-color: orange;
+/* Button styles */
+.formdangkytaikhoan button {
+    background-color: #90c908; /* Blue background color */
+    color: #fff; /* White text color */
+    border: none; /* Removes default button border */
+    padding: 12px 20px; /* Adds padding around the button text */
+    margin-top: 10px; /* Adds spacing above the button */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    border-radius: 5px; /* Adds rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+/* Hover effect on buttons */
+.formdangkytaikhoan button:hover {
+    background-color: #90c908; /* Darker blue color on hover */
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .formdangkytaikhoan {
+        width: 90%; /* Sets width to 90% for smaller screens */
+    }
+
+    .formdangkytaikhoan input {
+        margin-bottom: 12px; /* Reduces spacing below input fields */
+    }
 }

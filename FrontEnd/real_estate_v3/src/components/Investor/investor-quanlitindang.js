@@ -34,28 +34,28 @@ export default function Quanlitindang() { // Sửa tên component thành Quanlit
             />
             <div className="col-md-9 ">
                 <div className='listreal'>
-                <h2>Danh sách bất động sản đăng tin</h2>
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th>STT</th>
-                            <th>Tên bất động sản</th>
-                            {/* <th>Trạng thái</th> */}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {realEstates.map(realEstate => (
-                            <tr key={realEstate.id}>
-                                <td>{realEstate.id}</td>
-                                <td>{realEstate.realestateName}</td>
-                                {/* <td>
+                    <h2>Danh sách bất động sản đăng tin</h2>
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th className='titlecontent'>STT</th>
+                                <th className='titlecontent'>Tên bất động sản</th>
+                                {/* <th>Trạng thái</th> */}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {realEstates.map(realEstate => (
+                                <tr key={realEstate.id}>
+                                    <td>{realEstate.id}</td>
+                                    <td>{realEstate.realestateName}</td>
+                                    {/* <td>
                                     <a href='/chinhsuatindang'><button>Edit</button></a>
                                     <a href='/chinhsuatindang'><button>Delete</button></a>
                                 </td> */}
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

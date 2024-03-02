@@ -1,5 +1,5 @@
 import Avatar from "@mui/material/Avatar";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import { storage } from "../../firebase/addimage";
 import { ref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage";
 
@@ -10,22 +10,31 @@ export default function Agencydangtinpart2({ sendData }) {
   const [diagramImages, setDiagramImages] = useState([]);
   const [certificateImages, setCertificateImages] = useState([]);
   const [listRealEstateImageUrl, setListRealEstateImageUrl] = useState([]);
-  const handleImageChange = async (e, setImageFunction) => {
+
+  const [uploadingFront, setUploadingFront] = useState(false);
+  const [uploadingLeft, setUploadingLeft] = useState(false);
+  const [uploadingRight, setUploadingRight] = useState(false);
+  const [uploadingDiagram, setUploadingDiagram] = useState(false);
+  const [uploadingCertificate, setUploadingCertificate] = useState(false);
+
+  const handleImageChange = async (e, setImageFunction, setUploadingFunction) => {
     const selectedImages = e.target.files;
     const newImages = [];
 
-    // Xóa ảnh cũ trước khi thêm ảnh mới vào
     await clearImagesInStorage(setImageFunction);
+
+    setUploadingFunction(true);
 
     for (let i = 0; i < selectedImages.length; i++) {
       const image = selectedImages[i];
       const imageObjectURL = URL.createObjectURL(image);
       newImages.push({ file: image, url: imageObjectURL });
-      uploadImageToFirebase(image, setImageFunction);
+      uploadImageToFirebase(image, setImageFunction, setUploadingFunction);
     }
 
     setImageFunction(newImages);
   };
+
   const getImageName = (setImageFunction) => {
     switch (setImageFunction) {
       case setFrontImages:
@@ -42,9 +51,12 @@ export default function Agencydangtinpart2({ sendData }) {
         return 'Ảnh không xác định';
     }
   };
-  const uploadImageToFirebase = (image, setImageFunction) => {
+
+  const uploadImageToFirebase = (image, setImageFunction, setUploadingFunction) => {
     const folder = getImageFolder(setImageFunction);
     const imageRef = ref(storage, `${folder}/${image.name}`);
+
+    console.time("uploadTime");
 
     uploadBytes(imageRef, image)
       .then(() => {
@@ -60,25 +72,32 @@ export default function Agencydangtinpart2({ sendData }) {
           })
           .catch((error) => {
             console.log(error.message, "error getting the image url");
+          })
+          .finally(() => {
+            setUploadingFunction(false);
+            console.timeEnd("uploadTime");
           });
       })
       .catch((error) => {
         console.log(error.message);
+        setUploadingFunction(false);
       });
   };
 
   useEffect(() => {
-    // Chuyển mảng thành chuỗi JSON
-
     sendData(listRealEstateImageUrl);
-    // In ra console log
     console.log("listRealEstateImageUrl:", listRealEstateImageUrl);
   }, [listRealEstateImageUrl]);
 
-  // Kiểm tra xem tất cả các loại ảnh đã được tải lên chưa
-  const allImagesUploaded = () => {
-    // Thực hiện kiểm tra điều kiện phù hợp với ứng dụng của bạn
-    return frontImages.length > 0 && leftImages.length > 0 && rightImages.length > 0 && diagramImages.length > 0 && certificateImages.length > 0;
+  const clearImagesInStorage = async (setImageFunction) => {
+    const folder = getImageFolder(setImageFunction);
+    const images = getImageState(setImageFunction);
+
+    for (let i = 0; i < images.length; i++) {
+      const image = images[i];
+      const imageRef = ref(storage, `${folder}/${image.file.name}`);
+      await deleteObject(imageRef);
+    }
   };
 
   const getImageState = (setImageFunction) => {
@@ -97,50 +116,26 @@ export default function Agencydangtinpart2({ sendData }) {
         return [];
     }
   };
+
   const getImageType = (setImageFunction) => {
     switch (setImageFunction) {
       case setFrontImages:
-        return 'ảnh mặt trước';
+        return 'Ảnh mặt trước';
       case setLeftImages:
-        return 'ảnh mặt trái';
+        return 'Ảnh mặt trái';
       case setRightImages:
-        return 'ảnh mặt phải';
+        return 'Ảnh mặt phải';
       case setDiagramImages:
-        return 'ảnh đất';
+        return 'Ảnh đất';
       case setCertificateImages:
-        return 'ảnh sổ hồng';
+        return 'Ảnh sổ hồng';
       default:
         return '';
     }
   };
 
-
-  const clearImagesInStorage = async (setImageFunction) => {
-    const folder = getImageFolder(setImageFunction);
-    const images = getImageState(setImageFunction);
-
-    // Delete each image in the storage
-    for (let i = 0; i < images.length; i++) {
-      const image = images[i];
-      const imageRef = ref(storage, `${folder}/${image.file.name}`);
-      await deleteObject(imageRef);
-    }
-  };
-  const [propertyInfo, setPropertyInfo] = useState({
-    realestateName: '',
-    address: '',
-    roomNumber: '',
-    discription: '',
-    length: '',
-    width: '',
-    area: '',
-    price: '',
-    discount: '',
-  });
-  const userLoginBasicInformationDto = JSON.parse(localStorage.getItem('userLoginBasicInformationDto'));
-  const imageName = propertyInfo.realestateName ? propertyInfo.realestateName.toLowerCase().replace(/\s+/g, '-') : "default";
-
   const getImageFolder = (setImageFunction) => {
+    const userLoginBasicInformationDto = JSON.parse(localStorage.getItem('userLoginBasicInformationDto'));
     switch (setImageFunction) {
       case setFrontImages:
         return 'Ảnh mặt trước' + `-${userLoginBasicInformationDto.accountId}`;
@@ -158,65 +153,85 @@ export default function Agencydangtinpart2({ sendData }) {
   };
 
   return (
-    <div className="App">
-      <br></br>
-      {/* Ảnh mặt trước */}
-      <div>
-        <b>Ảnh mặt trước:</b>
-        <div className="image-container">
-          {frontImages.map((image, index) => (
-            <Avatar key={index} src={image.url} sx={{ width: 150, height: 150 }} variant="square" />
-          ))}
+    <div className="hinhanh">
+      <br />
+      <div className="hinhanhtongquan">
+        {/* Ảnh mặt trước */}
+        <div className="hinhanhtongquanmattruoc">
+          <b style={{}}>Ảnh mặt trước:</b>
+          <div className="image-container1">
+            {uploadingFront ? ( // Nếu đang tải ảnh mặt trước, hiển thị loading
+              <div className="loading-indicator">Đang tải ảnh mặt trước...</div>
+            ) : (
+              frontImages.map((image, index) => (
+                <Avatar key={index} src={image.url} sx={{ width: 400, height: 400 }} variant="square" />
+              ))
+            )}
+          </div>
+          <input type="file" onChange={(e) => handleImageChange(e, setFrontImages, setUploadingFront)} multiple />
         </div>
-        <input type="file" onChange={(e) => handleImageChange(e, setFrontImages)} multiple />
-      </div>
-      <br></br>
-      {/* Ảnh mặt trái */}
-      <div>
-        <b>Ảnh mặt trái:</b>
-        <div className="image-container">
-          {leftImages.map((image, index) => (
-            <Avatar key={index} src={image.url} sx={{ width: 150, height: 150 }} variant="square" />
-          ))}
+        <br />
+        {/* Ảnh mặt trái */}
+        <div className="hinhanhtongquanmattrai">
+          <b>Ảnh mặt trái:</b>
+          <div className="image-container1">
+            {uploadingLeft ? ( // Nếu đang tải ảnh mặt trái, hiển thị loading
+              <div className="loading-indicator">Đang tải ảnh mặt trái...</div>
+            ) : (
+              leftImages.map((image, index) => (
+                <Avatar key={index} src={image.url} sx={{ width: 500, height: 500 }} variant="square" />
+              ))
+            )}
+          </div>
+          <input type="file" onChange={(e) => handleImageChange(e, setLeftImages, setUploadingLeft)} multiple />
         </div>
-        <input type="file" onChange={(e) => handleImageChange(e, setLeftImages)} multiple />
-      </div>
-      <br></br>
-
-      {/* Ảnh mặt bên phải */}
-      <div>
-        <b>Ảnh mặt bên phải:</b>
-        <div className="image-container">
-          {rightImages.map((image, index) => (
-            <Avatar key={index} src={image.url} sx={{ width: 150, height: 150 }} variant="square" />
-          ))}
+        <br />
+        {/* Ảnh mặt phải */}
+        <div className="hinhanhtongquanmatphai">
+          <b>Ảnh mặt bên phải:</b>
+          <div className="image-container1">
+            {uploadingRight ? ( // Nếu đang tải ảnh mặt phải, hiển thị loading
+              <div className="loading-indicator">Đang tải ảnh mặt phải...</div>
+            ) : (
+              rightImages.map((image, index) => (
+                <Avatar key={index} src={image.url} sx={{ width: 500, height: 500 }} variant="square" />
+              ))
+            )}
+          </div>
+          <input type="file" onChange={(e) => handleImageChange(e, setRightImages, setUploadingRight)} multiple />
         </div>
-        <input type="file" onChange={(e) => handleImageChange(e, setRightImages)} multiple />
-      </div>
-      <br></br>
-
-      {/* Sơ đồ đất */}
-      <div>
-        <b>Ảnh sơ đồ đất:</b>
-        <div className="image-container">
-          {diagramImages.map((image, index) => (
-            <Avatar key={index} src={image.url} sx={{ width: 150, height: 150 }} variant="square" />
-          ))}
+        <br />
+        {/* Ảnh sơ đồ đất */}
+        <div className="hinhanhtongquansododat">
+          <b>Ảnh sơ đồ đất:</b>
+          <div className="image-container1">
+            {uploadingDiagram ? ( // Nếu đang tải ảnh sơ đồ đất, hiển thị loading
+              <div className="loading-indicator">Đang tải ảnh sơ đồ đất...</div>
+            ) : (
+              diagramImages.map((image, index) => (
+                <Avatar key={index} src={image.url} sx={{ width: 500, height: 500 }} variant="square" />
+              ))
+            )}
+          </div>
+          <input type="file" onChange={(e) => handleImageChange(e, setDiagramImages, setUploadingDiagram)} multiple />
         </div>
-        <input type="file" onChange={(e) => handleImageChange(e, setDiagramImages)} multiple />
-      </div>
-
-      <br></br>
-      {/* Sổ hồng */}
-      <div>
-        <b>Sổ hồng:</b>
-        <div className="image-container">
-          {certificateImages.map((image, index) => (
-            <Avatar key={index} src={image.url} sx={{ width: 150, height: 150 }} variant="square" />
-          ))}
+        <br />
+        {/* Ảnh sổ hồng */}
+        <div className="hinhanhtongquansohong">
+          <b>Sổ hồng:</b>
+          <div className="image-container1">
+            {uploadingCertificate ? ( // Nếu đang tải ảnh sổ hồng, hiển thị loading
+              <div className="loading-indicator">Đang tải ảnh sổ hồng...</div>
+            ) : (
+              certificateImages.map((image, index) => (
+                <Avatar key={index} src={image.url} sx={{ width: 500, height: 500 }} variant="square" />
+              ))
+            )}
+          </div>
+          <input type="file" onChange={(e) => handleImageChange(e, setCertificateImages, setUploadingCertificate)} multiple />
         </div>
-        <input type="file" onChange={(e) => handleImageChange(e, setCertificateImages)} multiple />
       </div>
     </div>
   );
+
 }

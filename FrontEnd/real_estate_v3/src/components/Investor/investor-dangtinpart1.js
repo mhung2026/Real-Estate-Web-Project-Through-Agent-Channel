@@ -5,11 +5,24 @@ import LocationSelector from '../../location/LocationSelector';
 export default function Agencydangtinpart1({ sendData }) {
     const [directs, setDirects] = useState([]);
     const userLoginBasicInformationDto = JSON.parse(localStorage.getItem('userLoginBasicInformationDto'));
+
+    const [errorMessage, setErrorMessage] = useState('');
+
+    // Function to check if all required fields are filled
+    const validateForm = () => {
+        const { realestateName, address, description, length, width, numberOfRooms, price } = propertyInfo;
+        if (realestateName === null || address === null || description === null || length === null || width === null || numberOfRooms === null || price === null) {
+            setErrorMessage('Please fill in all required fields.');
+            return false;
+        }
+        return true;
+    };
+
     const [selectedLocation, setSelectedLocation] = useState({
         provinceName: '',
         districtName: '',
         wardName: '',
-        directsid: '', // Thêm directsid vào selectedLocation
+        // Thêm directsid vào selectedLocation
     });
     const [propertyInfo, setPropertyInfo] = useState({
         realestateName: '',
@@ -56,7 +69,9 @@ export default function Agencydangtinpart1({ sendData }) {
     }, [propertyInfo.length, propertyInfo.width]);
 
     useEffect(() => {
-        sendData(propertyInfo);
+        if (validateForm()) {
+            sendData(propertyInfo);
+        }
     }, [propertyInfo, sendData]);
 
     const handleLocationSelect = (selectedLocation) => { // Thay đổi tham số truyền vào thành selectedLocation
@@ -83,7 +98,7 @@ export default function Agencydangtinpart1({ sendData }) {
         setSelectedLocation({ ...selectedLocation, directId });
         setPropertyInfo(prevState => ({
             ...prevState,
-            directsid: directId // Cập nhật directsid trong propertyInfo
+            directId: directId // Cập nhật directsid trong propertyInfo
         }));
         console.log('Selected Direct ID:', directId);
     };
@@ -106,24 +121,40 @@ export default function Agencydangtinpart1({ sendData }) {
         }
     };
     return (
-        <div>
-            <LocationSelector onSelect={handleLocationSelect} selectedLocation={selectedLocation} />
-            <select onChange={(e) => handleDirectSelect(e.target.value)}>
-                <option value="">Select Direct</option>
-                {directs.map(direct => (
-                    <option key={direct.id} value={direct.id}>{direct.directName}</option>
-                ))}
-            </select>
+        <div className='thongtinchitietdangtin'>
+            <div className='thongtinchitietdangtindulieu'>
+                <div className='thongtinchitietdangtindulieutieude'>
+                    <span className='tieude'>Thông tin tin cơ bản</span>
+                    <input type="text" name="realestateName" value={propertyInfo.realestateName} onChange={handleInputChange} placeholder="Tên bất động sản" />
+                </div>
 
-            <input type="text" name="realestateName" value={propertyInfo.realestateName} onChange={handleInputChange} placeholder="Tên bất động sản" />
-            <input type="text" name="address" value={propertyInfo.address} onChange={handleInputChange} placeholder="Số nhà" />
-            <textarea name="discription" value={propertyInfo.discription} onChange={handleInputChange} placeholder="Mô tả" />
-            <input type="text" name="length" value={propertyInfo.length} onChange={handleInputChange} placeholder="Chiều dài (đơn vị m)" />
-            <input type="text" name="width" value={propertyInfo.width} onChange={handleInputChange} placeholder="Chiều rộng (đơn vị m)" />
-            <input type="text" name="numberOfRooms" value={propertyInfo.numberOfRooms} onChange={handleInputChange} placeholder="Số phòng" />
-            <input type="text" name="discount" value={propertyInfo.discount} onChange={handleInputChange} placeholder="Chiết Khấu" />
-            <input type="text" name="price" value={propertyInfo.price} onChange={handlePriceInputChange} placeholder="Mức giá" />
-            <input type="text" name="area" value={propertyInfo.area} placeholder="Diện tích (m^2)" readOnly />
+                <div className='thongtinchitietdangtinluachon'>
+                    <LocationSelector onSelect={handleLocationSelect} selectedLocation={selectedLocation} className='luachon' />
+                    <select onChange={(e) => handleDirectSelect(e.target.value)}>
+                        <option value="">Select Direct</option>
+                        {directs.map(direct => (
+                            <option key={direct.id} value={direct.id}>{direct.directName}</option>
+                        ))}
+                    </select>
+                </div>
+                <div>
+                    <span className=''>Địa chỉ</span>
+                    <input type="text" name="address" value={propertyInfo.address} onChange={handleInputChange} placeholder="Số nhà" />
+                </div>
+                <div>
+                    <span className='tieude'>Thông tin bài viết</span>
+                    <textarea name="discription" value={propertyInfo.discription} onChange={handleInputChange} placeholder="Mô tả" />
+                </div>
+                <div>
+                    <span className='tieude'>Thông tin bất động sản</span>
+                    <input type="text" name="length" value={propertyInfo.length} onChange={handleInputChange} placeholder="Chiều dài (đơn vị m)" />
+                    <input type="text" name="width" value={propertyInfo.width} onChange={handleInputChange} placeholder="Chiều rộng (đơn vị m)" />
+                    <input type="text" name="area" value={propertyInfo.area} placeholder="Diện tích (m^2)" readOnly />
+                    <input type="text" name="numberOfRooms" value={propertyInfo.numberOfRooms} onChange={handleInputChange} placeholder="Số phòng" />
+                    <input type="text" name="discount" value={propertyInfo.discount} onChange={handleInputChange} placeholder="Chiết Khấu" />
+                    <input type="text" name="price" value={propertyInfo.price} onChange={handlePriceInputChange} placeholder="Mức giá" />
+                </div>
+            </div>
         </div>
     )
 }

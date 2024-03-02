@@ -53,7 +53,7 @@ body {
     border: 1px solid #ddd;
     /* Khung cho các ô dữ liệu */
     padding: 8px;
-    text-align: left;
+    /* text-align: left; */
 }
 
 .table th {
@@ -62,16 +62,17 @@ body {
     background-color: #f2f2f2;
     /* Màu nền cho tiêu đề */
     font-weight: bold;
-    font-size: 18px;
-    
+    font-size: 16px;
+    /* text-align: justify; */
 }
 
-.table tr {
+.table .titlecontent {
     border: 1px solid #ddd;
-    /* padding: 8px; */
+    padding: 8px;
     white-space: nowrap;
 }
 
-.table tbody tr:hover {
-    background-color: #f5f5f5;
+.table tr {
+    font-size: 16px;
+    /* text-align: justify; */
 }
