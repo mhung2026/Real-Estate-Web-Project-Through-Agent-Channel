@@ -297,6 +297,9 @@ namespace RealEstateTestApi.Data
             {
                 entity.ToTable("Wallet");
 
+                entity.HasIndex(e => e.InvestorId, "FK_Wallet")
+                    .IsUnique();
+
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.AccountBalance).HasColumnName("account_balance");
@@ -308,6 +311,12 @@ namespace RealEstateTestApi.Data
                 entity.Property(e => e.WalletCreateAt)
                     .HasColumnType("datetime")
                     .HasColumnName("wallet_create_at");
+
+                entity.HasOne(d => d.Investor)
+                    .WithOne(p => p.Wallet)
+                    .HasForeignKey<Wallet>(d => d.InvestorId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Account_Wallet");
             });
 
             modelBuilder.Entity<WalletHistory>(entity =>

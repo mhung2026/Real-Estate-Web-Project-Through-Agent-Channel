@@ -23,6 +23,7 @@ namespace RealEstateTestApi.Models
         public bool Status { get; set; }
 
         public virtual Role Role { get; set; } = null!;
+        public virtual Wallet? Wallet { get; set; }
         public virtual ICollection<RealEstate> RealEstates { get; set; }
         public virtual ICollection<Reservation> Reservations { get; set; }
     }

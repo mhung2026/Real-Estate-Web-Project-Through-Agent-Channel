@@ -16,6 +16,7 @@ namespace RealEstateTestApi.Models
         public DateTime WalletCreateAt { get; set; }
         public bool Status { get; set; }
 
+        public virtual Account Investor { get; set; } = null!;
         public virtual ICollection<WalletHistory> WalletHistories { get; set; }
     }
 }
