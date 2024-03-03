@@ -43,6 +43,7 @@ import Customerlienhe from './components/Customer/customer-lienhe';
 import Customerthongtintaikhoan from './components/Customer/customer-thongtintaikhoan';
 import Customerthongtinchitiet from './components/Customer/customer-thongtinchitiet';
 
+
 // Investor Components
 import InvestorDangtin from './components/Investor/investor-dangtin';
 import Quanlitindang from './components/Investor/investor-quanlitindang';
@@ -51,6 +52,8 @@ import InvestorTindang from './components/Investor/investor-chinhsuatindang';
 import Investorthongtinchitiet from './components/Investor/investor-thongtinchitiet';
 import Investordangtinmain from './components/Investor/investor-dangtinmain';
 import InvestorNaptien from './components/Investor/investor-naptien';
+import InvestorNaptienkhachhang from './components/Investor/investor-naptienkhachhang';
+import InvestorLichsugiaodich from './components/Investor/investor-lichsugiaodich';
 
 // Agency Components
 import Agencytindang from './components/Agency/agency-tindang';
@@ -89,6 +92,8 @@ function RealEstate() {
           <Route path="/lienhe" element={<Customerlienhe />} />
           <Route path="/customerthongtintaikhoan" element={<Customerthongtintaikhoan />} />
           <Route path="/thongtinchitietbatdongsan/:id" element={<Customerthongtinchitiet />} />
+          <Route path="/naptienkhachhang" element={<InvestorNaptienkhachhang />} />
+          <Route path="/lichsugiaodich" element={<InvestorLichsugiaodich />} />
 
           {/* Investor Routes */}
           <Route path="/investordangtin" element={<InvestorDangtin />} />

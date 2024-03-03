@@ -49,37 +49,33 @@ export default function AdminDetailBookingAgen() {
     };
 
     const handleCompleteClick = async (reservation) => {
-        console.log('Nội dung gửi đi:', {
-            realEstateId: reservation.realEstateId,
-            customerId: reservation.customerId,
-            status: 2,
-            bookingDate: reservation.bookingDate,
-            bookingTime: reservation.bookingTime,
-            agencyId: reservation.agencyId
-        });
-        try {
-            // Gửi thông tin cập nhật đến API
-            await axios.put(`http://firstrealestate-001-site1.anytempurl.com/api/reservation/UpdateReservation/${reservation.id}`, {
-                realEstateId: reservation.realEstateId,
-                customerId: reservation.customerId,
-                status: 2,
-                bookingDate: reservation.bookingDate,
-                bookingTime: reservation.bookingTime,
-                agencyId: reservation.agencyId
-            });
-          
-            toast.success('Cập nhật thành công!', {
-                onClose: () => window.location.reload() // Reload trang sau khi toast đóng
-            });
-            // Cập nhật state hoặc thực hiện các bước cần thiết sau khi hoàn thành
-            // Ví dụ: Cập nhật state để hiển thị là đã hoàn thành
-        } catch (error) {
-            console.error('Error updating reservation', error);
-            toast.error('Cập nhật thất bại!', {
-                onClose: () => window.location.reload() // Tùy chọn, có thể không cần reload nếu lỗi
-            });
+        // Xác nhận với người dùng trước khi hoàn thành
+        if (window.confirm("Bạn có chắc chắn muốn đánh dấu đơn đặt chỗ này là đã hoàn thành không?")) {
+            try {
+                // Gửi thông tin cập nhật đến API
+                await axios.put(`http://firstrealestate-001-site1.anytempurl.com/api/reservation/UpdateReservation/${reservation.id}`, {
+                    realEstateId: reservation.realEstateId,
+                    customerId: reservation.customerId,
+                    status: 2,
+                    bookingDate: reservation.bookingDate,
+                    bookingTime: reservation.bookingTime,
+                    agencyId: reservation.agencyId
+                });
+    
+                toast.success('Cập nhật thành công!', {
+                    onClose: () => window.location.reload() // Reload trang sau khi toast đóng
+                });
+                // Cập nhật state hoặc thực hiện các bước cần thiết sau khi hoàn thành
+                // Ví dụ: Cập nhật state để hiển thị là đã hoàn thành
+            } catch (error) {
+                console.error('Error updating reservation', error);
+                toast.error('Cập nhật thất bại!', {
+                    onClose: () => window.location.reload() // Tùy chọn, có thể không cần reload nếu lỗi
+                });
+            }
         }
     };
+    
 
     return (
         <div className='container'>

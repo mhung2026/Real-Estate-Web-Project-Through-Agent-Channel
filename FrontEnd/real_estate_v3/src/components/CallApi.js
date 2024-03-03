@@ -67,7 +67,24 @@ class CallApi {
             return null;
         }
     }
-
+    static async getAllWallet() {
+        try {
+            const response = await axios.get('http://firstrealestate-001-site1.anytempurl.com/api/Wallet/GetAllWallet');
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching real estate data:', error);
+            return null;
+        }
+    }
+    static async getAllWalletHistorylWallet() {
+        try {
+            const response = await axios.get('http://firstrealestate-001-site1.anytempurl.com/api/WalletHistory/GetAllWalletHistory');
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching real estate data:', error);
+            return null;
+        }
+    }
 
     static findReservationById(reservationData, id) {
         if (!reservationData) return null;
