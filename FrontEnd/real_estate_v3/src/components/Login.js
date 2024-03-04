@@ -70,21 +70,23 @@ const Login = () => {
                 <a className='loinhacdangki' href='dangki'>đăng kí tại đây</a>
             </div>
             <div className='dangnhap'>
-                <input className='dangnhapemail'
-                    type="text"
-                    placeholder="Email"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-                <input className='dangnhapmk'
-                    type="password"
-                    placeholder="Mật Khẩu"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button className='dangnhapthanhcong' onClick={handleLogin} disabled={loading}>
-                    {loading ? 'Đang đăng nhập...' : 'Đăng Nhập'}
-                </button>
+                <form>
+                    <input className='dangnhapemail'
+                        type="text"
+                        placeholder="Email"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                    <input className='dangnhapmk'
+                        type="password"
+                        placeholder="Mật Khẩu"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <button className='dangnhapthanhcong' onClick={handleLogin} disabled={loading}>
+                        {loading ? 'Đang đăng nhập...' : 'Đăng Nhập'}
+                    </button>
+                </form>
                 {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
             </div>
             <div className='ghinho'>
