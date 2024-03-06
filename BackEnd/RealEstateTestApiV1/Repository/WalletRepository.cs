@@ -4,14 +4,13 @@ using RealEstateTestApi.Models;
 
 namespace RealEstateTestApi.Repository
 {
-    public class WalletRepository : IWalletRepository
+    public class WalletRepository:IWalletRepository
     {
         private SWPRealEstateContext swpRealEstateContext;
         public WalletRepository(SWPRealEstateContext swpRealEstateContext)
         {
             this.swpRealEstateContext = swpRealEstateContext;
         }
-
         public List<Wallet> GetAll()
         {
             List<Wallet> list = new List<Wallet>();

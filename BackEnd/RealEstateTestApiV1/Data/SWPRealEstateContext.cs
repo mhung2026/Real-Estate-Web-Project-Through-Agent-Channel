@@ -24,6 +24,7 @@ namespace RealEstateTestApi.Data
         public virtual DbSet<RealEstate> RealEstates { get; set; } = null!;
         public virtual DbSet<RealEstateImage> RealEstateImages { get; set; } = null!;
         public virtual DbSet<Reservation> Reservations { get; set; } = null!;
+        public virtual DbSet<ReservationTime> ReservationTimes { get; set; } = null!;
         public virtual DbSet<Role> Roles { get; set; } = null!;
         public virtual DbSet<Wallet> Wallets { get; set; } = null!;
         public virtual DbSet<WalletHistory> WalletHistories { get; set; } = null!;
@@ -280,6 +281,23 @@ namespace RealEstateTestApi.Data
                     .HasConstraintName("FK_Reservation_RealEstate");
             });
 
+            modelBuilder.Entity<ReservationTime>(entity =>
+            {
+                entity.HasKey(e => e.Date);
+
+                entity.ToTable("ReservationTime");
+
+                entity.Property(e => e.Date).HasColumnType("date");
+
+                entity.Property(e => e.Time1).HasMaxLength(50);
+
+                entity.Property(e => e.Time2).HasMaxLength(50);
+
+                entity.Property(e => e.Time3).HasMaxLength(50);
+
+                entity.Property(e => e.Time4).HasMaxLength(50);
+            });
+
             modelBuilder.Entity<Role>(entity =>
             {
                 entity.ToTable("Role");
@@ -316,7 +334,7 @@ namespace RealEstateTestApi.Data
                     .WithOne(p => p.Wallet)
                     .HasForeignKey<Wallet>(d => d.InvestorId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Account_Wallet");
+                    .HasConstraintName("FK_Wallet_Account");
             });
 
             modelBuilder.Entity<WalletHistory>(entity =>

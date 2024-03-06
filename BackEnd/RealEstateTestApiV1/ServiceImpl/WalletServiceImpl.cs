@@ -5,7 +5,7 @@ using RealEstateTestApi.Models;
 
 namespace RealEstateTestApi.ServiceImpl
 {
-    public class WalletServiceImpl : IWalletService
+    public class WalletServiceImpl:IWalletService
     {
         private IWalletRepository walletRepository;
 

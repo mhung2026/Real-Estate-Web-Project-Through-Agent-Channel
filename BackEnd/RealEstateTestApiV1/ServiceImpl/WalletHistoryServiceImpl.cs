@@ -1,5 +1,4 @@
 ﻿using RealEstateTestApi.Data;
-using RealEstateTestApi.DTO.WalletDTO;
 using RealEstateTestApi.DTO.WalletHistoryDTO;
 using RealEstateTestApi.IRepository;
 using RealEstateTestApi.IService;
@@ -7,13 +6,13 @@ using RealEstateTestApi.Models;
 
 namespace RealEstateTestApi.ServiceImpl
 {
-    public class WalletHistoryServiceImpl : IWalletHistoryService
+    public class WalletHistoryServiceImpl:IWalletHistoryService
     {
         private IWalletHistoryRepository walletHistoryRepository;
-
+      
         public WalletHistoryServiceImpl(IWalletHistoryRepository walletHistoryRepository)
         {
-            this.walletHistoryRepository = walletHistoryRepository;
+           this.walletHistoryRepository = walletHistoryRepository;
         }
 
         public WalletHistory CreateWalletHistory(CreateWalletHistoryDTO wallethistoryDto)

@@ -52,11 +52,11 @@ namespace RealEstateTestApi.Controllers
         {
             Wallet wallet = new Wallet();
             wallet = walletRepository.GetById(id);
-            if(wallet == null)
+            if (wallet == null)
             {
                 return BadRequest("Không tìm thấy wallet với id = " + id);
             }
-            walletService.UpdateWallet(wallet,walletdto);
+            walletService.UpdateWallet(wallet, walletdto);
             return Ok("Update thành công");
         }
         [HttpGet]
@@ -72,11 +72,11 @@ namespace RealEstateTestApi.Controllers
                 }
                 return Ok(wallet);
             }
-            catch (Exception ex) 
-            { 
+            catch (Exception ex)
+            {
                 return BadRequest("Lỗi hệ thống");
             }
-            
+
         }
     }
 }
