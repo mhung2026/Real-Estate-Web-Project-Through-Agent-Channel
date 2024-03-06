@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RealEstateTestApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+43cb5d1d8781c471d860a1733090cc0009b94721")]
 [assembly: System.Reflection.AssemblyProductAttribute("RealEstateTestApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RealEstateTestApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

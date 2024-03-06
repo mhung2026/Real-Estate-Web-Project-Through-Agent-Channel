@@ -22,17 +22,8 @@ namespace RealEstateTestApi.Repository
             return list;
         }
 
-        public ReservationTime CreateReserationTime(CreateReservationTimeDto createReservationtimeDto)
+        public ReservationTime CreateReserationTime(ReservationTime reservationTime)
         {
-            ReservationTime reservationTime = new ReservationTime()
-            {
-                Date = createReservationtimeDto.Date,
-                Time1 = createReservationtimeDto.Time1,
-                Time2 = createReservationtimeDto.Time2,
-                Time3 = createReservationtimeDto.Time3,
-                Time4 = createReservationtimeDto.Time4,
-                Status = true
-            };
             SWPRealEstateContext.ReservationTimes.Add(reservationTime);
             SWPRealEstateContext.SaveChanges();
             return reservationTime;
@@ -40,22 +31,14 @@ namespace RealEstateTestApi.Repository
 
         //Function này thiếu save() 
         //ko đc map dto trong class repository
-        public ReservationTime UpdateReservationTime(UpdateReservationTimeDto updateReservationtimeDto)
+        public ReservationTime UpdateReservationTime(ReservationTime reservationTime)
         {
-            ReservationTime reservationTime = new ReservationTime()
-            {
-                Time1 = updateReservationtimeDto.Time1,
-                Time2 = updateReservationtimeDto.Time2,
-                Time3 = updateReservationtimeDto.Time3,
-                Time4 = updateReservationtimeDto.Time4,
-                Status = updateReservationtimeDto.Status
-            };
             SWPRealEstateContext.ReservationTimes.Update(reservationTime);
             SWPRealEstateContext.SaveChanges();
             return reservationTime;
         }
 
-        public ReservationTime GetByDate(DateOnly date)
+        public ReservationTime GetByDate(DateTime date)
         {
             ReservationTime reservationTime = null;
             reservationTime = SWPRealEstateContext.ReservationTimes.Find(date);

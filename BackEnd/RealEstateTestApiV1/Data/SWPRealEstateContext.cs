@@ -252,7 +252,7 @@ namespace RealEstateTestApi.Data
                     .HasColumnName("booking_date");
 
                 entity.Property(e => e.BookingTime)
-                    .HasMaxLength(10)
+                    .HasMaxLength(50)
                     .HasColumnName("booking_time");
 
                 entity.Property(e => e.CreateAt)
