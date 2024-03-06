@@ -27,11 +27,12 @@ namespace RealEstateTestApi.ServiceImpl
               
                 dto.AccountId = account.Id;
                 dto.Username = account.Username;
+                dto.Email = account.Email;
                 dto.Password = account.Password;
                 dto.RoleName = account.Role.RoleName;
             }
 
-            if (account != null && dto.Username != null && dto.Password !=null)
+            if (account != null && dto.Email != null && dto.Password !=null)
             {
                 var access_Token = createJwtToken(account);
                 UserTokenDto userTokenDto = new UserTokenDto()

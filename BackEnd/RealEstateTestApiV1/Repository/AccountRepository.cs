@@ -22,7 +22,7 @@ namespace RealEstateTestApi.Repository
 
         public Account findUsernameAndPasswordToLogin(LoginDto loginDto)
         {
-            Account account = swpRealEstateContext.Accounts.Include(x => x.Role).FirstOrDefault(x => x.Username == loginDto.Username && x.Password == loginDto.Password);
+            Account account = swpRealEstateContext.Accounts.Include(x => x.Role).FirstOrDefault(x => x.Email == loginDto.Email && x.Password == loginDto.Password);
             return account;
         }
 
