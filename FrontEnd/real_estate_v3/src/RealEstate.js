@@ -24,9 +24,11 @@ import './css/investor-thongtinchitiet.css';
 import './css/customer-thongtinchitiet.css';
 import './css/investor-dangtinmain.css';
 import './css/investor-naptien.css';
-
-
-
+import './css/agency-menu.css'
+import './css/investor-lichsugiaodich.css'
+import './css/admin-agencybooking.css'
+import './css/admin-adminallreservation.css'
+import './css/admin-adminviewcompletebooking.css'
 // Component imports
 import Header from './header-footer/Header';
 import Header2 from './header-footer/Header2';

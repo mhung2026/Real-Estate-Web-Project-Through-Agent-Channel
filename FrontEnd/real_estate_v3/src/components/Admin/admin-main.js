@@ -6,7 +6,7 @@ import AdminAgencyBooking from './admin-AgencyBooking'
 import AdminViewCompleteBooking from './admin-ViewCompleteBooking'
 export default function Adminmain() {
     return (
-        <div>
+        <div style={{lineHeight: '20px'}}>
             
             {/* <Adminallaccount /> */}
             <AdminAgencyBooking />

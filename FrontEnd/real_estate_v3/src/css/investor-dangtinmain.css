@@ -1,282 +1,147 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-}
-
-.container1 {
-    /* Màu nền */
-    padding: 19px;
-    /* Khoảng cách bên trong */
-    border-radius: 10px;
-    /* Bo viền */
-    font-size: 18px;
-    /* Kích thước chữ */
-    font-weight: bold;
-    /* Độ đậm */
-    color: #333;
-    /* Màu chữ */
-    margin-bottom: 10px;
-    /* Khoảng cách phía dưới */
-    text-decoration: none;
-    /* Loại bỏ gạch chân của liên kết */
-    color: black;
-    /* Màu chữ */
-    transition: color 0.3s;
-    /* Hiệu ứng chuyển đổi màu chữ */
-    margin-bottom: 5px;
-    list-style-type: none;
-    /* Loại bỏ dấu đầu dòng của danh sách */
-    padding: 0;
-    /* Loại bỏ khoảng cách bên trong danh sách */
-    margin-left: 111px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    max-width: 1300px;
-    margin-top: 1px;
-
-}
-
 .thongtindangtin {
     width: 100%;
-    max-width: 800px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-
-.thongtindangtin>div {
-    width: 970px;
-    /* Adjust as needed */
-    margin-left: -154px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-}
-
-.thongtindangtinbds,
-.thongtindangtinhinhanh {
     border: 1px solid #ccc;
-    padding: 20px;
     border-radius: 5px;
-    background-color: #f9f9f9;
-}
-
-.thongtindangtinbds h2,
-.thongtindangtinhinhanh h2 {
-    margin-top: 0;
-}
-
-.thongtindangtinhinhanh {
-    margin-top: 20px;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #90c908;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #90c908;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .thongtinchitietdangtin {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 20px;
-}
-
-.thongtinchitietdangtinluachon select {
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-
-.thongtinchitietdangtindulieu input,
-.thongtinchitietdangtindulieu textarea {
-    margin-bottom: 20px;
-}
-
-.thongtinchitietdangtindulieu textarea {
     width: 100%;
 }
 
+.thongtinchitietdangtindulieu {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
 
+.thongtinchitietdangtindulieutieude {
+    margin-bottom: 10px;
+}
 
-.hinhanhtongquanmattruoc {
-    padding: 20px;
-    background-color: #fff;
+.tieude {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.luachon{
+    margin-left: 20px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
     border: 1px solid #ccc;
-}
-
-.hinhanhtongquanmattruoc h2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* Center horizontally */
-    justify-content: center;
-    /* Center vertically */
-}
-
-
-
-.hinhanhtongquanmattruoc .image-container1 {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    /* Align images horizontally */
-}
-
-.hinhanhtongquanmattruoc input[type="file"] {
-    margin-top: 10px;
-    /* Move the input button below the images */
-}
-
-/* hinhanhtongquanmattrai */
-.hinhanhtongquanmattrai {
-    padding: 20px;
-    background-color: #fff;
     border-radius: 5px;
     margin-bottom: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ccc;
-}
-
-.hinhanhtongquanmattrai h2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* Center horizontally */
-    justify-content: center;
-    /* Center vertically */
-}
-
-
-
-.hinhanhtongquanmattrai .image-container1 {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    /* Align images horizontally */
-}
-
-.hinhanhtongquanmattrai input[type="file"] {
-    margin-top: 10px;
-    /* Move the input button below the images */
-}
-
-/* ben phai */
-.hinhanhtongquanmatphai {
-    padding: 20px;
+    box-sizing: border-box;
     background-color: #fff;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ccc;
 }
 
-.hinhanhtongquanmatphai h2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* Center horizontally */
-    justify-content: center;
-    /* Center vertically */
+input[type="text"]:read-only {
+    background-color: #f4f4f4;
 }
 
-
-
-.hinhanhtongquanmatphai .image-container1 {
+.thongtinchitietdangtinluachon {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    /* Align images horizontally */
 }
 
-.hinhanhtongquanmatphai input[type="file"] {
-    margin-top: 10px;
-    /* Move the input button below the images */
+.thongtinchitietdangtinluachon select,
+.thongtinchitietdangtinluachon .luachon {
+    flex: 1;
+    margin-right: 10px;
 }
 
-/* Sơ đồ đất */
-.hinhanhtongquansododat {
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ccc;
+.thongtinchitietdangtinluachon select:last-child,
+.thongtinchitietdangtinluachon .luachon:last-child {
+    margin-right: 0;
+    margin-left: 10px;
+    border: 1px solid #000;
 }
 
-.hinhanhtongquansododat h2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* Center horizontally */
-    justify-content: center;
-    /* Center vertically */
-}
-
-
-
-.hinhanhtongquansododat .image-container1 {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    /* Align images horizontally */
-}
-
-.hinhanhtongquansododat input[type="file"] {
-    margin-top: 10px;
-    /* Move the input button below the images */
-}
-
-/* Sổ hồng */
-.hinhanhtongquansohong {
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ccc;
-}
-
-.hinhanhtongquansohong h2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* Center horizontally */
-    justify-content: center;
-    /* Center vertically */
-}
-
-
-
-.hinhanhtongquansohong .image-container1 {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    /* Align images horizontally */
-}
-
-.hinhanhtongquansohong input[type="file"] {
-    margin-top: 10px;
-    /* Move the input button below the images */
-}
 
 .loading-indicator {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    font-size: 18px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 80%;
+
+}
+
+.loading-indicator::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    height: 100%;
-    font-size: 24px;
+    height: 3px; /* Height of the wave effect */
+    background-image: linear-gradient(to right, transparent 0%, #90c908 50%, transparent 100%);
+    animation: wave 4s linear infinite;
+}
+
+@keyframes wave {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+
+
+
+.hinhanh1 {
+    padding-left: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.hinhanhtongquanmattruoc,
+.hinhanhtongquanmattrai,
+.hinhanhtongquanmatphai,
+.hinhanhtongquansododat,
+.hinhanhtongquansohong {
+    margin-bottom: 20px;
+}
+
+
+.image-container1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.image-container1 .MuiAvatar-root {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 }

@@ -43,9 +43,9 @@ export default function AdminViewCompleteBooking() {
         return `${day < 10 ? '0' + day : day}/${month < 10 ? '0' + month : month}/${year}`;
     };
     return (
-        <div>
-            <h1>Danh Sách Đã Hoàn Thành Dẫn Đi Xem</h1>
-            <table>
+        <div className='container1'>
+            <h1 style={{fontSize: '30px'}}>Danh Sách Đã Hoàn Thành Dẫn Đi Xem</h1>
+            <table className='thongtindanhsach'>
                 <thead>
                     <tr>
                         <th>Tên bất động sản</th>

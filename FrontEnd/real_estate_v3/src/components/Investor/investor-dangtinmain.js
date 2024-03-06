@@ -93,7 +93,7 @@ export default function Agencydangtinmain() {
 
     return (
 
-        <div className='container1'>
+        <div className='container'>
             <InvestorMenu
                 userLoginBasicInformationDto={userLoginBasicInformationDto}
                 UserMenu={UserInvestor}
@@ -101,11 +101,11 @@ export default function Agencydangtinmain() {
             />
             <div className='thongtindangtin'>
                 <div className='thongtindangtinbds'>
-                    <h2>Thông tin chi tiết dự án bất động sản</h2>
+                    <h2 style={{fontSize: '24px', marginBottom:'20px', marginTop: '10px'}}>Thông tin chi tiết dự án bất động sản</h2>
                     <Agencydangtinpart1 sendData={handleSendDataPart1} />
                 </div>
                 <div className='thongtindangtinhinhanh'>
-                    <h2 style={{ marginTop: '20px' }}>Hình ảnh bất động sản</h2>
+                    <h2 style={{fontSize: '24px', marginBottom:'20px', marginTop: '10px'}}>Hình ảnh bất động sản</h2>
                     <Agencydangtinpart2 sendData={handleSendDataPart2} />
                     <button onClick={handleSendDataToSwagger} style={{ backgroundColor: '#90c908' }}>Đăng tin</button>
                     <ToastContainer />

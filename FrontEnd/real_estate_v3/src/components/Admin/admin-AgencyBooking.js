@@ -45,8 +45,8 @@ export default function AdminAgencyBooking() {
 
 
     return (
-        <div>
-            <table>
+        <div  className='container1'>
+            <table className='thongtindanhsach' >
                 <thead>
                     <tr>
                         <th>Agency ID</th>

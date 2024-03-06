@@ -1,69 +1,57 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+.table-container {
+    overflow-x: auto;
 }
 
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-   
-}
-
-.danhsachbdscanduyet{
-    flex-grow: 1;
-    margin-left: 20px;
+.danhsachbdscanduyet {
+    width: 100%;
+    max-width: 800px;
+    /* Điều chỉnh kích thước tối đa của nội dung */
+    margin-top: 12px;
+    /* Tạo khoảng cách từ menu đến nội dung */
+    max-width: 100%;
+    padding: 20px;
+    background-color: #fff;
     border-radius: 5px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 10px auto;
     border: 1px solid #ccc;
+    margin-bottom: 10px;
 }
 
-.danhsachbdscanduyet ul {
-    margin-top: 20px;
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #007bff;
+    color: #fff;
     
 }
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+
+.table tr:nth-child(even) {
+    background-color: #f8f9fa;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
+.table tr:hover {
+    background-color: #e9ecef;
 }
 
-.danhsachbdscanduyettheobds {
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid #000;
-    border-radius: 20px;
-    padding: 10px;
-}
-
-select {
-    width: 150px;
+.luachon {
     padding: 8px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    background-color: #f9f9f9;
-}
-.luachon{
-    width: 30%;
-    
-}
-button {
-    background-color: #90c908;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    background-color: #f8f9fa;
+    transition: background-color 0.3s ease;
+    width: 100%;
 }
 
-
+.luachon:hover {
+    background-color: #e2e6ea;
+}

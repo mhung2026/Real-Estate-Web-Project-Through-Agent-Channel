@@ -37,9 +37,9 @@ export default function Customerthongtintaikhoan() {
                         <h2>Thông tin thẻ của bạn:</h2>
                         <p><b>ID Thẻ: </b> {userAccount.id}</p>
                         <p><b>Tên Chủ Thẻ:</b> {userAccount.username}</p>
-                        <p><b>Tên Chủ Thẻ:</b> {userAccount.phoneNumber}</p>
-                        <p><b>Tên Chủ Thẻ:</b> {userAccount.email}</p>
-                        <p><b>Tên Chủ Thẻ:</b> {userAccount.address}</p>
+                        <p><b>Số điện thoại:</b> {userAccount.phoneNumber}</p>
+                        <p><b>Email:</b> {userAccount.email}</p>
+                        <p><b>Địa chỉ:</b> {userAccount.address}</p>
                         {/* Thêm các thông tin khác về thẻ ở đây nếu cần */}
                     </div>
                 )}

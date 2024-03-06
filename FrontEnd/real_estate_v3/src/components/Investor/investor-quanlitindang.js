@@ -26,13 +26,13 @@ export default function Quanlitindang() { // Sửa tên component thành Quanlit
     }, [token]);
 
     return (
-        <div className=' container' style={{ fontSize: '20px' }}>
+        <div className=' container' >
             <InvestorMenu
                 userLoginBasicInformationDto={userLoginBasicInformationDto}
                 UserMenu={UserInvestor}
 
             />
-            <div className="col-md-9 ">
+            <div className="col-md-9">
                 <div className='listreal'>
                     <h2>Danh sách bất động sản đăng tin</h2>
                     <table className="table">

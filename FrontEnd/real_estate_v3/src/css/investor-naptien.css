@@ -1,11 +1,14 @@
 /* Container styles for payment form */
+
 .payment-form {
-    max-width: 400px;
-    margin: 20px auto;
+    max-width: 100%;
+    margin: 10px 44px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
     text-align: center;
+    transform: translateX(-44px);
+
 }
 
 /* Heading styles */
@@ -23,9 +26,16 @@
     font-size: 20px;
 }
 
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Optional: Align items vertically */
+    height: 100%; /* Optional: Set container height to occupy full height */
+}
 /* Input styles */
 .payment-form input[type="number"] {
-    width: 100%;
+    width: 50%;
     padding: 10px;
     margin-bottom: 16px;
     border: 1px solid #ccc;

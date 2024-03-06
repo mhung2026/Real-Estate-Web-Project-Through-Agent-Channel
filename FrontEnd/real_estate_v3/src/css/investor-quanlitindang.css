@@ -53,7 +53,7 @@ body {
     border: 1px solid #ddd;
     /* Khung cho các ô dữ liệu */
     padding: 8px;
-    /* text-align: left; */
+    /* text-align: justify; */
 }
 
 .table th {
@@ -74,5 +74,6 @@ body {
 
 .table tr {
     font-size: 16px;
+   
     /* text-align: justify; */
 }

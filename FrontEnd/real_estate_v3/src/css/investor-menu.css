@@ -49,13 +49,3 @@
 }
 
 
-
-/* CSS cho hover liên kết trong menu */
-.menu-item-investor:hover {
-    color: black;
-    /* Màu chữ khi hover */
-    transition: color 0.3s;
-    /* Hiệu ứng chuyển đổi màu chữ */
-    background-color: rgb(255, 230, 119);
-    padding: 10px;
-}

@@ -61,7 +61,7 @@ export default function AdminDetailBookingAgen() {
                     bookingTime: reservation.bookingTime,
                     agencyId: reservation.agencyId
                 });
-    
+
                 toast.success('Cập nhật thành công!', {
                     onClose: () => window.location.reload() // Reload trang sau khi toast đóng
                 });
@@ -75,32 +75,34 @@ export default function AdminDetailBookingAgen() {
             }
         }
     };
-    
+
 
     return (
-        <div className='container'>
-            <AgencyMenu
+        <div className='outer-container'>
+            <div className='container'>
+                <AgencyMenu
                     userLoginBasicInformationDto={userLoginBasicInformationDto}
                     UserMenu={UserAgency}
                 />
-            <div className='col-md-9 '>
-                <ToastContainer position="top-right" autoClose={1000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
-                {BookReservation.length > 0 ? (
-                    BookReservation.map((reservation, index) => (
-                        <div key={index} className=''>
-                            <h1>Thông tin đặt chỗ</h1>
-                            <p><b>Mã đơn hàng</b> {reservation.id}</p>
-                            <p><b>Tên bất động sản: </b> {getRealEstateNameById(reservation.realEstateId)}</p>
-                            <p><b>Tên khách hàng đặt chỗ: </b> {getUsernameByCustomerId(reservation.customerId)}</p>
-                            <p><b>Ngày xem bất động sản: </b> {formatDate(reservation.bookingDate)}</p>
-                            <p><b>Giờ xem bất động sản</b> {reservation.bookingTime}</p>
-                            <p><b>Thông tin liên hệ người dẫn xem bất động sản: </b> {reservation.agencyId !== null ? getUsernameByCustomerId(reservation.agencyId) : 'Đang Cập Nhật'}</p>
-                            <button onClick={() => handleCompleteClick(reservation)}>Đã hoàn thành</button>
-                        </div>
-                    ))
-                ) : (
-                    <p>Không có đơn đặt chỗ nào.</p>
-                )}
+                <div className='col-md-9 '>
+                    <ToastContainer position="top-right" autoClose={1000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
+                    {BookReservation.length > 0 ? (
+                        BookReservation.map((reservation, index) => (
+                            <div key={index} className='xemlich'>
+                                <h1>Thông tin đặt chỗ</h1>
+                                <p><b>Mã đơn hàng</b> {reservation.id}</p>
+                                <p><b>Tên bất động sản: </b> {getRealEstateNameById(reservation.realEstateId)}</p>
+                                <p><b>Tên khách hàng đặt chỗ: </b> {getUsernameByCustomerId(reservation.customerId)}</p>
+                                <p><b>Ngày xem bất động sản: </b> {formatDate(reservation.bookingDate)}</p>
+                                <p><b>Giờ xem bất động sản</b> {reservation.bookingTime}</p>
+                                <p><b>Thông tin liên hệ người dẫn xem bất động sản: </b> {reservation.agencyId !== null ? getUsernameByCustomerId(reservation.agencyId) : 'Đang Cập Nhật'}</p>
+                                <button onClick={() => handleCompleteClick(reservation)}>Đã hoàn thành</button>
+                            </div>
+                        ))
+                    ) : (
+                        <p style={{ marginTop: '10px', marginLeft: '3px' }}>Không có đơn đặt chỗ nào.</p>
+                    )}
+                </div>
             </div>
         </div>
     );

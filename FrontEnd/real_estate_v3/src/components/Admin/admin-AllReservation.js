@@ -90,19 +90,22 @@ export default function AdminAllReservation() {
     };
 
     return (
-        <div>
+        <div className='container1'> 
             <ToastContainer position="top-right" autoClose={1000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
-            <h1>DANH SÁCH PHÔI PHỐI AGENCY</h1>
-            <table>
-                <tr>
-                    <th>Tên bất động sản</th>
-                    <th>Tên khách hàng</th>
-                    <th>Ngày xem</th>
-                    <th>Giờ xem</th>
-                    <th>Người dẫn xem</th>
-                    <th>Chọn người dẫn xem</th>
-                    <th>Lưu</th> {/* Thêm tiêu đề cột "Lưu" */}
-                </tr>
+            <h1 style={{fontSize: '30px'}}>DANH SÁCH PHÔI PHỐI AGENCY</h1>
+            <table className='thongtindanhsach'>
+                <thead>
+                    <tr>
+                        <th>Tên bất động sản</th>
+                        <th>Tên khách hàng</th>
+                        <th>Ngày xem</th>
+                        <th>Giờ xem</th>
+                        <th>Người dẫn xem</th>
+                        <th>Chọn người dẫn xem</th>
+                        <th>Lưu</th> {/* Thêm tiêu đề cột "Lưu" */}
+                    </tr>
+                </thead>
+                <tbody>
                 {ReservationData.map(res => (
                     <tr key={res.id}>
                         <td>{getRealEstateNameById(res.realEstateId)}</td>
@@ -124,6 +127,7 @@ export default function AdminAllReservation() {
                         </td>
                     </tr>
                 ))}
+                </tbody>
             </table>
         </div>
     );

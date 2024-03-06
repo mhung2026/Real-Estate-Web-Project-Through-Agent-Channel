@@ -54,16 +54,15 @@ export default function CustomerLichsugiaodich() {
                 userLoginBasicInformationDto={userLoginBasicInformationDto}
                 UserMenu={UserInvestor}
             />
-            <div className='col-md-9'>
-                <h2>Transaction History</h2>
+            <div className='col-md-9 lichsugiaodichtaikhoan'>
+                <h2>Lịch sử giao dịch</h2>
                 <table className="table">
                     <thead>
                         <tr>
-                            <th>Transaction ID</th>
-                            <th>Date</th>
-                            <th>Time</th>
-                          
-                            <th>Description</th>
+                            <th>Mã giao dịch</th>
+                            <th>Ngày giao dịch</th>
+                            <th>Thời gian giao dịch </th>
+                            <th>Mô tả</th>
                         </tr>
                     </thead>
                     <tbody>

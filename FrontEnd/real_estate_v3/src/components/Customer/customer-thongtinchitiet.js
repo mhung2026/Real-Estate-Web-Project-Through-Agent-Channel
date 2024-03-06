@@ -110,12 +110,12 @@ export default function Customerthongtinchitiet() {
 
     return (
         <div className="real-estate-info-container">
-            <ToastContainer />
+
             {realEstate && locationInfo ? (
                 <div className='xxxxx'>
                     <div className='hinhanhmotathongtin'>
                         <div className='col-md-6 hinhanh'>
-                            <div className="image-container">
+                            <div className="image-container1">
                                 <img
                                     src={realEstate.realEstateImages[0].imageUrl}
                                     alt={realEstate.realEstateImages[0].imageName}
@@ -230,16 +230,16 @@ export default function Customerthongtinchitiet() {
                                 </div>
                                 <div className='col-md-6 anhpopuptest'>
                                     {userData && (
-                                        <div>
-                                            <p>Họ và Tên: {userData.username}</p>
-                                            <p>Số Điện Thoại: {userData.phoneNumber}</p>
-                                            <p>Email: {userData.email}</p>
+                                        <div className='thongtinkhachdat'>
+                                            <p><b>Họ và Tên:</b> {userData.username}</p>
+                                            <p><b>Số Điện Thoại: </b> {userData.phoneNumber}</p>
+                                            <p><b>Email: </b> {userData.email}</p>
                                         </div>
                                     )}
                                     <button className="close-btn" onClick={() => setShowBookingInfoPopup(false)}>Đóng</button>
-                                    <h3>Chọn ngày đặt lịch:</h3>
+                                    <h3 style={{ fontSize: '20px', fontWeight: 'bold' }}>Chọn ngày đặt lịch:</h3>
                                     <DatePicker className="date-picker" selected={selectedDate} onChange={date => setSelectedDate(date)} />
-                                    <h3>Chọn giờ đặt lịch:</h3>
+                                    <h3 style={{ fontSize: '20px', fontWeight: 'bold' }}>Chọn giờ đặt lịch:</h3>
                                     <input
                                         type="time"
                                         className="time-picker"
@@ -256,7 +256,7 @@ export default function Customerthongtinchitiet() {
                 </div>
             ) : (
                 <p>Loading...</p>
-            )}
+            )}<ToastContainer />
         </div >
     );
 }

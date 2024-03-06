@@ -156,17 +156,17 @@ export default function CustomerNaptienkhachhang() {
                 userLoginBasicInformationDto={userLoginBasicInformationDto}
                 UserMenu={UserInvestor}
             />
-            <div className='col-md-9'>
+            <div className='col-md-9 thanhtoanphi'>
                 <div className='payment-form'>
-                    <h2>Make a Payment</h2>
-                    <div>
-                        <label>Amount:</label>
-                        <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} />
+                    <h2>Thực hiện thanh toán</h2>
+                    <div className='input-container' >
+                        <label>Số tiền bạn muốn nạp để thanh toán:</label>
+                        <input  type="number" value={amount} onChange={(e) => setAmount(e.target.value)} />
                     </div>
-                    <button onClick={handlePayment}>Pay</button>
+                    <button onClick={handlePayment} style={{marginBottom: '20px'}}>Thanh toán</button>
                     {paymentUrl && (
                         <div>
-                            <h3 style={{ marginTop: '20px' }}>Payment QR Code</h3>
+                            <h3 style={{ marginTop: '20px', fontSize: "24px" }}>Quét mã bên dưới để thanh toán </h3>
                             <img src={paymentUrl} alt="QR Code" style={{ maxWidth: '100%', height: 'auto' }} />
                         </div>
                     )}

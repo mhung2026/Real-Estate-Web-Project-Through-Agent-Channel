@@ -170,10 +170,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #90c908;
-    /* Darker shade for hover effect */
-}
+
 
 .custom-select {
     margin-left: 2px;

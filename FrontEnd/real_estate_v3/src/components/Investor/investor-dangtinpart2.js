@@ -153,7 +153,7 @@ export default function Agencydangtinpart2({ sendData }) {
   };
 
   return (
-    <div className="hinhanh">
+    <div className="hinhanh1">
       <br />
       <div className="hinhanhtongquan">
         {/* Ảnh mặt trước */}
@@ -164,7 +164,7 @@ export default function Agencydangtinpart2({ sendData }) {
               <div className="loading-indicator">Đang tải ảnh mặt trước...</div>
             ) : (
               frontImages.map((image, index) => (
-                <Avatar key={index} src={image.url} sx={{ width: 400, height: 400 }} variant="square" />
+                <Avatar key={index} src={image.url} sx={{ width: 300, height: 300 }} variant="square" />
               ))
             )}
           </div>
@@ -179,7 +179,7 @@ export default function Agencydangtinpart2({ sendData }) {
               <div className="loading-indicator">Đang tải ảnh mặt trái...</div>
             ) : (
               leftImages.map((image, index) => (
-                <Avatar key={index} src={image.url} sx={{ width: 500, height: 500 }} variant="square" />
+                <Avatar key={index} src={image.url} sx={{ width: 300, height: 300 }} variant="square" />
               ))
             )}
           </div>
@@ -194,7 +194,7 @@ export default function Agencydangtinpart2({ sendData }) {
               <div className="loading-indicator">Đang tải ảnh mặt phải...</div>
             ) : (
               rightImages.map((image, index) => (
-                <Avatar key={index} src={image.url} sx={{ width: 500, height: 500 }} variant="square" />
+                <Avatar key={index} src={image.url} sx={{ width: 300, height: 300 }} variant="square" />
               ))
             )}
           </div>
@@ -209,7 +209,7 @@ export default function Agencydangtinpart2({ sendData }) {
               <div className="loading-indicator">Đang tải ảnh sơ đồ đất...</div>
             ) : (
               diagramImages.map((image, index) => (
-                <Avatar key={index} src={image.url} sx={{ width: 500, height: 500 }} variant="square" />
+                <Avatar key={index} src={image.url} sx={{ width: 300, height: 300 }} variant="square" />
               ))
             )}
           </div>
@@ -224,7 +224,7 @@ export default function Agencydangtinpart2({ sendData }) {
               <div className="loading-indicator">Đang tải ảnh sổ hồng...</div>
             ) : (
               certificateImages.map((image, index) => (
-                <Avatar key={index} src={image.url} sx={{ width: 500, height: 500 }} variant="square" />
+                <Avatar key={index} src={image.url} sx={{ width: 300, height: 300 }} variant="square" />
               ))
             )}
           </div>

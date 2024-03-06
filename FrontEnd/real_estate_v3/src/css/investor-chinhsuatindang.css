@@ -3,66 +3,52 @@
     padding: 20px;
 }
 
-/* Heading styles */
-.col-md-9 h1 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
 .listrealfix{
+    width: 100%;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-top: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
     margin-bottom: 10px;
+    margin-top: 10px;
+
 }
-/* Table styles */
+.listrealfix h1{
+    margin-bottom: 20px;
+
+
+}
 .table1 {
     width: 100%;
     border-collapse: collapse;
-    border-spacing: 0;
+    list-style-type: none;
+
 }
 
-/* Table header styles */
-.table1 th {
-    background-color: #f9f9f9;
-    color: #333;
-    font-weight: bold;
-    padding: 12px;
-    text-align: left;
-    border-bottom: 2px solid #ddd;
-}
-
-/* Table cell styles */
+.table1 th,
 .table1 td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    border: 1px solid #ddd;
+    margin-left: 10px;
 }
 
-/* Table row hover effect */
+.table1 th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: left;
+}
+
+.table1 tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
 .table1 tbody tr:hover {
-    background-color: #f5f5f5;
+    background-color: #ddd;
+}
+
+.table1 tr p {
     cursor: pointer;
+    padding: 10px;
 }
 
-/* Paragraph styles within table cells */
-.table1 td p {
-    margin: 0;
-    color: #333;
-    font-size: 16px;
-}
-
-/* Responsive styles for smaller screens */
-@media (max-width: 768px) {
-    .col-md-9 {
-        padding: 0;
-    }
-
-    .table1 th,
-    .table1 td {
-        padding: 8px;
-        font-size: 14px;
-    }
-}
+/* Adjust padding, border, background-color, etc., as needed */

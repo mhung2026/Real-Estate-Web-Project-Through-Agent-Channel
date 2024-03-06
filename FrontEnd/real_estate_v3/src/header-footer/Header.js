@@ -29,7 +29,7 @@ export default function Header() {
 
     return (
         <div className='header-container'>
-            <div className="col-md-9">
+            <div className="col-md-9 main-menu1" >
                 <nav className='main-menu'>
                     <ul className='menu-list'>
                         <a href='/trangchu'><img className='logo-batdongsan' src='/logoheader/logo-header-batdongsan.png' alt='logobatdongsan' /></a>
@@ -37,7 +37,7 @@ export default function Header() {
                         <li><Link className='menu-item' to='/gioithieu'>GIỚI THIỆU</Link></li>
                         <li className='dropdown'>
                             <div className='menu-item-container'>
-                                <Link className='menu-item' to='/tintuc'>TIN TỨC </Link>
+                                <Link className='menu-item' to='/tintuc'>TIN TỨC</Link>
                                 <i className="fa fa-angle-right"></i>
                             </div>
                             <ul className='dropdown-menu1'>
@@ -62,7 +62,10 @@ export default function Header() {
                 </nav>
             </div>
             <div className="col-md-3 header">
-                <img className='logo_notification' src='/logoheader/logo_notification.png' alt='' />
+                <div class="notification_wrapper">
+                    <img className='logo_notification' src='/logoheader/logo_notification.png' alt='' />
+                    <span class="notification_count">0</span>
+                </div>
                 <div className="container-login">
                     <img className='logo-taikhoan' src='/logoheader/logo_taikhoan.png' alt='' />
                     {token && userLoginBasicInformationDto ? (

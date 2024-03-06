@@ -142,19 +142,29 @@ export default function Agencyduyettindang() {
                 />
                 <div className='col-md-9 danhsachbdscanduyet'>
                     <h1>Danh sách bất động sản cần được duyệt</h1>
-                    <div>
-                        <ul>
-                            {realEstates.map(realEstate => (
-                                <li key={realEstate.id} className='danhsachbdscanduyettheobds'>
-                                    {realEstate.realestateName}
-                                    <select className='luachon' value={realEstate.status} onChange={(event) => handleStatusChange(event, realEstate.id)}>
-                                        {statusOptions.map(option => (
-                                            <option key={option.value} value={option.value}>{option.label}</option>
-                                        ))}
-                                    </select>
-                                </li>
-                            ))}
-                        </ul>
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Tên bất động sản</th>
+                                    <th>Trạng thái</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {realEstates.map(realEstate => (
+                                    <tr key={realEstate.id} className='danhsachbdscanduyettheobds'>
+                                        <td>{realEstate.realestateName}</td>
+                                        <td>
+                                            <select className='luachon' value={realEstate.status} onChange={(event) => handleStatusChange(event, realEstate.id)}>
+                                                {statusOptions.map(option => (
+                                                    <option key={option.value} value={option.value}>{option.label}</option>
+                                                ))}
+                                            </select>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                     </div>
                     {unsavedEstateIds.length > 0 && <button onClick={handleSaveData}>Lưu</button>}
                 </div>

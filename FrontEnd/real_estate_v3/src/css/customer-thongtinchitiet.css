@@ -36,7 +36,7 @@
     /* Khoảng cách giữa nội dung và viền của popup */
     border-radius: 8px;
     /* Bo tròn các góc của popup */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); */
     /* Hiệu ứng bóng đổ */
     max-width: 80%;
     /* Độ rộng tối đa của popup */
@@ -56,20 +56,21 @@
 
 
 
-.image-container {
-    position: relative;
+.image-container1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
 }
 
-/* .main-image {
-    width: 100%;
-} */
-
-.sub-images {
+.hinhanh{
+    margin-left: 20px;
+}
+.sub-images  {
     display: flex;
-    justify-content: space-between;
-    /* Căn các hình ảnh trong phạm vi của div cha */
-
-    /* Khoảng cách giữa hình ảnh đầu tiên và các hình ảnh phụ */
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px; /* Adjust spacing between main image and sub-images */
 }
 
 .sub-image {
@@ -80,9 +81,11 @@
 }
 
 .small-image {
-    width: 50%;
-    /* Đặt kích thước nhỏ cho hình ảnh đầu tiên */
-    height: auto;
+    max-width: 50%; /* Ensure the image fits within its container */
+    max-height: 50%; /* Ensure the image fits within its container */
+    display: block;
+    margin-top: -120px;
+    margin-left: 4px;
 }
 
 .popup-content {
@@ -96,10 +99,29 @@
 }
 
 .prev-btn, .next-btn {
-    margin-top: 30%;
-    width: 40px;
-    height: 40px;
-    background-color: #635b5bb1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px; /* Adjust width as needed */
+    height: 40px; /* Adjust height as needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for buttons */
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 15px;
+    cursor: pointer;
+    width: 20px;
+}
+
+.next-btn {
+    right: 8px;
+}
+
+.prev-btn {
+    left: 8px;
 }
 
 .close-btn {
@@ -107,9 +129,7 @@
 }
 
 
-.close-btn:hover {
-    background-color: red;
-}
+
 
 .hinhanhmota {
     width: 40%;
@@ -121,64 +141,153 @@
 
 }
 
-.basb {
+.motabatdongsan {
     display: flex;
     text-align: left;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
 .thongtinchitiet {
-    margin-left: 70px;
-    margin-top: 60px;
-    text-align: justify;
+    padding: 20px;
+}
+
+.thongtinchitiet h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.info-item {
+    margin-bottom: 10px;
+}
+
+.info-item b {
+    font-weight: bold;
+}
+
+.show-booking-info-btn {
+    background-color: #90c908;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.show-booking-info-btn:hover {
+    background-color: #dab327;
 }
 
 
-
-.motabatdongsan {
-    display: flex;
+.thongtinkhachdat{
     margin-top: 20px;
-    margin-left: 20px;
-    margin-bottom: 20px;
 }
 
-.motabatdongsan td {
-    text-align: left;
-
+.anhpopuptest {
+    padding: 20px;
+    font-family: Arial, sans-serif;
 }
 
+.anhpopuptest p {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.close-btn,
+.booking-btn {
+    background-color: #90c908;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+
+.booking-btn {
+    margin-top: 20px;
+}
+
+.date-picker,
+.time-picker {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    font-size: 16px;
+    width: 39%;
+}
+
+h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+h3:first-of-type {
+    margin-top: 0;
+}
+
+/* Container for the table columns */
+.basb {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Each column */
+.motabatdongsan,
 .motabatdongsan1 {
-    transform: translateY(20px);
+    width: 48%; /* Adjust width to leave space for margins */
 }
 
-.motabatdongsan1 td {
-    text-align: left;
-
-}
-
+/* Style for the table */
 .info-table {
     width: 100%;
     border-collapse: collapse;
-    margin-right: 20px;
-
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px 0px solid #ccc;
 }
 
+/* Style for table header */
+
+
+/* Style for table cells */
 .info-table td {
-    padding: 3px;
-    border: 1px solid #ddd;
-
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    color: #333; /* Text color */
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 10px 0px solid #ccc;
 }
 
-.info-table b {
-    font-weight: bold;
 
+/* Alternate row color */
+.info-table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Light gray background color */
 }
 
-.info-table td:first-child {
-    width: 20%;
-    /* Adjust the width of the first column */
+/* Hover effect for table rows */
+.info-table tr:hover {
+    background-color: #f0f0f0; /* Hover background color */
 }
 
-.info-table td:nth-child(2) {
-    width: 70%;
-    /* Adjust the width of the second column */
+/* Adjust the style of the last row */
+.info-table tbody tr:last-child td {
+    border-bottom: none; /* Remove bottom border for the last row */
+}
+
+.motabatdongsan1{
+    margin-top: 10px;
+    
 }

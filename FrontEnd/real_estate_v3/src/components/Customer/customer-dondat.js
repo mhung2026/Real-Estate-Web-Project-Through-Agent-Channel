@@ -94,7 +94,7 @@ export default function Customerdondat() {
                         </div>
                     ))
                 ) : (
-                    <p>Không có đơn đặt chỗ nào.</p>
+                    <p style={{marginTop: '10px'}}>Không có đơn đặt chỗ nào.</p>
                 )}
             </div>
         </div>

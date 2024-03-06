@@ -137,9 +137,9 @@ export default function Agencydangtinpart1({ sendData }) {
                         ))}
                     </select>
                 </div>
-                <div>
-                    <span className=''>Địa chỉ</span>
-                    <input type="text" name="address" value={propertyInfo.address} onChange={handleInputChange} placeholder="Số nhà" />
+                <div style={{marginTop: '10px', marginBottom: '10px'}}>
+                    <span className='' style={{fontSize: '16px'}}>Địa chỉ</span>
+                    <input style={{marginTop: "10px"}} type="text" name="address" value={propertyInfo.address} onChange={handleInputChange} placeholder="Số nhà" />
                 </div>
                 <div>
                     <span className='tieude'>Thông tin bài viết</span>

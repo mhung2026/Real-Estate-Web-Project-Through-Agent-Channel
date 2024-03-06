@@ -29,7 +29,7 @@ const App = () => {
                     <span className='textviet'>Viet</span>
                     <span className='vietvillas'>Villas</span>
                 </div>
-                <ContentSection
+                <ContentSection className='content-section'
                     title="Đẳng cấp dành cho bạn"
                     content="Bạn đang tìm một căn hộ sang trọng đẳng cấp và hơn hết gắn bó với thiên nhiên? Không có nơi nào khác có thể thay so sánh với căn hộ tại Vinhouse. Thành phố của thiên đường nằm giữa lòng thiên nhiên. Ở đây bạn sẽ có những khoảnh khắc hạnh phúc cùng gia đình khi được sống giữa một môi trường kết hợp thiên nhiên với sự hiện đại, đủ mọi tiện ích nhưng không thể thiếu không gian trải nghiệm vui đùa, luyện tập thể dục thể thao, nơi mà bạn có thể hít những làn không khí trong lành nhất vào mỗi sáng để bắt đầu một ngày mới tuyệt vời."
                     isActive={activeSection === "Đẳng cấp"}

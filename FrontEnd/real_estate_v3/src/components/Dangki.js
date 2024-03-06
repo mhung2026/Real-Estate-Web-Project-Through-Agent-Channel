@@ -97,14 +97,16 @@ export default function Dangki() {
                 <div className='rolemoi'>
                     <h2 className='chonrole'>Chọn Vai Trò</h2>
                     <div className='taorole'>
-                        <button onClick={() => handleRoleChange(3)} style={{ marginRight: '20px', padding: ' 24px', borderRadius: '10px' }}>Customer</button>
+                        <button onClick={() => handleRoleChange(3)} style={{ marginRight: '20px', padding: ' 24px', borderRadius: '10px' }}>Customer
+                        
+                        </button>
                         <button onClick={() => handleRoleChange(2)} style={{ marginRight: '20px', padding: ' 24px', borderRadius: '10px' }}>Investor</button>
                     </div>
                 </div>
             )}
             {roleSelected && (
                 <div className='formdangkytaikhoan'>
-                    <h2>Form Đăng Ký</h2>
+                    <h2>Đăng ký tài khoản</h2>
                     <form onSubmit={handleSubmit}>
                         <div>
                             <label>Tài khoản:</label>

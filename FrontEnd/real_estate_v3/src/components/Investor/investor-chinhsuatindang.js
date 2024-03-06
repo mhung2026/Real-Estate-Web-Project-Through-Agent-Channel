@@ -43,7 +43,7 @@ export default function Agencytindang() {
                 handleLogout={handleLogout}
             />
             <div className="col-md-9 listrealfix ">
-                <h1>Danh sách tin đăng đã đăng</h1>
+                <h1 style={{fontSize: '24px'}}>Danh sách tin đăng đã đăng</h1>
                 <div className='listreal1'>
                     <table className="table1">
                         <thead>
