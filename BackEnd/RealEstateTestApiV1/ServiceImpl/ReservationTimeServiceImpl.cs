@@ -10,12 +10,12 @@ namespace RealEstateTestApi.ServiceImpl
 {
     public class ReservationTimeServiceImpl : IReservationTimeService
     {
-
+       
         private IReservationTimeRepository _reservationTimeRepository;
 
-        public ReservationTimeServiceImpl(IReservationTimeRepository _reservationTimeRepository)
+        public ReservationTimeServiceImpl( IReservationTimeRepository _reservationTimeRepository)
         {
-
+          
             this._reservationTimeRepository = _reservationTimeRepository;
         }
 

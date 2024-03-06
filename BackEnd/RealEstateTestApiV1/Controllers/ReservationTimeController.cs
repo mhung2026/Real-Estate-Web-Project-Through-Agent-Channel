@@ -13,15 +13,15 @@ namespace RealEstateTestApi.Controllers
     [ApiController]
     public class ReservationTimeController : ControllerBase
     {
-
+        
         private IReservationTimeService _reservationTimeService;
         private IReservationTimeRepository _reservationTimeRepository;
 
-        public ReservationTimeController(IReservationTimeService reservationTimeService, IReservationTimeRepository reservationTimeRepository)
+        public ReservationTimeController( IReservationTimeService reservationTimeService, IReservationTimeRepository reservationTimeRepository)
         {
-
-            this._reservationTimeService = reservationTimeService;
-            this._reservationTimeRepository = reservationTimeRepository;
+          
+           this._reservationTimeService = reservationTimeService;
+           this._reservationTimeRepository = reservationTimeRepository;
         }
 
         [HttpGet]
@@ -41,9 +41,33 @@ namespace RealEstateTestApi.Controllers
             }
         }
 
+
+
+        [HttpPost]
+        [Route("CreateReservationTimeByAdmin")]
+        public IActionResult CreateReservationTime(CreateReservationTimeDto dto)
+        {
+            try
+            {
+                ReservationTime createReserationTime = _reservationTimeService.CreateReserationTime(dto);
+                if(createReserationTime != null)
+                {
+                    return Ok("Tạo lịch hoạt động thành công " );
+                }
+                return BadRequest("Tạo lịch hoạt động mới không thành công, vui lòng thử lại");
+               
+            }
+            catch (Exception )
+            {
+
+                return BadRequest("Không thể tạo lịch hoạt động mới vui lòng thử lại");
+
+            }
+        }
+
         [HttpGet]
         [Route("GetReservationTimeByDate")]
-        public IActionResult GeReservationTimeByDate(DateTime date)
+        public IActionResult GetReservationTimeByDate(DateTime date)
         {
             try
             {
@@ -62,57 +86,35 @@ namespace RealEstateTestApi.Controllers
         }
 
 
-
-
-        [HttpPost]
-        [Route("CreateReservationTime")]
-        public IActionResult CreateReservationTime(CreateReservationTimeDto dto)
-        {
-            try
-            {
-                ReservationTime createReserationTime = _reservationTimeService.CreateReserationTime(dto);
-                if (createReserationTime != null)
+        /* cái này chờ Hiệp sửa cập nhật lại */
+        /* [HttpPut]
+                [Route("UpdateReservationTime/{date}")]
+                public IActionResult UpdateReservationTime(DateTime date, UpdateReservationTimeDto dto)
                 {
-                    return Ok("Tạo lịch hoạt động thành công ");
-                }
-                return BadRequest("Tạo lịch hoạt động mới không thành công, vui lòng thử lại");
+                    try
+                    {
+                        ReservationTime reserationTime = _reservationTimeRepository.GetByDate(date);
+                        if (reserationTime != null)
+                        {
+                            reserationTime.Time1 = dto.Time1;
+                            reserationTime.Time2 = dto.Time2;
+                            reserationTime.Time3 = dto.Time3;
+                            reserationTime.Time4 = dto.Time4;
+                            reserationTime.Status = dto.Status;
+                            ReservationTime check = _reservationTimeService.UpdateReservationTime(reserationTime);
+                            return Ok("update thanh cong");
+                        }
+                        return BadRequest("khon tim thay ReservationTime voi Date = " + date);
 
-            }
-            catch (Exception)
-            {
+                    }
+                    catch (Exception)
+                    {
 
-                return BadRequest("Không thể tạo lịch hoạt động mới vui lòng thử lại");
+                        return BadRequest("loi db");
 
-            }
-        }
-
-        [HttpPut]
-        [Route("UpdateReservationTime/{date}")]
-        public IActionResult UpdateReservationTime(DateTime date, UpdateReservationTimeDto dto)
-        {
-            try
-            {
-                ReservationTime reserationTime = _reservationTimeRepository.GetByDate(date);
-                if (reserationTime != null)
-                {
-                    reserationTime.Time1 = dto.Time1;
-                    reserationTime.Time2 = dto.Time2;
-                    reserationTime.Time3 = dto.Time3;
-                    reserationTime.Time4 = dto.Time4;
-                    reserationTime.Status = dto.Status;
-                    ReservationTime check = _reservationTimeService.UpdateReservationTime(reserationTime);
-                    return Ok("update thanh cong");
-                }
-                return BadRequest("khon tim thay ReservationTime voi Date = " + date);
-
-            }
-            catch (Exception)
-            {
-
-                return BadRequest("loi db");
-
-            }
-        }
+                    }
+                }*/
+        /**/
 
 
 
