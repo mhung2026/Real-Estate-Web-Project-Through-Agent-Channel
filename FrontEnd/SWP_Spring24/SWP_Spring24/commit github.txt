@@ -1,6 +1,0 @@
-git clone <linkrepo>
-
-git init
-git add . 
-git commit -m "tên"
-git push -u origin main 
