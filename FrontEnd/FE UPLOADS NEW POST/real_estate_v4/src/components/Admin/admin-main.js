@@ -6,17 +6,21 @@ import AdminAgencyBooking from './admin-AgencyBooking'
 import AdminViewCompleteBooking from './admin-ViewCompleteBooking'
 import AdminSetTime from './admin-SetTime'
 import AdminDepositCustomer from './admin-DepositCustomer'
+import AdminDuyetdatcoc from './admin-duyetdatcoc'
+import Adminduyettindang from './admin-duyettindang'
 export default function Adminmain() {
     return (
         <div style={{lineHeight: '20px'}}>
             
-            {/* <Adminallaccount /> */}
+            <Adminallaccount />
             <AdminDepositCustomer />
-            {/* <AdminSetTime />
+            <AdminSetTime />
             <AdminAgencyBooking />
-            <AdminAllReservation /> */}
+            <AdminAllReservation />
             <AdminViewCompleteBooking />
-            {/* <AdminCreaccountagency /> */}
+            <AdminCreaccountagency />
+            <AdminDuyetdatcoc />
+            <Adminduyettindang />
         </div>
     )
 }

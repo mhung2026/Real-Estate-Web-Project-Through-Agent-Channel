@@ -9,8 +9,8 @@ export default function Trangchu() {
 
     return (
         <div>
-            <CustomerFillter />
-            <Customertrangchubanvila />
+            {/* <CustomerFillter /> */}
+            <Customertrangchubanvila /> {/* Đã fix xong */}
             <Customerchaomung />
             <Customertrangchutinnoibat />
         </div>

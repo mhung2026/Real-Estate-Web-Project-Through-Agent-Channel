@@ -115,9 +115,9 @@ export default function ReservationDetailPage() {
             <table>
                 <thead>
                     <tr>
-                        <th>Mã Khách hàng</th>
-                        <th>Mã Bất động sản</th>
-                        <th>Mã Đại lý</th>
+                        <th>Tên Khách hàng</th>
+                        <th>Tên Bất động sản</th>
+                        <th>Tên Nhân Viên</th>
                         <th>Trạng thái</th>
                     </tr>
                 </thead>
@@ -126,7 +126,7 @@ export default function ReservationDetailPage() {
                         <tr key={index}>
                             <td>{getUsernameByCusAgenId(booking.customerId)}</td>
                             <td>{getRealEstateNameById(booking.realEstateId)}</td>
-                            <td>{booking.agencyId}</td>
+                            <td>{getUsernameByCusAgenId(booking.agencyId)}</td>
                             <td>{booking.status}</td>
                         </tr>
                     ))}

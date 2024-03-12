@@ -1,27 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import AgencyMenu from './agency-menu';
-import UserAgency from '../../list/userAgency';
 
 const statusOptions = [
     { value: 1, label: 'Đang xử lý' },
-    { value: 2, label: 'Chờ hoàn thành phí đăng bài' },
-    { value: 3, label: 'Sắp mở bán' },
-    { value: 4, label: 'Đang mở bán' },
-    { value: 5, label: 'Đã cọc' },
-    { value: 6, label: 'Đã bán' }
+  
+    { value: 2, label: 'Đang mở bán' },
+    { value: 4, label: 'Đã cọc' },
+    { value: 5, label: 'Đã bán' }
 ];
 
 export default function Agencyduyettindang() {
     const [realEstates, setRealEstates] = useState([]);
     const [unsavedChanges, setUnsavedChanges] = useState({});
     const [unsavedEstateIds, setUnsavedEstateIds] = useState([]);
-    const userLoginBasicInformationDto = JSON.parse(localStorage.getItem('userLoginBasicInformationDto'));
+
     useEffect(() => {
         const fetchRealEstates = async () => {
             try {
                 const response = await axios.get('http://firstrealestate-001-site1.anytempurl.com/api/invester/getAllRealEstate');
-                const filteredRealEstates = response.data.filter(realEstate => realEstate.investorId === 6);
+                // const filteredRealEstates = response.data.filter(realEstate => realEstate.investorId === 6);
+                const filteredRealEstates = response.data;
                 setRealEstates(filteredRealEstates);
             } catch (error) {
                 console.error('Error fetching real estates:', error);
@@ -35,7 +33,7 @@ export default function Agencyduyettindang() {
         try {
             const response = await axios.get(`http://firstrealestate-001-site1.anytempurl.com/api/location/getAllLocation`);
             const locationDetails = response.data.find(location => location.id === locationId);
-            return locationDetails ? locationDetails : null;
+            return locationDetails || null;
         } catch (error) {
             console.error('Error fetching location details:', error);
             return null;
@@ -134,16 +132,12 @@ export default function Agencyduyettindang() {
     };
 
     return (
-        <div class="outer-container">
+        <div className="outer-container">
             <div className='container'>
-                <AgencyMenu
-                    userLoginBasicInformationDto={userLoginBasicInformationDto}
-                    UserMenu={UserAgency}
-                />
                 <div className='col-md-9 danhsachbdscanduyet'>
                     <h1>Danh sách bất động sản cần được duyệt</h1>
-                    <div class="table-container">
-                        <table class="table">
+                    <div className="table-container">
+                        <table className="table">
                             <thead>
                                 <tr>
                                     <th>Tên bất động sản</th>

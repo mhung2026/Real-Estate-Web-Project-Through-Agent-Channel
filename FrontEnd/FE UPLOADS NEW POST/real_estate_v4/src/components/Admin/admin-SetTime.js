@@ -3,6 +3,8 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import moment from 'moment';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function AdminSetTime() {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -25,13 +27,13 @@ export default function AdminSetTime() {
   const getTimeDisplay = (id) => {
     switch(id) {
       case "time1":
-        return "7:00 - 9:00";
+        return "8:00 - 10:00";
       case "time2":
-        return "10:00 - 12:00";
+        return "11:00 - 13:00";
       case "time3":
-        return "13:00 - 15:00";
+        return "14:00 - 16:00";
       case "time4":
-        return "15:00 - 17:00";
+        return "17:00 - 19:00";
       default:
         return "";
     }
@@ -49,8 +51,10 @@ export default function AdminSetTime() {
       console.log("Data sent:", requestData);
       const response = await axios.post('http://firstrealestate-001-site1.anytempurl.com/api/ReservationTime/CreateReservationTimeByAdmin', requestData);
       console.log(response.data);
+      toast.success('Set lịch thành công!');
     } catch (error) {
       console.error('Error:', error);
+      toast.error('Đã xảy ra lỗi khi gửi thông tin.');
     }
   };  
   
@@ -85,6 +89,7 @@ export default function AdminSetTime() {
         ))}
       </div>
       <button onClick={handleSubmit}>Gửi thông tin</button>
+      <ToastContainer />
     </div>
   );
 }

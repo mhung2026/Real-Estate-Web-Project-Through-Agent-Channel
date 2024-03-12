@@ -42,7 +42,7 @@ export default function Customerdondat() {
                 bookingTime: reservation.bookingTime
             };
             await axios.put(`http://firstrealestate-001-site1.anytempurl.com/api/reservation/UpdateReservation/${id}`, requestData);
-            toast.success('Cập nhật thành công!', {
+            toast.success('Hủy đơn thành công!', {
                 onClose: () => window.location.reload() // Reload trang sau khi toast đóng
             });
             window.location.reload();

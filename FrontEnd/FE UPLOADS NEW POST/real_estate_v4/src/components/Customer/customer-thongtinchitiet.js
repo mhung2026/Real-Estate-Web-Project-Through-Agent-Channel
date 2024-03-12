@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { formatISO } from 'date-fns';
+import { formatISO, addDays } from 'date-fns'; // import thêm hàm addDays từ date-fns
 import CallApi from '../CallApi';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,7 +16,7 @@ export default function Customerthongtinchitiet() {
     const [locationInfo, setLocationInfo] = useState(null);
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [selectedTime, setSelectedTime] = useState(null);
-    const [todayReservation, setTodayReservation] = useState(null);
+    const [reservationDataForSelectedDate, setReservationDataForSelectedDate] = useState(null);
     const userLoginBasicInformationDto = JSON.parse(localStorage.getItem('userLoginBasicInformationDto'));
     const [selectedImage, setSelectedImage] = useState(null);
     const [showBookingInfoPopup, setShowBookingInfoPopup] = useState(false);
@@ -31,13 +31,6 @@ export default function Customerthongtinchitiet() {
                 const locationResponse = await CallApi.getAllLocation();
                 const foundLocation = locationResponse.find(location => location.id === foundRealEstate.locationId);
                 setLocationInfo(foundLocation);
-
-                const reservationTimeResponse = await CallApi.GetAllReservationTime();
-
-                const today = new Date();
-                const todayDate = today.toISOString().split('T')[0];
-                const todayReservationData = reservationTimeResponse.find(reservation => formatDate(reservation.date) === todayDate);
-                setTodayReservation(todayReservationData);
 
                 const callDataAllAccount = await CallApi.getAllAccount();
                 const foundUser = callDataAllAccount.find(user => user.id === userLoginBasicInformationDto.accountId);
@@ -54,6 +47,21 @@ export default function Customerthongtinchitiet() {
         };
         fetchData();
     }, [id]);
+
+    useEffect(() => {
+        const fetchReservationTimes = async () => {
+            try {
+                const reservationTimeResponse = await CallApi.GetAllReservationTime();
+                const formattedSelectedDate = formatISO(selectedDate, { representation: 'date' }); // Format selectedDate
+                const selectedDateReservationData = reservationTimeResponse.find(reservation => formatDate(reservation.date) === formattedSelectedDate);
+                setReservationDataForSelectedDate(selectedDateReservationData);
+            } catch (error) {
+                console.error('Error fetching reservation times for selected date:', error);
+            }
+        };
+
+        fetchReservationTimes();
+    }, [selectedDate]);
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -89,37 +97,43 @@ export default function Customerthongtinchitiet() {
     };
 
     const handleBooking = async () => {
-        const callDataReservations = await CallApi.getAllReservations();
         if (selectedDate && selectedTime && userLoginBasicInformationDto && userLoginBasicInformationDto.accountId && parsedId) {
             const formattedDate = formatISO(selectedDate, { representation: 'complete' });
 
-            const hasExistingReservation = callDataReservations.find(reservation => reservation.customerId === userLoginBasicInformationDto.accountId && reservation.status === 1);
-            if (hasExistingReservation) {
-                toast.error('Bạn đã đặt chỗ trước đó.');
-                return;
-            }
-    
-            const reservationData = {
-                bookingDate: formattedDate,
-                bookingTime: selectedTime,
-                customerId: userLoginBasicInformationDto.accountId,
-                realEstateId: parsedId
-            };
-            console.log('Reservation data:', reservationData);
+            // Fetch existing reservations for the user
             try {
+                const existingReservations = await CallApi.getAllReservations();
+                const hasExistingReservation = existingReservations.some(reservation =>
+                    reservation.customerId === userLoginBasicInformationDto.accountId && reservation.status === 1
+                );
+
+                // Check if the user already has a reservation for the selected date
+                if (hasExistingReservation) {
+                    toast.error('Bạn đã có một đặt chỗ vào ngày này. Vui lòng chọn ngày khác.');
+                    return; // Exit if there's an existing reservation
+                }
+
+                // Proceed to create a new reservation if there's no existing reservation
+                const reservationData = {
+                    bookingDate: formattedDate, // Sử dụng ngày đã chọn
+                    bookingTime: selectedTime,
+                    customerId: userLoginBasicInformationDto.accountId,
+                    realEstateId: parsedId
+                };
+
                 const response = await axios.post('http://firstrealestate-001-site1.anytempurl.com/api/reservation/CreateReservation', reservationData);
-                console.log('Data sent:', reservationData);
-                console.log('Response:', response.data);
                 toast.success('Đặt chỗ thành công!');
+
             } catch (error) {
-                console.error('Error creating reservation:', error);
-                toast.error('Đã xảy ra lỗi khi đặt chỗ. Vui lòng thử lại sau.');
+                console.error('Error during reservation process:', error);
+                toast.error('Đã xảy ra lỗi khi kiểm tra hoặc tạo đặt chỗ. Vui lòng thử lại sau.');
             }
         } else {
             toast.error('Vui lòng điền đầy đủ thông tin đặt lịch.');
         }
     };
-    
+
+    const tenNgayKeTiep = Array.from({ length: 10 }, (_, index) => addDays(new Date(), index + 1));
 
     return (
         <div className="real-estate-info-container">
@@ -250,14 +264,27 @@ export default function Customerthongtinchitiet() {
                                     )}
                                     <button className="close-btn" onClick={() => setShowBookingInfoPopup(false)}>Đóng</button>
                                     <h3 style={{ fontSize: '20px', fontWeight: 'bold' }}>Chọn ngày đặt lịch:</h3>
-                                    <DatePicker className="date-picker" selected={selectedDate} onChange={date => setSelectedDate(date)} />
+                                    <DatePicker className="date-picker" selected={selectedDate} onChange={date => setSelectedDate(date)} minDate={new Date()} maxDate={tenNgayKeTiep[9]} />
                                     <h3 style={{ fontSize: '20px', fontWeight: 'bold' }}>Chọn giờ đặt lịch:</h3>
                                     <select onChange={handleTimeChange}>
                                         <option>Chọn khung thời gian</option>
-                                        {todayReservation && todayReservation.time1 && <option>{todayReservation.time1}</option>}
-                                        {todayReservation && todayReservation.time2 && <option>{todayReservation.time2}</option>}
-                                        {todayReservation && todayReservation.time3 && <option>{todayReservation.time3}</option>}
-                                        {todayReservation && todayReservation.time4 && <option>{todayReservation.time4}</option>}
+                                        {reservationDataForSelectedDate && (
+                                            <>
+                                                {reservationDataForSelectedDate.time1 && <option>{reservationDataForSelectedDate.time1}</option>}
+                                                {reservationDataForSelectedDate.time2 && <option>{reservationDataForSelectedDate.time2}</option>}
+                                                {reservationDataForSelectedDate.time3 && <option>{reservationDataForSelectedDate.time3}</option>}
+                                                {reservationDataForSelectedDate.time4 && <option>{reservationDataForSelectedDate.time4}</option>}
+                                            </>
+                                        )}
+                                        {/* Nếu dữ liệu bị null hoặc không có giờ đặt lịch, cứng 4 giờ đặt lịch mặc định */}
+                                        {/* {!reservationDataForSelectedDate && (
+                                            <>
+                                                <option>8:00 - 10:00</option>
+                                                <option>11:00 - 13:00</option>
+                                                <option>14:00 - 16:00</option>
+                                                <option>17:00 - 19:00</option>
+                                            </>
+                                        )} */}
                                     </select>
                                     <button className="booking-btn" onClick={handleBooking}>Gửi dữ liệu đặt lịch</button>
                                 </div>

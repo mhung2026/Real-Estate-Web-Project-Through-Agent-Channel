@@ -1,8 +1,9 @@
 // dichvufooter.js
 const userAgency = [
-    { id: 1, name: 'Duyệt tin đăng', link: '/duyettindang', color: 'red'},
-    { id: 2, name: 'Xem lịch đặt', link: '/xemlichdat' },
-    { id: 3, name: 'Đơn hoàn thành', link: '/donhoanthanh' },
+  
+    { id: 1, name: 'Xem lịch đặt', link: '/xemlichdat' },
+    { id: 2, name: 'Đơn hoàn thành', link: '/donhoanthanh' },
+    { id: 3, name: 'Đặt cọc đất cho khách hàng', link: '/datconmuaban' },
 
     // Add more services as needed
 ];

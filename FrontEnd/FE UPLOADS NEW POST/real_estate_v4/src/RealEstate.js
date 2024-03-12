@@ -63,14 +63,18 @@ import InvestorLichsugiaodich from './components/Investor/investor-lichsugiaodic
 // Agency Components
 import Agencytindang from './components/Agency/agency-tindang';
 import Agencythongtinchitiet from './components/Agency/agency-thongtinchitiet';
-import Agencyduyettindang from './components/Agency/agency-duyettindang';
+
 import Agencyxemlichdat from './components/Agency/agency-xemlichdat';
 import AgencyDonhoanthanh from './components/Agency/agency-donhoanthanh';
-
+import AgencyDatcocmuaban from './components/Agency/agency-datcocmuaban';
+import AgencyCustomerDetailPage from './components/Agency/agency-CustomerDetailPage';
 // Admin Components
 import Adminmain from './components/Admin/admin-main';
 import AdminDetailBookingAgen from './components/Admin/admin-DetailBookingAgen';
 import AdminReservationDetailPage from './components/Admin/admin-ReservationDetailPage';
+import AdminDuyetdatcoc from './components/Admin/admin-duyetdatcoc';
+import AdminRealEstateDetail from './components/Admin/admin-RealEstateDetail';
+import Adminduyettindang from './components/Admin/admin-duyettindang';
 
 
 function RealEstate() {
@@ -89,16 +93,16 @@ function RealEstate() {
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={initialPageLoad ? <Navigate to="/trangchu" replace /> : <TrangChu />} />
-          <Route path="/dangnhap" element={<Login />} />
-          <Route path="/dangki" element={<Dangki />} />
-          <Route path="/logout" element={<Logout />} />
+          <Route path="/dangnhap" element={<Login />} />{/* Đã fix xong */}
+          <Route path="/dangki" element={<Dangki />} /> {/* Đã fix xong */}
+          <Route path="/logout" element={<Logout />} />{/* Đã fix xong */}
 
           {/* Customer Routes */}
           <Route path="/trangchu" element={<TrangChu />} />
-          <Route path="/gioithieu" element={<Customergioithieu />} />
-          <Route path="/dondat" element={<Customerdondat />} />
-          <Route path="/lienhe" element={<Customerlienhe />} />
-          <Route path="/customerthongtintaikhoan" element={<Customerthongtintaikhoan />} />
+          <Route path="/gioithieu" element={<Customergioithieu />} /> {/* Đã fix xong */}
+          <Route path="/dondat" element={<Customerdondat />} /> 
+          <Route path="/lienhe" element={<Customerlienhe />} /> {/* Đã fix xong */}
+          <Route path="/customerthongtintaikhoan" element={<Customerthongtintaikhoan />} /> 
           <Route path="/thongtinchitietbatdongsan/:id" element={<Customerthongtinchitiet />} />
           <Route path="/lichsudatdon" element={<CustomerLichsudatdon />} />
       
@@ -118,13 +122,18 @@ function RealEstate() {
           <Route path="/agencytindang" element={<Agencytindang />} />
           <Route path="/agencythongtinchitiet/:id" element={<Agencythongtinchitiet />} />
           <Route path="/xemlichdat" element={<Agencyxemlichdat />} />
-          <Route path="/duyettindang" element={<Agencyduyettindang />} />
+        
           <Route path="/donhoanthanh" element={<AgencyDonhoanthanh />} />
+          <Route path="/datconmuaban" element={<AgencyDatcocmuaban />} />
+          <Route path="/customer/:customerId/realestate/:realEstateId" element={<AgencyCustomerDetailPage />} /> 
 
           {/* Admin Routes */}
           <Route path="/adminmain" element={<Adminmain />} />
           <Route path="/admin-DetailBookingAgen/:id" element={<AdminDetailBookingAgen />} />
           <Route path="/reservation-details/:timeSlot/:date" element={<AdminReservationDetailPage />} />
+          <Route path="/duyetdatcoc" element={<AdminDuyetdatcoc />} />
+          <Route path="/real-estate/:id" element={<AdminRealEstateDetail />} />
+          <Route path="/duyettindang" element={<Adminduyettindang />} />
         </Routes>
         <Footer />
       </div>

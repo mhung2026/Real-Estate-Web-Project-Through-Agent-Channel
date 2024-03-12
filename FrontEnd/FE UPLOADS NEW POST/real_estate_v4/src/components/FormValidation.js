@@ -8,12 +8,6 @@ class FormValidation {
                 return false;
             }
         }
-
-        if (/\s/.test(formData.taiKhoan)) {
-            toast.error('Tài khoản không được chứa khoảng trắng.');
-            return false;
-        }
-
         if (/\s/.test(formData.matKhau)) {
             toast.error('Mật khẩu không được chứa khoảng trắng.');
             return false;

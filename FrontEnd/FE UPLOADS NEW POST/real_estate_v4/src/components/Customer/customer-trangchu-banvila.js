@@ -1,38 +1,34 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import CallApi from '../CallApi';
+
 export default function Customertrangchubanvila() {
   const [realEstates, setRealEstates] = useState([]);
   const [locations, setLocations] = useState([]);
-  const [city, setCity] = useState('');
-  const [showAllEstates, setShowAllEstates] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+
   const navigate = useNavigate();
-  useEffect(() => {
-    axios.get('http://firstrealestate-001-site1.anytempurl.com/api/invester/getAllRealEstate')
-      .then(response => {
-        const estatesWithInvestorId2 = response.data.filter(estate => estate.investorId === 6);
-        setRealEstates(estatesWithInvestorId2);
-      })
-      .catch(error => {
-        console.error('Error fetching data: ', error);
-      });
-    axios.get('http://firstrealestate-001-site1.anytempurl.com/api/location/getAllLocation')
-      .then(response => {
-        setLocations(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching location data: ', error);
-      });
-  }, []);
 
   useEffect(() => {
-    if (realEstates.length > 0 && locations.length > 0) {
-      const cities = getCity();
-      if (cities.length > 0) {
-        setCity(cities[0]);
+    const fetchData = async () => {
+      try {
+        const response = await CallApi.getAllRealEstate();
+        const RealEstate = response.filter(statusRealEstate => statusRealEstate.status ===2)
+        setRealEstates(RealEstate);
+        console.log("x", RealEstate)
+        const locationResponse = await CallApi.getAllLocation();
+        setLocations(locationResponse);
+      } catch (error) {
+        console.error('Error fetching data:', error);
       }
-    }
-  }, [realEstates, locations]);
+    };
+    fetchData();
+  }, []);
+
+  const getCityName = (locationId) => {
+    const location = locations.find(loc => loc.id === locationId);
+    return location ? location.city : '';
+  };
 
   const limitWords = (text, limit) => {
     if (text) {
@@ -44,48 +40,54 @@ export default function Customertrangchubanvila() {
       }
       return truncatedText;
     }
-    return "";
+    return '';
   };
 
-  const getCity = () => {
-    const cities = realEstates.map(estate => {
-      const location = locations.find(location => location.id === getLocationID(estate));
-      return location ? location.city : null;
-    });
-    return cities.filter(city => city !== null);
-  };
-
-  const getLocationID = (realEstate) => {
-    const locationID = realEstate.locationId;
-    console.log("Status:", locationID);
-    return locationID;
-  }
-
-  const getFrontImages = (realEstate) => {
+  const getFrontImages = realEstate => {
     return realEstate.realEstateImages.filter(image => image.imageName === 'Ảnh Mặt Trước');
   };
 
-  const getPrice = (realEstate) => {
+  const getPrice = realEstate => {
     const price = realEstate.price;
     return price;
-  }
+  };
 
-  const getStatus = (realEstate) => {
-    const status = realEstate.status === 3 ? 'Sắp Mở Bán' : '';
-    console.log("Status:", status);
+  const getStatus = realEstate => {
+    let status = '';
+    switch (realEstate.status) {
+      case 2:
+      case 6:
+        status = 'Đang Mở Bán';
+        break;
+      default:
+        status = ''; // Or any default status you want to show
+        break;
+    }
     return status;
   };
 
-  const handleRealEstateClick = (estate) => {
-    // Do something when real estate is clicked
+  const handleRealEstateClick = estate => {
     navigate(`/thongtinchitietbatdongsan/${estate.id}`);
+  };
+
+  const startIndex = (currentPage - 1) * 6;
+  const endIndex = startIndex + 6;
+  const currentEstates = realEstates.slice(startIndex, endIndex);
+
+  const handlePrevPage = () => {
+    setCurrentPage(currentPage > 1 ? currentPage - 5 : 1);
+  };
+
+  const handleNextPage = () => {
+    const maxPages = Math.ceil(realEstates.length / 6);
+    setCurrentPage(currentPage < maxPages ? currentPage + 5 : maxPages);
   };
 
   return (
     <div>
       <div className="estate-container">
         <div className='main-title'>
-          <div class="real-title">
+          <div className="real-title">
             <div className='text-realtitle'>
               <span className='textso1'>NHÀ ĐẤT</span>
               <h2 className='textso2'>BÁN</h2>
@@ -93,8 +95,8 @@ export default function Customertrangchubanvila() {
           </div>
         </div>
         <div className="estates-wrapper">
-          {realEstates.map((estate, index) => (
-            <div key={index} className="estate-item" style={{ display: showAllEstates ? 'block' : (index < 6 ? 'block' : 'none') }}>
+          {currentEstates.map((estate, index) => (
+            <div key={index} className="estate-item">
               <div className="estate-info">
                 <div className="image-container">
                   {getFrontImages(estate).map((image, imageIndex) => (
@@ -103,13 +105,12 @@ export default function Customertrangchubanvila() {
                     </div>
                   ))}
                 </div>
-
                 <div onClick={() => handleRealEstateClick(estate)} className="estate-name">{estate.realestateName}</div>
                 <span className="estate-discription">{limitWords(estate.discription, 15)}</span>
                 <div className='thanhphoprice'>
                   <div className='logo-thanhpho'>
-                    <img className='logo-location' src='/logotrangchu/location.png' />
-                    <span className='thanhpho'>{city}</span>
+                    <img className='logo-location' src='/logotrangchu/location.png' alt="location" />
+                    <span className='thanhpho'>{getCityName(estate.locationId)}</span>
                   </div>
                   <span className='price'>{getPrice(estate)}</span>
                 </div>
@@ -118,20 +119,22 @@ export default function Customertrangchubanvila() {
             </div>
           ))}
         </div>
-        {!showAllEstates && realEstates.length > 3 && (
-          <div className="button-container">
-            <button onClick={() => setShowAllEstates(true)} className="show-more-button">
-              Xem Thêm
-            </button>
-          </div>
-        )}
-        {showAllEstates && (
-          <div className="button-container">
-            <button onClick={() => setShowAllEstates(false)} className="show-more-button">
-              Thu Gọn
-            </button>
-          </div>
-        )}
+        <div className="pagination">
+          <button onClick={handlePrevPage} className="page-number">
+            Prev
+          </button>
+          {realEstates.length > 6 &&
+            Array.from({ length: Math.ceil(realEstates.length / 6) }, (_, i) => i + 1)
+              .slice(Math.max(0, currentPage - 3), Math.min(currentPage + 2, Math.ceil(realEstates.length / 6)))
+              .map(page => (
+                <button key={page} onClick={() => setCurrentPage(page)} className={`page-number ${currentPage === page ? 'active' : ''}`}>
+                  {page}
+                </button>
+              ))}
+          <button onClick={handleNextPage} className="page-number">
+            Next
+          </button>
+        </div>
       </div>
     </div>
   );
