@@ -34,7 +34,7 @@
     margin-top: 10px;
     border: none;
     border-radius: 10px;
-    background-color: #90c908;
+    /* background-color: #90c908; */
     color: #fff;
     cursor: pointer;
   }
@@ -69,4 +69,6 @@
   .chontep {
     margin-top: 10px;
   }
-  
+  .change{
+    background-color: #35CB6D;
+  }

@@ -1,51 +1,43 @@
-/* CSS cho phần đầu của phần tử div */
-.col-md-3.account {
-    background-color: white;
-    /* Màu nền */
-    padding: 20px;
-    /* Khoảng cách bên trong */
-    border-radius: 10px;
-    /* Bo viền */
-
+.sidebar {
+    position: fixed; /* Cố định vị trí thanh bên */
+    top: 70px; /* Dán lên trên cùng của màn hình */
+    left: 0; /* Dán sang trái của màn hình */
+    width: 250px; /* Chiều rộng cố định */
+    height: 100%; /* Chiều cao toàn bộ trang */
+    background-color: #f4f4f4; /* Màu nền */
+    overflow-x: hidden; /* Ẩn thanh cuộn ngang nếu cần */
+    padding-top: 20px; /* Khoảng cách từ đầu trang */
+    width: 20%;
 }
 
-/* CSS cho phần chữ Chào mừng */
-.col-md-3.account .welcome {
-    font-size: 18px;
-    /* Kích thước chữ */
+.sidebar .welcome, .sidebar .balance {
+    padding: 10px;
+    margin-left: 20px;
+    font-size: 16px; /* Kích thước chữ */
+}
+
+.welcome{
     font-weight: bold;
-    /* Độ đậm */
-    color: #333;
-    /* Màu chữ */
-    margin-bottom: 10px;
-    /* Khoảng cách phía dưới */
 }
 
-
-/* CSS cho danh sách menu */
-.menu-list-investor {
-    list-style-type: none;
-    /* Loại bỏ dấu đầu dòng của danh sách */
+.menu-list {
+    list-style-type: none; /* Bỏ dấu chấm trước các item */
     padding: 0;
-    /* Loại bỏ khoảng cách bên trong danh sách */
 }
 
-/* CSS cho mỗi mục menu */
-.menu-item-container {
-    margin-bottom: 0px;
-    /* Khoảng cách giữa các mục menu */
-
+.menu-item {
+    padding: 10px;
+    margin-top: 10px; /* Khoảng cách giữa các menu */
+    margin-left: 20px; /* Khoảng cách từ cạnh trái */
 }
 
-/* CSS cho liên kết trong menu */
-.menu-item-investor {
-    text-decoration: none;
-    /* Loại bỏ gạch chân của liên kết */
-    color: black;
-    /* Màu chữ */
-    transition: color 0.3s;
-    /* Hiệu ứng chuyển đổi màu chữ */
-
+.menu-item a {
+    text-decoration: none; /* Bỏ gạch chân của liên kết */
+    font-size: 18px; /* Kích thước chữ của liên kết */
+    color: black; /* Màu chữ */
+    display: block; /* Hiển thị dạng khối */
 }
 
-
+.menu-item a:hover {
+    background-color: #ddd; /* Màu nền khi hover */
+}

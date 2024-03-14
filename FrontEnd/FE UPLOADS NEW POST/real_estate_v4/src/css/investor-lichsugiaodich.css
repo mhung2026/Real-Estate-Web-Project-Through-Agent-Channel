@@ -4,8 +4,9 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    margin-top: 10px;
+    margin-top: 110px;
     margin-bottom: 10px;
+    transform: translateX(-98px);
 
 }
 .lichsugiaodichtaikhoan h2{

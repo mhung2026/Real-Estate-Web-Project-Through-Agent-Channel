@@ -107,7 +107,7 @@ export default function Agencydangtinmain() {
                 <div className='thongtindangtinhinhanh'>
                     <h2 style={{fontSize: '24px', marginBottom:'20px', marginTop: '10px'}}>Hình ảnh bất động sản</h2>
                     <Agencydangtinpart2 sendData={handleSendDataPart2} />
-                    <button onClick={handleSendDataToSwagger} style={{ backgroundColor: '#90c908' }}>Đăng tin</button>
+                    <button onClick={handleSendDataToSwagger} style={{ backgroundColor: '#35CB6D' }}>Đăng tin</button>
                     <ToastContainer />
 
                 </div>

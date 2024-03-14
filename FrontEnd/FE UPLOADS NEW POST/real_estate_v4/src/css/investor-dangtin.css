@@ -55,7 +55,7 @@ body {
 .buuton-logout {
     width: 120px;
     height: 30px;
-    background-color: #90c908;
+    /* background-color: #90c908; */
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -162,7 +162,7 @@ input {
 button {
     margin-top: 10px;
     padding: 8px 16px;
-    background-color: #90c908;
+    /* background-color: #90c908; */
     /* Bootstrap's primary color */
     color: #fff;
     border: none;

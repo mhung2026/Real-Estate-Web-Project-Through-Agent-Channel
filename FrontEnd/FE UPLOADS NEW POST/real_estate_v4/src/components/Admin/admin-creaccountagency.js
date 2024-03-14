@@ -67,22 +67,22 @@ export default function AdminCreaccountagency() {
     };
 
     return (
-        <div>
+        <div >
             <ToastContainer /> {/* Container để hiển thị thông báo */}
-            <div>
-                <h2>Form Đăng Ký</h2>
+            <div class="custom-container">
+                <h2 style={{fontWeight: "bold"}}>Đăng Kí Tài Khoản cho Agency</h2>
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <label>Tài khoản:</label>
+                        <label>Họ và Tên</label>
                         <input type="text" name="taiKhoan" value={formData.taiKhoan} onChange={handleChange} />
                     </div>
                     <div>
                         <label>Mật khẩu:</label>
-                        <input type="password" name="matKhau" value={formData.matKhau} onChange={handleChange} />
+                        <input type="password" name="matKhau" value={formData.matKhau} onChange={handleChange} style={{width: "100%"}} />
                     </div>
                     <div>
                         <label>Xác nhận lại mật khẩu:</label>
-                        <input type="password" name="xacNhanMatKhau" value={formData.xacNhanMatKhau} onChange={handleChange} />
+                        <input type="password" name="xacNhanMatKhau" value={formData.xacNhanMatKhau} onChange={handleChange} style={{width: "100%"}} />
                     </div>
                     <div>
                         <label>Số điện thoại:</label>
@@ -90,7 +90,7 @@ export default function AdminCreaccountagency() {
                     </div>
                     <div>
                         <label>Email:</label>
-                        <input type="email" name="email" value={formData.email} onChange={handleChange} />
+                        <input type="email" name="email" value={formData.email} onChange={handleChange} style={{width: "100%"}} />
                     </div>
                     <div>
                         <label>Địa chỉ:</label>

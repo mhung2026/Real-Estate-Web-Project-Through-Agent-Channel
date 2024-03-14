@@ -173,7 +173,7 @@ export default function AgencyThongTinChiTiet() {
             {editing ? (
                 <button onClick={handleSaveClick}>Save</button>
             ) : (
-                <button onClick={handleEditClick}>Edit</button>
+                <button onClick={handleEditClick} className='change'>Edit</button>
             )}
         </div>
     );

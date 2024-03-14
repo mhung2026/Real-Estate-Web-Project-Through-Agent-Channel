@@ -1,0 +1,55 @@
+/* Định dạng chung */
+.custom-container {
+    max-width: 456px;
+    margin: -378px 300px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.custom-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.custom-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-container label {
+    margin-bottom: 5px;
+    color: #555;
+    font-size: 16px;
+}
+
+.custom-container input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.custom-container input:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.custom-container button {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #35CB6D;
+    color: #fff;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}

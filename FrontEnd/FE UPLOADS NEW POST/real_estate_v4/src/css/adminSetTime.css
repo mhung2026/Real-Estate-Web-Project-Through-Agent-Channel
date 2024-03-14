@@ -1,9 +1,52 @@
-.selected {
-    opacity: 0.5; /* hoặc bất kỳ hiệu ứng mờ nào bạn muốn áp dụng */
-  }
-  .containerxxx{
-    margin-left: 50px;
-    display: flex;
-    flex-direction: column;
-    
-  }
+.containerxxx {
+  width: 80%; /* Điều chỉnh kích thước nếu cần */
+  margin: -364px 280px; /* Căn giữa container và tạo khoảng cách từ đỉnh */
+  padding: 20px;
+  transform: translate(20px, -20px); /* Dịch chuyển sang phải và lên trên */
+  background-color: #fff; /* Màu nền trắng */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tạo bóng */
+  border-radius: 10px; /* Làm tròn góc */
+  transition: transform 0.3s ease; /* Chuyển động mượt mà */
+}
+
+.containerxxx h1 {
+  color: #333; /* Màu tối giản */
+  text-align: center; /* Căn giữa tiêu đề */
+}
+
+.datepicker-container {
+  background-color: #f8f8f8; /* Màu nền nhẹ cho date picker */
+  padding: 15px;
+  border-radius: 10px; /* Làm tròn góc */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Tạo bóng nhẹ */
+}
+
+.time-buttons button {
+  background-color: #4CAF50; /* Màu nền cho nút */
+  color: white; /* Màu chữ cho nút */
+  padding: 12px 24px; /* Khoảng cách giữa chữ và biên nút */
+  margin: 10px; /* Khoảng cách giữa các nút */
+  border: none; /* Bỏ viền nút */
+  border-radius: 20px; /* Làm tròn góc */
+  cursor: pointer; /* Con trỏ khi di chuyển vào nút */
+  transition: background-color 0.3s; /* Chuyển màu mượt mà */
+}
+
+.time-buttons button.selected {
+  background-color: orange; /* Màu nền cho nút khi được chọn */
+}
+
+.custom-button {
+  background-color: #35CB6D; /* Màu nền cho nút gửi thông tin */
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  border: none;
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Chuyển màu mượt mà */
+}
+

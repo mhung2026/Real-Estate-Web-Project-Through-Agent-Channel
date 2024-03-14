@@ -1,0 +1,64 @@
+.beautiful-table {
+    background-color: white;
+    margin: 0 auto;
+    /* Centers the table horizontally */
+    transform: translate(22%, -480px);
+    /* Moves the table to the right and up */
+    border-collapse: collapse;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    /* Ensures font consistency */
+    max-width: 94%;
+    /* Adjusts the width of the table */
+}
+
+.beautiful-table h2 {
+    margin-top: 100px;
+    text-align: center;
+    color: black;
+    font-size: 24px;
+    /* Adjusts the font size for better visibility */
+}
+
+.beautiful-table select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-bottom: 20px;
+    /* Adds space between the select and the table */
+    width: 50%;
+}
+
+.beautiful-table table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.beautiful-table th,
+.beautiful-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.beautiful-table th {
+    background-color: #f2f2f2;
+    color: #333;
+    text-align: center;
+}
+
+.beautiful-table tbody tr:hover {
+    background-color: #f5f5f5;
+    /* Adds a hover effect for each row */
+}
+
+.beautiful-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.beautiful-table td {
+    color: #666;
+}

@@ -1,0 +1,107 @@
+
+/* Phông chữ */
+#admin-table-div {
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tạo bóng */
+    margin: -380px 300px;
+    width: 80%;
+}
+#admin-table-div h2 {
+    text-align: center;
+}
+
+/* Bảng */
+#admin-table-div table {
+    width: 80%; /* Thu nhỏ bảng lại */
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    margin: 20px auto; /* Canh giữa bảng */
+}
+
+/* Header của bảng */
+#admin-table-div th {
+    background-color: #f2f2f2;
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Dòng trong tbody */
+#admin-table-div tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+/* Ô trong bảng */
+#admin-table-div td {
+    padding: 8px;
+    text-align: left;
+}
+
+/* Hover effect cho dòng */
+#admin-table-div tbody tr:hover {
+    background-color: #f5f5f5;
+    transition: background-color 0.3s ease;
+}
+
+/* Cursor pointer cho cột Name */
+#admin-table-div td:nth-child(2) {
+    cursor: pointer;
+}
+
+/* Border radius cho các góc của bảng */
+#admin-table-div table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Đường viền xung quanh bảng */
+#admin-table-div table {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Background gradient cho header */
+#admin-table-div th {
+    background: #35CB6D;
+    color: white;
+}
+
+/* Hiệu ứng border cho ô */
+#admin-table-div td {
+    position: relative;
+}
+
+/* Border bottom cho ô */
+#admin-table-div td:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng hover cho border bottom của ô */
+#admin-table-div td:hover:after {
+    visibility: visible;
+}
+
+/* Icon cho ô cột Name */
+#admin-table-div td:nth-child(2):before {
+    content: '\f054';
+    font-family: FontAwesome;
+    margin-right: 5px;
+}
+
+/* Hiệu ứng icon khi hover */
+#admin-table-div td:nth-child(2):before {
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+/* Hiệu ứng icon khi hover */
+#admin-table-div td:nth-child(2):hover:before {
+    opacity: 1;
+}

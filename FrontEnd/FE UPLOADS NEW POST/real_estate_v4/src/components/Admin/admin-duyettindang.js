@@ -1,24 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer và toast từ thư viện react-toastify
+import 'react-toastify/dist/ReactToastify.css';
 
 const statusOptions = [
     { value: 1, label: 'Đang xử lý' },
-  
-    { value: 2, label: 'Đang mở bán' },
-    { value: 4, label: 'Đã cọc' },
-    { value: 5, label: 'Đã bán' }
+    { value: 2, label: 'Mở bán' },
 ];
 
 export default function Agencyduyettindang() {
     const [realEstates, setRealEstates] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
     const [unsavedChanges, setUnsavedChanges] = useState({});
     const [unsavedEstateIds, setUnsavedEstateIds] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchRealEstates = async () => {
             try {
                 const response = await axios.get('http://firstrealestate-001-site1.anytempurl.com/api/invester/getAllRealEstate');
-                // const filteredRealEstates = response.data.filter(realEstate => realEstate.investorId === 6);
                 const filteredRealEstates = response.data;
                 setRealEstates(filteredRealEstates);
             } catch (error) {
@@ -100,8 +101,13 @@ export default function Agencyduyettindang() {
             if (!unsavedEstateIds.includes(realEstateId)) {
                 setUnsavedEstateIds(prevIds => [...prevIds, realEstateId]);
             }
+
+            // Thông báo lưu thành công
+         
         } catch (error) {
             console.error('Error fetching real estate details:', error);
+            // Thông báo lỗi khi không thể lưu
+            toast.error('Lưu trạng thái thất bại. Vui lòng thử lại sau!');
         }
     };
 
@@ -125,29 +131,47 @@ export default function Agencyduyettindang() {
             // Đánh dấu rằng tất cả thay đổi đã được lưu
             setUnsavedChanges({});
             setUnsavedEstateIds([]);
-            console.log('Tất cả các thay đổi đã được lưu thành công!');
+            // Thông báo lưu thành công
+            toast.success('Tất cả các thay đổi đã được lưu thành công!');
         } catch (error) {
             console.error('Error saving real estate data:', error);
+            // Thông báo lỗi khi không thể lưu
+            toast.error('Lưu thất bại. Vui lòng thử lại sau!');
         }
     };
+
+    const handleNavigateAndSendId = (realEstateId) => {
+        navigate(`/thongtinbatdongsan/${realEstateId}`);
+    };
+
+    // Hàm để lọc bất động sản theo tên
+    const filteredRealEstates = realEstates.filter(realEstate =>
+        realEstate.realestateName.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     return (
         <div className="outer-container">
             <div className='container'>
                 <div className='col-md-9 danhsachbdscanduyet'>
                     <h1>Danh sách bất động sản cần được duyệt</h1>
+                    <input
+                        type="text"
+                        placeholder="Nhập tên bất động sản để lọc"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
                     <div className="table-container">
                         <table className="table">
                             <thead>
                                 <tr>
-                                    <th>Tên bất động sản</th>
+                                    <th onClick={() => handleNavigateAndSendId('')} style={{ cursor: 'pointer' }}>Tên bất động sản</th>
                                     <th>Trạng thái</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {realEstates.map(realEstate => (
+                                {filteredRealEstates.map(realEstate => (
                                     <tr key={realEstate.id} className='danhsachbdscanduyettheobds'>
-                                        <td>{realEstate.realestateName}</td>
+                                        <td onClick={() => handleNavigateAndSendId(realEstate.id)} style={{ cursor: 'pointer' }}>{realEstate.realestateName}</td>
                                         <td>
                                             <select className='luachon' value={realEstate.status} onChange={(event) => handleStatusChange(event, realEstate.id)}>
                                                 {statusOptions.map(option => (
@@ -160,9 +184,10 @@ export default function Agencyduyettindang() {
                             </tbody>
                         </table>
                     </div>
-                    {unsavedEstateIds.length > 0 && <button onClick={handleSaveData}>Lưu</button>}
+                    {unsavedEstateIds.length > 0 && <button onClick={handleSaveData} className='save'>Lưu</button>}
                 </div>
             </div>
+            <ToastContainer /> {/* Component ToastContainer để hiển thị thông báo toast */}
         </div>
     );
 }

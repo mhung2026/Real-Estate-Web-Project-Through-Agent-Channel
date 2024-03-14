@@ -1,41 +1,60 @@
-/* CSS */
-.container1 {
-    max-width: 90%;
-    margin: 0px auto; /* Center align the container */
+.new-container {
+    width: 90%;
+    margin: -380px 300px;
+    overflow: hidden;
+    /* border-radius: 15px; */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
 }
 
-h1 {
-    text-align: center;
+.new-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.20);
 }
 
-table {
+.new-table {
     width: 100%;
     border-collapse: collapse;
+    background-color: #ffffff;
 }
 
-th, td {
-    padding: 10px;
-    border: 1px solid #ddd;
+.new-table thead {
+    background-color: #6c7ae0;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-    text-align: left;
-}
-
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-tr:hover {
-    background-color: #f0f0f0;
-}
-
-td {
+.new-table thead th {
+    padding: 15px 10px;
     cursor: pointer;
 }
 
-td:hover {
-    background-color: #eaeaea;
+.new-table thead th:hover {
+    background-color: #35CB6D;
+}
+
+.new-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+    transition: background-color 0.3s ease;
+}
+
+.new-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.new-table tbody tr:hover {
+    background-color: #f5f7fa;
+}
+
+.new-table td {
+    padding: 15px 10px;
+    text-align: center;
+    color: #636363;
+    cursor: pointer;
+}
+
+.new-table td:hover {
+    background-color: #eaeef3;
+    border-radius: 5px;
 }

@@ -76,7 +76,7 @@ export default function CustomerNaptienkhachhang() {
                 const lastPayment = callDataAllPayment.data[callDataAllPayment.data.length - 1];
                 const lastPaymentAmount = parseFloat(lastPayment.Price);
     
-                if (lastPaymentAmount === numericAmount && lastPayment.Content.includes(description)) {
+                if (lastPaymentAmount === numericAmount) {
                     setPaymentSuccess(true); // Cập nhật biến trạng thái
     
                     // Kiểm tra nếu userLoginBasicInformationDto.accountId có trong dữ liệu callDataAllWallet.investorId

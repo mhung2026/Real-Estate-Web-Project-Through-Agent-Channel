@@ -68,8 +68,9 @@ export default function AdminSetTime() {
   };
 
   return (
+    <>
     <div className="containerxxx">
-      <h1>Chỉnh Thời Gian Đặt Lịch</h1>
+      <h1> Thiết Lập Thời Gian Đặt Lịch</h1>
       <div className="datepicker-container">
         <DatePicker
           selected={selectedDate}
@@ -88,8 +89,9 @@ export default function AdminSetTime() {
           </button>
         ))}
       </div>
-      <button onClick={handleSubmit}>Gửi thông tin</button>
-      <ToastContainer />
+      <button onClick={handleSubmit}  class="custom-button" style={{color: "black"}}>Gửi thông tin</button>
     </div>
+      <ToastContainer />
+      </>
   );
 }

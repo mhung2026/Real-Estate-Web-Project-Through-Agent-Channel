@@ -29,11 +29,11 @@ export default function AdminAllAccount() {
         const day = date.getDate();
         const month = date.getMonth() + 1; // Tháng bắt đầu từ 0, nên cần cộng thêm 1
         const year = date.getFullYear();
-    
+
         // Đảm bảo ngày và tháng hiển thị với 2 chữ số bằng cách thêm '0' nếu cần
         const formattedDay = day < 10 ? '0' + day : day;
         const formattedMonth = month < 10 ? '0' + month : month;
-    
+
         return formattedDay + '/' + formattedMonth + '/' + year;
     };
 
@@ -42,8 +42,8 @@ export default function AdminAllAccount() {
         : accountData;
 
     return (
-        <div>
-            <h2 style={{ marginBottom: '20px', marginTop: '20px', textAlign: 'center' }}>All Accounts</h2>
+        <div class="beautiful-table">
+            <h2>All Accounts</h2>
             <div style={{ marginBottom: '20px', textAlign: 'center' }}>
                 <select value={selectedRoleId} onChange={e => setSelectedRoleId(e.target.value)}>
                     <option value="">All Roles</option>

@@ -18,6 +18,7 @@ export default function AgencyCustomerDetailPage() {
     const [getIdAccount, setGetIdAccount] = useState(null); // State to store getIdAccount
     const [toastMessage, setToastMessage] = useState(''); // State for toast message
     const [status3, setStatus3] = useState(false); // State to track if status is 3
+    const [sold, setSold] = useState(false); // State to track if property is sold
     const userLoginBasicInformationDto = JSON.parse(localStorage.getItem('userLoginBasicInformationDto'));
 
     useEffect(() => {
@@ -78,13 +79,10 @@ export default function AgencyCustomerDetailPage() {
 
     const sendToSwagger = async () => {
         try {
-            // Tải lên các tệp lên Firebase và thu thập URL của chúng
+            // Upload files to Firebase and collect their URLs
             const firebaseUrls = await Promise.all(selectedFiles.map(uploadFileToFirebase));
-    
-            // Sử dụng URL trả về từ Firebase cho thuộc tính firebaseId
-            const firebaseUrlsObject = seturlimg;
-    
-            // Tạo đối tượng chứa các thông tin cần gửi
+
+            // Create an object containing the necessary information to send
             const requestData = {
                 id: filterRealEstate.id,
                 firebaseId: firebaseUrls.join(),
@@ -108,10 +106,10 @@ export default function AgencyCustomerDetailPage() {
                 Ward: locationId.ward,
                 District: locationId.district,
             };
-    
+
             console.log('Sending data to Swagger:', requestData);
-    
-            // Gửi dữ liệu đến Swagger
+
+            // Send data to Swagger
             axios.put(`http://firstrealestate-001-site1.anytempurl.com/api/invester/updatePostById/${realEstateId}`, requestData)
                 .then(response => {
                     console.log('Response from Swagger:', response.data);
@@ -129,11 +127,57 @@ export default function AgencyCustomerDetailPage() {
         }
     };
 
+    // Function to handle marking property as sold
+    const markAsSold = async () => {
+        try {
+            // Create requestData with status 5
+            const requestData = {
+                id: filterRealEstate.id,
+                firebaseId: filterRealEstate.firebaseId,
+                investorId: filterRealEstate.investorId,
+                payId: 1,
+                locationId: filterRealEstate.locationId,
+                directId: filterRealEstate.directId,
+                realestateName: filterRealEstate.realestateName,
+                address: filterRealEstate.address,
+                roomNumber: filterRealEstate.roomNumber,
+                length: filterRealEstate.length,
+                width: filterRealEstate.width,
+                perimeter: customerId,
+                area: filterRealEstate.area,
+                legalStatus: filterRealEstate.legalStatus,
+                price: filterRealEstate.price,
+                discription: filterRealEstate.discription,
+                status: 5, // New status is 5
+                listRealEstateImageUrl: filterRealEstate.realEstateImages,
+                City: locationId.city,
+                Ward: locationId.ward,
+                District: locationId.district,
+            };
+
+            console.log('Sending data to Swagger:', requestData);
+
+            // Send data to Swagger
+            axios.put(`http://firstrealestate-001-site1.anytempurl.com/api/invester/updatePostById/${realEstateId}`, requestData)
+                .then(response => {
+                    console.log('Response from Swagger:', response.data);
+                    setToastMessage('Đã đánh dấu là đã bán!');
+                    toast.success('Đã đánh dấu là đã bán!');
+                    setSold(true); // Set the sold state to true
+                })
+                .catch(error => {
+                    console.error('Error sending data to Swagger:', error);
+                });
+        } catch (error) {
+            console.error('Error marking as sold:', error);
+        }
+    };
+
     return (
         <div>
             <h1>Thông Tin Bất Động Sản Và Khách Hàng Đặt Cọc</h1>
             <ToastContainer /> {/* Component for toast messages */}
-            {/* Hiển thị thông tin bất động sản và thông tin khách hàng */}
+            {/* Display real estate and customer information */}
             {filterRealEstate && (
                 <div>
                 <h2>Thông tin bất động sản</h2>
@@ -144,7 +188,7 @@ export default function AgencyCustomerDetailPage() {
                 <p>Chiều rộng: {filterRealEstate.width}</p>
                 <p>Diện tích: {filterRealEstate.area}</p>
                
-                {/* Hiển thị các thông tin khác của bất động sản */}
+                {/* Display other information of the real estate */}
             </div>
             )}
             {getIdAccount && (
@@ -153,10 +197,10 @@ export default function AgencyCustomerDetailPage() {
                     <p>Tên khách hàng: {getIdAccount.username}</p>
                     <p>Số điện thoại : {getIdAccount.phoneNumber}</p>
                     <p>Email : {getIdAccount.email}</p>
-                    {/* Hiển thị các thông tin khác của khách hàng */}
+                    {/* Display other information of the customer */}
                 </div>
             )}
-            {/* Phần chọn ảnh */}
+            {/* Image upload section */}
             <h1>Ảnh Đặt Cọc</h1>
             {status3 ? (
                 <div>
@@ -182,8 +226,9 @@ export default function AgencyCustomerDetailPage() {
                     </div>
                 )
             )}
-            {!status3 && <button onClick={sendToSwagger}>Đã cọc</button>}
-
+            {/* Conditionally render buttons based on status */}
+            {!status3 && !sold && <button onClick={sendToSwagger} style={{backgroundColor: "#35CB6D"}}>Đã cọc</button>}
+            {!status3 && !sold && <button onClick={markAsSold} style={{backgroundColor: "#35CB6D"}}>Đã bán</button>}
         </div>
     );
 }

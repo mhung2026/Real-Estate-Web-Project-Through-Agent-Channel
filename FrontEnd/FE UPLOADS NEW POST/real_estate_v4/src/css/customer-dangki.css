@@ -1,7 +1,7 @@
 /* CSS for role selection */
 .rolemoi {
     width: 400px; /* Điều chỉnh chiều rộng của phần chứa nút */
-    margin: 50px auto;
+    margin: 250px auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -22,7 +22,7 @@
 
 .taorole button {
     flex: 1; /* Chia đều chiều rộng của các nút */
-    background-color: #90c908;
+    background-color: #35CB6D;
     color: #fff;
     border: none;
     border-radius: 10px;
@@ -139,4 +139,14 @@
 }
 
 
+.group1 .label1 {
+    color: #aaa;
+    font-size: 12px;
+  }
+.inputtype{
+    width: 100%;
+    height: 40px;
+    border-radius: 50px;
+    border: 1px solid #000;
+}
 

@@ -1,109 +1,209 @@
-
-
-/* Phần container chính */
-.thongtindangnhap {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.5s ease;
+body {
+    margin: 0;
+    color: #6a6f8c;
+    background: #c8c8c8;
+    font: 600 16px/18px 'Open Sans', sans-serif;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+*,
+:after,
+:before {
+    box-sizing: border-box
 }
 
-.tieudedangnhap {
-    text-align: center;
-    color: #333;
+.clearfix:after,
+.clearfix:before {
+    content: '';
+    display: table
 }
 
-.loinhac {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    text-align: center;
+.clearfix:after {
+    clear: both;
+    display: block
 }
 
-.loinhac .loinhacdangki {
-    color: #90c908;
-    text-decoration: none;
-    margin-left: 5px;
+a {
+    color: inherit;
+    text-decoration: none
 }
 
-.dangnhap input {
+.login-wrap {
     width: 100%;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+    margin: auto;
+    max-width: 525px;
+    min-height: 695px;
+    position: relative;
+    /* background: url(https://cdn.pixabay.com/photo/2016/11/18/17/46/house-1836070_1280.jpg) no-repeat center; */
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
+    overflow-y: hidden;
 }
 
-.dangnhap .dangnhapthanhcong {
+.login-html {
     width: 100%;
-    padding: 10px;
-    background-color: #90c908;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    height: 100%;
+    position: absolute;
+    padding: 90px 70px 50px 70px;
+    /* background: rgba(40, 57, 101, .9); */
+    margin-top: 78px;
 }
 
-.dangnhap .dangnhapthanhcong:hover {
-    background-color: orange;
+.login-html .sign-in-htm,
+.login-html .sign-up-htm {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    transition: all .4s linear;
 }
 
-.ghinho {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
+.login-html .sign-in,
+.login-html .sign-up,
+.login-form .group .check {
+    display: none;
 }
 
-.ghinho .ghinhotaikhoan {
-    display: flex;
-    align-items: center;
+.login-html .tab,
+.login-form .group .label,
+.login-form .group .dangnhapthanhcong {
+    text-transform: uppercase;
 }
 
-.ghinho .ghinhotaikhoan input[type="checkbox"] {
-    margin-right: 5px;
-    max-width: 15px;
+.login-html .tab {
+    font-size: 22px;
+    margin-right: 15px;
+    padding-bottom: 5px;
+    margin: 0 15px 10px 0;
+    display: inline-block;
+    border-bottom: 2px solid transparent;
 }
 
-.ghinho .quenmatkhau {
+.login-html .sign-in:checked+.tab,
+.login-html .sign-up:checked+.tab {
     color: black;
-    text-decoration: none;
+    border-color: #35CB6D;
 }
 
-.dangnhapbangacc .dangnhapkhac {
+.login-form {
+    min-height: 345px;
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.login-form .group {
+    margin-bottom: 15px;
+}
+
+.login-form .group .label,
+.login-form .group .input,
+.login-form .group .dangnhapthanhcong {
+    width: 100%;
+    color: wh;
     display: block;
+}
+
+.login-form .group .input,
+.login-form .group .dangnhapthanhcong {
+    border: 1px solid #000;
+    /* padding:15px 20px; */
+    border-radius: 25px;
+    background: rgba(255, 255, 255, .1);
+    /* border: 1px solid black; */
+}
+
+.login-form .group input[data-type="password"] {
+    text-security: circle;
+    -webkit-text-security: circle;
+}
+
+.login-form .group .label {
+    color: #aaa;
+    font-size: 12px;
+}
+
+.login-form .group .dangnhapthanhcong {
+    background: #35CB6D;
+}
+
+.login-form .group label .icon {
+    width: 15px;
+    height: 15px;
+    border-radius: 2px;
+    position: relative;
+    display: inline-block;
+    background: rgba(255, 255, 255, .1);
+}
+
+.login-form .group label .icon:before,
+.login-form .group label .icon:after {
+    content: '';
+    width: 10px;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    transition: all .2s ease-in-out 0s;
+}
+
+.login-form .group label .icon:before {
+    left: 3px;
+    width: 5px;
+    bottom: 6px;
+    transform: scale(0) rotate(0);
+}
+
+.login-form .group label .icon:after {
+    top: 6px;
+    right: 0;
+    transform: scale(0) rotate(0);
+}
+
+.login-form .group .check:checked+label {
+    color: #fff;
+}
+
+.login-form .group .check:checked+label .icon {
+    background: #1161ee;
+}
+
+.login-form .group .check:checked+label .icon:before {
+    transform: scale(1) rotate(45deg);
+}
+
+.login-form .group .check:checked+label .icon:after {
+    transform: scale(1) rotate(-45deg);
+}
+
+.login-html .sign-in:checked+.tab+.sign-up+.tab+.login-form .sign-in-htm {
+    transform: rotate(0);
+}
+
+.login-html .sign-up:checked+.tab+.login-form .sign-up-htm {
+    transform: rotate(0);
+}
+
+.hr {
+    height: 2px;
+    margin: 60px 0 50px 0;
+    background: rgba(255, 255, 255, .2);
+}
+
+.foot-lnk {
     text-align: center;
-    margin-top: 20px;
-    color: #666;
+    margin-top: -102px;
+    margin-bottom: 30px;
+    float: right;
 }
 
-.dangnhapbanggg {
-    max-width: 20px;
+.foot-lnk a {
+    text-decoration: none;
+    color: #35CB6D;
 }
 
-.dangnhapbangacc {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.dangnhapaccnut {
-    margin: 0 auto;
-    display: block;
+.button1{
     background-color: white;
+    color: white;
+    margin: 40px auto;
 }

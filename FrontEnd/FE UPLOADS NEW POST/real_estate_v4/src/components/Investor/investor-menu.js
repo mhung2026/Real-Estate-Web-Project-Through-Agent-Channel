@@ -21,19 +21,33 @@ export default function InvestorMenu({ userLoginBasicInformationDto, UserMenu })
         fetchData();
     }, []);
     return (
-        <div className="col-md-3 account">
-            <span className='welcome'>Chào mừng, {userLoginBasicInformationDto.username}!</span>
-            <span>Số dư: {InvesBalances.length > 0 ? InvesBalances : 0}</span>
-            {/* <span>Your role is: {userLoginBasicInformationDto.roleName}</span>
-            <span>Your role is: {userLoginBasicInformationDto.accountId}</span> */}
-            <ul className="menu-list-investor">
-                {UserMenu.map(menuItem => (
-                    <li key={menuItem.id} className="menu-item-container">
-                        <Link className="menu-item-investor" to={menuItem.link}>{menuItem.name}</Link>
-                    </li>
-                ))}
-            </ul>
+        // <div className="col-md-3 account">
+        //     <span className='welcome'>Chào mừng, {userLoginBasicInformationDto.username}!</span>
+        //     <span>Số dư: {InvesBalances.length > 0 ? InvesBalances : 0}</span>
+        //     {/* <span>Your role is: {userLoginBasicInformationDto.roleName}</span>
+        //     <span>Your role is: {userLoginBasicInformationDto.accountId}</span> */}
+        //     <ul className="menu-list-investor">
+        //         {UserMenu.map(menuItem => (
+        //             <li key={menuItem.id} className="menu-item-container">
+        //                 <Link className="menu-item-investor" to={menuItem.link}>{menuItem.name}</Link>
+        //             </li>
+        //         ))}
+        //     </ul>
 
+        // </div>
+        <div class="container">
+            <div class="sidebar">
+                <span className='welcome'>Chào mừng, {userLoginBasicInformationDto.username}!</span>
+                <div className="balance">Số dư: {InvesBalances.length > 0 ? InvesBalances : 0}</div>
+                <ul className="menu-list">
+                    {UserMenu.map(menuItem => (
+                        <li key={menuItem.id} className="menu-item">
+                            <Link to={menuItem.link}>{menuItem.name}</Link>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+           
         </div>
     );
 }

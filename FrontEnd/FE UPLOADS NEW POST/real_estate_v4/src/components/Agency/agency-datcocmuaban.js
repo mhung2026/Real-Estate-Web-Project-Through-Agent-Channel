@@ -57,11 +57,26 @@ export default function AgencyDatcocmuaban() {
     const getRealEstateStatusById = (realEstateId) => {
         const realEstate = realEstates.find(item => item.id === realEstateId);
         if (realEstate) {
-            return realEstate.status === 6 ? 'Đã cọc' : realEstate.status;
+            switch (realEstate.status) {
+                case 2:
+                    return 'Đang xử lý';
+                case 3:
+                    return 'Đang chờ phê duyệt cọc';
+                case 4:
+                    return 'Phê duyệt cọc thành công';
+                case 5:
+                    return 'Đang chờ phê duyệt bán';
+                case 6:
+                    return 'Đang chờ bán thành công';
+                default:
+                    return 'Trạng thái không xác định';
+            }
         } else {
-            return 'Unknown';
+            return 'Không tìm thấy thông tin bất động sản';
         }
     };
+    
+    
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -94,8 +109,8 @@ export default function AgencyDatcocmuaban() {
     );
 
     return (
-        <div className='outer-container'>
-            <div className='container'>
+        <div className='outer-container1'>
+            <div className='container12'>
                 <AgencyMenu
                     userLoginBasicInformationDto={userLoginBasicInformationDto}
                     UserMenu={UserAgency}

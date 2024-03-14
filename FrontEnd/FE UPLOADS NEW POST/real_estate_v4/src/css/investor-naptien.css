@@ -2,7 +2,7 @@
 
 .payment-form {
     max-width: 100%;
-    margin: 10px 44px;
+    margin: 113px -52px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -44,7 +44,7 @@
 
 /* Button styles */
 .payment-form button {
-    background-color: #90c908;
+    background-color: #35CB6D;
     color: #fff;
     border: none;
     padding: 12px 20px;

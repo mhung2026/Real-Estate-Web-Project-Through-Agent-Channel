@@ -40,22 +40,22 @@ export default function AdminDetailBookingAgen() {
         return `${day < 10 ? '0' + day : day}/${month < 10 ? '0' + month : month}/${year}`;
     };
     return (
-        <div>
-             {BookReservation.length > 0 ? (
-                    BookReservation.map((reservation, index) => (
-                        <div key={index} className=''>
-                            <h1>Thông tin đặt chỗ</h1>
-                            <p><b>Mã đơn hàng</b> {reservation.id}</p>
-                            <p><b>Tên bất động sản: </b> {getRealEstateNameById(reservation.realEstateId)}</p>
-                            <p><b>Tên khách hàng đặt chỗ: </b> {getUsernameByCustomerId(reservation.customerId)}</p>
-                            <p><b>Ngày xem bất động sản: </b> {formatDate(reservation.bookingDate)}</p>
-                            <p><b>Giờ xem bất động sản</b> {reservation.bookingTime}</p>
-                            <p><b>Thông tin liên hệ người dẫn xem bất động sản: </b> {reservation.agencyId !== null ? getUsernameByCustomerId(reservation.agencyId) : 'Đang Cập Nhật'}</p>
-                        </div>
-                    ))
-                ) : (
-                    <p>Không có đơn đặt chỗ nào.</p>
-                )}
+        <div className="bookings-container">
+            {BookReservation.length > 0 ? (
+                BookReservation.map((reservation, index) => (
+                    <div key={index} className='booking-item'>
+                        <h1 className='title'>Thông tin đặt chỗ</h1>
+                        <p><span className='label'>Mã đơn hàng:</span> {reservation.id}</p>
+                        <p><span className='label'>Tên bất động sản:</span> {getRealEstateNameById(reservation.realEstateId)}</p>
+                        <p><span className='label'>Tên khách hàng đặt chỗ:</span> {getUsernameByCustomerId(reservation.customerId)}</p>
+                        <p><span className='label'>Ngày xem bất động sản:</span> {formatDate(reservation.bookingDate)}</p>
+                        <p><span className='label'>Giờ xem bất động sản:</span> {reservation.bookingTime}</p>
+                        <p><span className='label'>Thông tin liên hệ người dẫn xem bất động sản:</span> {reservation.agencyId !== null ? getUsernameByCustomerId(reservation.agencyId) : 'Đang Cập Nhật'}</p>
+                    </div>
+                ))
+            ) : (
+                <p>Không có đơn đặt chỗ nào.</p>
+            )}
         </div>
     );
 }

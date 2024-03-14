@@ -92,7 +92,7 @@ export default function AdminAllReservation() {
     return (
         <div className='container1'> 
             <ToastContainer position="top-right" autoClose={1000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
-            <h1 style={{fontSize: '30px'}}>DANH SÁCH PHÔI PHỐI AGENCY</h1>
+            <h1 style={{fontSize: '30px'}}>DANH SÁCH PHÂN PHỐI AGENCY</h1>
             <table className='thongtindanhsach'>
                 <thead>
                     <tr>

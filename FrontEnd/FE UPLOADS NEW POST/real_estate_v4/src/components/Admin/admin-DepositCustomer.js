@@ -25,7 +25,7 @@ export default function AdminDepositCustomer() {
                     ['time1', 'time2', 'time3', 'time4'].forEach(timeSlot => {
                         if (reservation[timeSlot] !== null) {
                             const timeFilter = reservation[timeSlot];
-                            const matchingReservations = allReservation.filter(res => 
+                            const matchingReservations = allReservation.filter(res =>
                                 format(new Date(res.bookingDate), "yyyy-MM-dd") === format(selectedDate, "yyyy-MM-dd") &&
                                 res.bookingTime === timeFilter && res.status === 1
                             );
@@ -35,7 +35,7 @@ export default function AdminDepositCustomer() {
                 }
 
                 setFilteredReservations(filteredData);
-                
+
             } catch (error) {
                 console.error("Error at fetchData", error);
             }
@@ -57,7 +57,7 @@ export default function AdminDepositCustomer() {
     const handleNavigate = (timeSlot, date) => {
         console.log("Date passed to handleNavigate:", date); // Debugging: check if date is correctly passed
         if (date) {
-           
+
             const formattedDate = format(date, "yyyy-MM-dd");
             console.log("Formatted Date:", formattedDate); // Debugging: check formatted date
             navigate(`/reservation-details/${timeSlot}/${formattedDate}`);
@@ -67,7 +67,15 @@ export default function AdminDepositCustomer() {
     };
 
     return (
-        <div>
+        <div style={{
+            transform: 'translate(280px, -400px)', // Moves the div to the right and up
+            maxWidth: '80%',
+            fontSize: '0.9rem',
+            margin: '20px', // Add margin if needed
+            padding: '20px', // Add padding if needed
+            background: '#fff', // Optional: Change the background
+            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' // Optional: Add some shadow for better UI
+        }}>Chọn ngày kiểm tra khách hàng đặt cọc: &nbsp;
             <DatePicker
                 selected={selectedDate}
                 onChange={handleDateChange}
@@ -75,7 +83,11 @@ export default function AdminDepositCustomer() {
                 placeholderText="Chọn ngày"
             />
             
-            <table>
+            <table style={{
+                width: '100%',
+                borderCollapse: 'collapse',
+                marginTop: '20px',
+            }}>
                 <thead>
                     <tr>
                         <th>Thời gian</th>

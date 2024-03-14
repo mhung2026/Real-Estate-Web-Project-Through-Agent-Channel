@@ -76,8 +76,8 @@ export default function AdminDetailBookingAgen() {
     };
 
     return (
-        <div className='outer-container'>
-            <div className='container'>
+        <div className='outer-container1'>
+            <div className='container12'>
                 <AgencyMenu
                     userLoginBasicInformationDto={userLoginBasicInformationDto}
                     UserMenu={UserAgency}
@@ -113,7 +113,7 @@ export default function AdminDetailBookingAgen() {
                         <p style={{ marginTop: '10px', marginLeft: '3px' }}>Không có đơn đặt chỗ nào.</p>
                     )}
                     {bookReservations.length > 0 && (
-                        <button onClick={handleCompleteClick}>Đánh dấu tất cả đã hoàn thành</button>
+                        <button onClick={handleCompleteClick} style={{backgroundColor: "#35CB6D"}}>Đánh dấu tất cả đã hoàn thành</button>
                     )}
                 </div>
             </div>

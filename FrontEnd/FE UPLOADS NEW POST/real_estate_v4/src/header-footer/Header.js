@@ -59,7 +59,7 @@ export default function Header() {
 
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="/tintuc" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dự án</a>
+                            <a class="nav-link dropdown-toggle" href="/duan" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dự án</a>
                             <div class="dropdown-menu">
                                 {duan.map((duan) => (
                                     <li key={duan.id}><Link className='text-drop' to={duan.link}>{duan.name}</Link></li>

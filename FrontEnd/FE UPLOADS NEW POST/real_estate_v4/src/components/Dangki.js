@@ -82,48 +82,57 @@ export default function Dangki() {
 
     return (
         <div>
-            <ToastContainer position="top-right" autoClose={2000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
-            {!roleSelected && (
-                <div className='rolemoi'>
-                    <h2 className='chonrole'>Chọn Vai Trò</h2>
-                    <div className='taorole'>
-                        <button onClick={() => handleRoleChange(3)} style={{ marginRight: '20px', padding: ' 24px', borderRadius: '10px' }}>Customer</button>
-                        <button onClick={() => handleRoleChange(2)} style={{ marginRight: '20px', padding: ' 24px', borderRadius: '10px' }}>Investor</button>
-                    </div>
+        <ToastContainer position="top-right" autoClose={2000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
+        {!roleSelected && (
+            <div className='rolemoi'>
+                <h2 className='chonrole'>Vui lòng chọn vai trò trước khi đăng ký</h2>
+                <div className='taorole'>
+                    <button onClick={() => handleRoleChange(3)} style={{ marginRight: '20px', padding: ' 24px', borderRadius: '10px' }}>Khách hàng</button>
+                    <button onClick={() => handleRoleChange(2)} style={{ marginRight: '20px', padding: ' 24px', borderRadius: '10px' }}>Chủ đầu tư</button>
                 </div>
-            )}
-            {roleSelected && (
-                <div className='formdangkytaikhoan'>
-                    <h2>Đăng ký tài khoản</h2>
+            </div>
+        )}
+        {roleSelected && (
+            <div class="login-wrap">
+                <div class="login-html">
+                    <input id="tab-1" type="radio" name="tab" class="sign-in" checked /><label for="tab-1" class="tab">Đăng ký</label>
                     <form onSubmit={handleSubmit}>
-                        <div>
-                            <label>Email:</label>
-                            <input type="email" name="email" value={formData.email} onChange={handleChange} />
+                        <div class="group1">
+                            <label for="user" class="label1">Email:</label>
+                            <input type="email" name="email" class='inputtype' value={formData.email} onChange={handleChange} />
                         </div>
-                        <div>
-                            <label>Họ Và Tên:</label>
-                            <input type="text" name="taiKhoan" value={formData.taiKhoan} onChange={handleChange} />
+                        <div class="group1">
+                            <label for="pass" class="label1">Họ Và Tên:</label>
+                            <input type="text" name="taiKhoan" class='inputtype' value={formData.taiKhoan} onChange={handleChange} style={{
+                                borderRadius: "50px",
+                                border: "1px solid #000"
+                            }} />
                         </div>
-                        <div>
-                            <label>Mật khẩu:</label>
-                            <input type="password" name="matKhau" value={formData.matKhau} onChange={handleChange} />
+                        <div class="group1">
+                            <label for="pass" class="label1">Mật khẩu:</label>
+                            <input type="password" name="matKhau" class='inputtype' value={formData.matKhau} onChange={handleChange} />
                         </div>
-                        <div>
-                            <label>Xác nhận lại mật khẩu:</label>
-                            <input type="password" name="xacNhanMatKhau" value={formData.xacNhanMatKhau} onChange={handleChange} />
+                        <div class="group1">
+                            <label for="pass" class="label1">Xác nhận lại mật khẩu:</label>
+                            <input type="password" name="xacNhanMatKhau" class='inputtype' value={formData.xacNhanMatKhau} onChange={handleChange} />
                         </div>
-                        <div>
-                            <label>Số điện thoại:</label>
-                            <input type="text" name="soDienThoai" value={formData.soDienThoai} onChange={handleChange} />
+                        <div class="group1">
+                            <label for="phone" class="label1">Số điện thoại:</label>
+                            <input type="text" name="soDienThoai" class='inputtype' value={formData.soDienThoai} onChange={handleChange} style={{ borderRadius: "50px",
+                                border: "1px solid #000"}} />
                         </div>
-                        <div>
-                            <label>Địa chỉ:</label>
-                            <input type="text" name="diaChi" value={formData.diaChi} onChange={handleChange} />
+                        <div class="group1">
+                            <label for="phone" class="label1">Địa chỉ:</label>
+                            <input type="text" name="diaChi" class='inputtype' value={formData.diaChi} onChange={handleChange} style={{ borderRadius: "50px",
+                                border: "1px solid #000"}} />
                         </div>
-                        <button type="submit">Đăng Ký</button>
+                        <button type="submit" style={{ backgroundColor: "#35CB6D", width: '100%', borderRadius: "50px", border: "1px solid #000" }}>Đăng Ký</button>
                     </form>
                 </div>
-            )}
-        </div>
-    );
+            </div>
+
+        )}
+    </div>
+);
 }
+

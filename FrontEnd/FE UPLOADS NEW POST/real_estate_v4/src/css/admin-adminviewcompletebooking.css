@@ -1,44 +1,56 @@
-/* CSS */
 .container1 {
     max-width: 90%;
-    margin: 40px auto;
+    margin: -384px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    font-family: 'Open Sans', sans-serif;
+    transform: translateX(237px);
+    
 }
 
-h1 {
+.container1 h1 {
+    font-size: 22px;
+    color: #333;
     text-align: center;
-    font-size: 30px;
     margin-bottom: 20px;
+    font-weight: 600;
 }
 
-table {
+.thongtindanhsach {
     width: 100%;
     border-collapse: collapse;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for a modern look */
+    margin-top: 10px;
 }
 
-th, td {
-    padding: 12px;
-    border: 1px solid #ddd;
-}
-
-th {
-    background-color: #f2f2f2;
-    font-weight: bold;
+.thongtindanhsach th {
+    padding: 12px 15px;
+    background-color: #35CB6D;
+    color: white;
     text-align: left;
+    font-weight: 600;
 }
 
-tr:nth-child(even) {
-    background-color: #f9f9f9;
+.thongtindanhsach td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e8eff5;
+    color: #666;
 }
 
-tr:hover {
-    background-color: #f0f0f0;
+.thongtindanhsach tbody tr:hover {
+    background-color: #f7fafc;
 }
 
-td {
-    cursor: pointer;
+.thongtindanhsach tbody tr:nth-child(even) {
+    background-color: #f0f4f7;
 }
 
-td:hover {
-    background-color: #eaeaea;
+.thongtindanhsach tbody td:first-child {
+    border-radius: 5px 0 0 5px;
+}
+
+.thongtindanhsach tbody td:last-child {
+    border-radius: 0 5px 5px 0;
 }
