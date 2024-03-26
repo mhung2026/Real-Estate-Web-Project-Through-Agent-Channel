@@ -22,7 +22,34 @@ namespace RealEstateTestApi.ServiceImpl
         {
             Account account = accountRepository.findUsernameAndPasswordToLogin(loginDto);
             UserLoginBasicInformationDto dto = new UserLoginBasicInformationDto();
-            if (account != null)
+            if (account == null)
+            {
+                return null;
+
+            }
+            else
+            {
+                if (account.Email.Equals(loginDto.Email))
+                {
+                    dto.AccountId = account.Id;
+                    dto.Username = account.Username;
+                    dto.Email = account.Email;
+                    dto.Password = account.Password;
+                    dto.RoleName = account.Role.RoleName;
+                    var access_Token = createJwtToken(account);
+                    UserTokenDto userTokenDto = new UserTokenDto()
+                    {
+                        accessToken = access_Token,
+                        userLoginBasicInformationDto = dto
+
+                    };
+
+                    return userTokenDto;
+                }
+                return null;
+               
+            }
+           /* if (account != null)
             {
               
                 dto.AccountId = account.Id;
@@ -30,9 +57,9 @@ namespace RealEstateTestApi.ServiceImpl
                 dto.Email = account.Email;
                 dto.Password = account.Password;
                 dto.RoleName = account.Role.RoleName;
-            }
+            }*/
 
-            if (account != null && dto.Email != null && dto.Password !=null)
+          /*  if (account != null && dto.Email != null && dto.Password !=null)
             {
                 var access_Token = createJwtToken(account);
                 UserTokenDto userTokenDto = new UserTokenDto()
@@ -44,7 +71,7 @@ namespace RealEstateTestApi.ServiceImpl
 
                 return userTokenDto;
             }
-            return null;
+            return null;*/
         }
 
         
@@ -59,17 +86,18 @@ namespace RealEstateTestApi.ServiceImpl
             );
          
             var userCliams = new List<Claim>();
+            userCliams.Add(new Claim("email", account.Email));
             userCliams.Add(new Claim("username", account.Username));
             userCliams.Add(new Claim("password", account.Password));
             userCliams.Add(new Claim(ClaimTypes.Role, account.Role.RoleName));
 
 
             var jwtToken = new JwtSecurityToken(
-                issuer: "http://firstrealestate-001-site1.anytempurl.com",
+                issuer: "http://realestatesmart-001-site1.etempurl.com",
                 expires: DateTime.Now.AddHours(5),
                 signingCredentials: credentials,
                 claims: userCliams,
-                audience: "http://firstrealestate-001-site1.anytempurl.com"
+                audience: "http://realestatesmart-001-site1.etempurl.com"
             );
             string token = new JwtSecurityTokenHandler().WriteToken(jwtToken);
             return token;
@@ -97,5 +125,33 @@ namespace RealEstateTestApi.ServiceImpl
             return account;
         }
 
+        public Account updateAccountByAccountId(int accountId, AccountUpdateDto dto)
+        {
+            Account account = accountRepository.findAccountById(accountId);
+            if (account != null)
+            {
+                account.Username = dto.Username;
+                account.Password = dto.Password;
+                account.UpdateAt = dto.UpdateAt;
+                account.PhoneNumber = dto.PhoneNumber;
+                account.Address = dto.Address;
+                accountRepository.updateAccount(account);
+                return account;
+            }
+            return null;
+        }
+
+        public Account forgotPassword(string email, AccountForgotPasswordDto dto)
+        {
+            Account account = accountRepository.findAccountByEmail(email.Trim());
+            if(account != null)
+            {
+                account.Password = dto.Password;
+                account.UpdateAt = dto.UpdateAt;
+                accountRepository.updateAccount(account);
+                return account;
+            }
+            return null;
+        }
     }
 }

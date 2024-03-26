@@ -164,10 +164,12 @@ namespace RealEstateTestApi.ServiceImpl
         {
             RealEstate realEstate = realEstateRepository.getRealEstateById(realEstateId);
             realEstate.DirectId = dto.DirectId;
+            realEstate.FirebaseId = dto.FirebaseId;
             realEstate.PayId = dto.PayId;
             realEstate.RealestateName = dto.RealestateName;
             realEstate.Address = dto.Address;
             realEstate.RoomNumber = dto.RoomNumber;
+            realEstate.Contract = dto.Contract;
             realEstate.Length = dto.Length;
             realEstate.Width = dto.Width;
             realEstate.Perimeter = dto.Perimeter;

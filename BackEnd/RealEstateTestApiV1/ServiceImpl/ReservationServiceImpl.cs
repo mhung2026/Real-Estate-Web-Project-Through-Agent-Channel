@@ -44,6 +44,8 @@ namespace RealEstateTestApi.ServiceImpl
             return list;
         }
 
+      
+
         public Reservation UpdateReservation(UpdateReservationDto reservation)
         {
             if (reservation == null)
@@ -62,6 +64,20 @@ namespace RealEstateTestApi.ServiceImpl
             };
             reservationRepository.UpdateReservation(re);
             return re;
+        }
+
+        //26_03
+        public List<Reservation> GetAllReservationByAgencyId(int id)
+        {
+            List<Reservation> list = reservationRepository.GetAllReservationByAgencyId(id);
+            return list;
+        }
+
+
+        public List<Reservation> GetAllReservationByCustomerId(int id)
+        {
+            List<Reservation> list = reservationRepository.GetAllReservationByCustomerId(id);
+            return list;
         }
     }
 }

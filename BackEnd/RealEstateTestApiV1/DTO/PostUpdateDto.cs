@@ -6,8 +6,10 @@
         public int PayId { get; set; }
         public int DirectId { get; set; }
         public string RealestateName { get; set; } = null!;
+        public string? FirebaseId { get; set; }
         public string Address { get; set; } = null!;
         public int? RoomNumber { get; set; }
+        public string? Contract { get; set; }
         public string? Length { get; set; }
         public string? Width { get; set; }
         public string? Perimeter { get; set; }

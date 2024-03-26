@@ -98,12 +98,27 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     ValidateAudience = true,
     ValidateLifetime = true,
     ValidateIssuerSigningKey = true,
-    ValidIssuer = "http://firstrealestate-001-site1.anytempurl.com",
+    ValidIssuer = "http://realestatesmart-001-site1.etempurl.com",
     //ValidAudience ko co s cuoi cung
-    ValidAudience = "http://firstrealestate-001-site1.anytempurl.com",
+    ValidAudience = "http://realestatesmart-001-site1.etempurl.com",
     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("helloearththisismysecrectkeyforjwt123456789"))
 });
 
+//add cors
+/*builder.Services.AddCors();*/
+/*builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "MyPolicy",
+        policy =>
+        {
+            policy.WithOrigins("http://realestatesmart-001-site1.etempurl.com")
+                .WithMethods("PUT", "DELETE", "GET","POST").AllowCredentials();
+        });
+});*/
+
+
+
+//
 
 
 var app = builder.Build();

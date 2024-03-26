@@ -1,4 +1,5 @@
-﻿using RealEstateTestApi.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using RealEstateTestApi.Data;
 using RealEstateTestApi.IRepository;
 using RealEstateTestApi.Models;
 
@@ -42,5 +43,19 @@ namespace RealEstateTestApi.Repository
             swpRealEstateContext.SaveChanges();
             return reservation;
         }
+
+        //26_03
+        public List<Reservation> GetAllReservationByAgencyId(int id)
+        {
+            List<Reservation> list = swpRealEstateContext.Reservations.Where(x=>x.AgencyId == id).ToList();
+            return list;
+        }
+
+        public List<Reservation> GetAllReservationByCustomerId(int id)
+        {
+            List<Reservation> list = swpRealEstateContext.Reservations.Where(x => x.CustomerId == id).ToList();
+            return list;
+        }
+
     }
 }

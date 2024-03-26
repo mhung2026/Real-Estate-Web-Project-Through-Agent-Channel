@@ -8,5 +8,9 @@ namespace RealEstateTestApi.IRepository
         public Reservation CreateReservation(Reservation reservation);
         public Reservation UpdateReservation(Reservation reservation);
         public Reservation FindByID(int id);
+
+        public List<Reservation> GetAllReservationByAgencyId(int id);
+
+        public List<Reservation> GetAllReservationByCustomerId(int id);
     }
 }

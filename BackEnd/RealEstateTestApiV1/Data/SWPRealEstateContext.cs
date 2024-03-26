@@ -145,6 +145,8 @@ namespace RealEstateTestApi.Data
                     .HasMaxLength(50)
                     .HasColumnName("area");
 
+                entity.Property(e => e.Contract).HasColumnName("contract");
+
                 entity.Property(e => e.DirectId).HasColumnName("direct_id");
 
                 entity.Property(e => e.Discount)

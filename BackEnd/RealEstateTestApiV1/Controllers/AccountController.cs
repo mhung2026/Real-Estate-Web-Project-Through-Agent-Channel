@@ -24,6 +24,7 @@ namespace RealEstateTestApi.Controllers
         {
             try
             {
+                
                 UserTokenDto accessAndRefreshToken = accountService.loginIntoServer(loginDto);
                 if (accessAndRefreshToken == null)
                 {
@@ -57,6 +58,49 @@ namespace RealEstateTestApi.Controllers
             catch (Exception ex)
             {
                 return NotFound("Đã xảy ra lỗi trong quá trình tạo , vui lòng thử lại. ");
+            }
+        }
+
+        [HttpPut]
+        [Route("CapNhatTaiKhoan/{id}")]
+        public IActionResult UpdateAccount(int id, AccountUpdateDto dto)
+        {
+            try
+            {
+                Account account = accountService.updateAccountByAccountId(id, dto);
+                if (account != null)
+                {
+                    return Ok("Cập nhật tài khoản thành công ");
+                }
+                return BadRequest("Cập nhật tài khoản thất bại vui lòng thử lại. ");
+                
+            }
+            catch (Exception)
+            {
+
+                return BadRequest("Không thể thay đổi thông tin vui lòng thử lại sau. ");
+            }
+        }
+
+
+        [HttpPut]
+        [Route("QuenMatKhau/{email}")]
+        public IActionResult UpdateAccount(string email, AccountForgotPasswordDto dto)
+        {
+            try
+            {
+                Account account = accountService.forgotPassword(email, dto);
+                if (account != null)
+                {
+                    return Ok("Cập nhật mật khẩu mới thành công ");
+                }
+                return BadRequest("Cập nhật mật khẩu thất bại vui lòng thử lại. ");
+
+            }
+            catch (Exception)
+            {
+
+                return BadRequest("Không thể thay đổi mật khẩu vui lòng thử lại sau. ");
             }
         }
 

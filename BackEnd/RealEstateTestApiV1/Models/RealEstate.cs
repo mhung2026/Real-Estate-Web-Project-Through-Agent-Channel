@@ -20,6 +20,7 @@ namespace RealEstateTestApi.Models
         public string RealestateName { get; set; } = null!;
         public string Address { get; set; } = null!;
         public int? RoomNumber { get; set; }
+        public string? Contract { get; set; }
         public string? Length { get; set; }
         public string? Width { get; set; }
         public string? Perimeter { get; set; }
