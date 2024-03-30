@@ -87,7 +87,7 @@ namespace RealEstateTestApi.Controllers
 
 
         /* cái này chờ Hiệp sửa cập nhật lại */
-        /* [HttpPut]
+        [HttpPut]
                 [Route("UpdateReservationTime/{date}")]
                 public IActionResult UpdateReservationTime(DateTime date, UpdateReservationTimeDto dto)
                 {
@@ -113,10 +113,8 @@ namespace RealEstateTestApi.Controllers
                         return BadRequest("loi db");
 
                     }
-                }*/
-        /**/
-
-
+                }
+   
 
         /* [HttpPut]
          [Route("UpdateReservationTimeByDate/{date}")]

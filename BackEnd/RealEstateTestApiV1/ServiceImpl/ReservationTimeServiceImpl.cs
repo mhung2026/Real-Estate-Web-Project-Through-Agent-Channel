@@ -53,7 +53,7 @@ namespace RealEstateTestApi.ServiceImpl
         public ReservationTime UpdateReservationTime(ReservationTime reservationTime)
         {
             ReservationTime reservationTime1 = new ReservationTime();
-            reservationTime1 = _reservationTimeRepository.UpdateReservationTime(reservationTime1);
+            reservationTime1 = _reservationTimeRepository.UpdateReservationTime(reservationTime);
             if (reservationTime1 != null)
             {
                 return reservationTime1;
