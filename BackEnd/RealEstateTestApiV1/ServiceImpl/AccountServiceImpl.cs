@@ -29,7 +29,7 @@ namespace RealEstateTestApi.ServiceImpl
             }
             else
             {
-                if (account.Email.Equals(loginDto.Email))
+                if (account.Email.Equals(loginDto.Email) && account.Password.Equals(loginDto.Password))
                 {
                     dto.AccountId = account.Id;
                     dto.Username = account.Username;

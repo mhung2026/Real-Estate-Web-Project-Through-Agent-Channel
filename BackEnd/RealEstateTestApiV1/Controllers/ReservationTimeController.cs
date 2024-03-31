@@ -85,9 +85,37 @@ namespace RealEstateTestApi.Controllers
             }
         }
 
+        [HttpPut]
+        [Route("UpdateReservationTime/{date}")]
+        public IActionResult UpdateReservationTime(DateTime date, UpdateReservationTimeDto dto)
+        {
+            try
+            {
+                ReservationTime reserationTime = _reservationTimeRepository.GetByDate(date);
+                if (reserationTime != null)
+                {
+                    reserationTime.Time1 = dto.Time1;
+                    reserationTime.Time2 = dto.Time2;
+                    reserationTime.Time3 = dto.Time3;
+                    reserationTime.Time4 = dto.Time4;
+                    reserationTime.Status = dto.Status;
+                    ReservationTime check = _reservationTimeService.UpdateReservationTime(reserationTime);
+                    return Ok("update thanh cong");
+                }
+                return BadRequest("khon tim thay ReservationTime voi Date = " + date);
+
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest("loi db" + e);
+
+            }
+        }
+
 
         /* cái này chờ Hiệp sửa cập nhật lại */
-        [HttpPut]
+        /* [HttpPut]
                 [Route("UpdateReservationTime/{date}")]
                 public IActionResult UpdateReservationTime(DateTime date, UpdateReservationTimeDto dto)
                 {
@@ -113,8 +141,10 @@ namespace RealEstateTestApi.Controllers
                         return BadRequest("loi db");
 
                     }
-                }
-   
+                }*/
+        /**/
+
+
 
         /* [HttpPut]
          [Route("UpdateReservationTimeByDate/{date}")]

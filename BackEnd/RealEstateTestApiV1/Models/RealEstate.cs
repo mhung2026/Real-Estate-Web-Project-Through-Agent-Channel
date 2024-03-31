@@ -29,6 +29,11 @@ namespace RealEstateTestApi.Models
         public string? Price { get; set; }
         public string? Discount { get; set; }
         public string? Discription { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? UpdateAt { get; set; }
+        public int? ReservationId { get; set; }
+        public string? CustomerDepositContract { get; set; }
+        public string? CustomerSellContract { get; set; }
         public int Status { get; set; }
 
         public virtual Direct Direct { get; set; } = null!;

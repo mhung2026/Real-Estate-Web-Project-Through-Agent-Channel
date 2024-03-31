@@ -147,6 +147,14 @@ namespace RealEstateTestApi.Data
 
                 entity.Property(e => e.Contract).HasColumnName("contract");
 
+                entity.Property(e => e.CreatedAt)
+                    .HasColumnType("date")
+                    .HasColumnName("created_at");
+
+                entity.Property(e => e.CustomerDepositContract).HasColumnName("customer_deposit_contract");
+
+                entity.Property(e => e.CustomerSellContract).HasColumnName("customer_sell_contract");
+
                 entity.Property(e => e.DirectId).HasColumnName("direct_id");
 
                 entity.Property(e => e.Discount)
@@ -185,9 +193,15 @@ namespace RealEstateTestApi.Data
                     .HasMaxLength(50)
                     .HasColumnName("realestate_name");
 
+                entity.Property(e => e.ReservationId).HasColumnName("reservation_id");
+
                 entity.Property(e => e.RoomNumber).HasColumnName("room_number");
 
                 entity.Property(e => e.Status).HasColumnName("status");
+
+                entity.Property(e => e.UpdateAt)
+                    .HasColumnType("date")
+                    .HasColumnName("update_at");
 
                 entity.Property(e => e.Width)
                     .HasMaxLength(50)

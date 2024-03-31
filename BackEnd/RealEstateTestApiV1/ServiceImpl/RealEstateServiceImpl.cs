@@ -49,6 +49,8 @@ namespace RealEstateTestApi.ServiceImpl
                         Price = dto.Price,
                         Discount = dto.Discount,
                         Discription = dto.Discription,
+                        //2703
+                        CreatedAt = DateTime.Now,
                         Status = dto.Status,
                     };
                 //chờ tạo đồng bộ trong database sau đó mới thêm vào bảng image url
@@ -193,22 +195,61 @@ namespace RealEstateTestApi.ServiceImpl
                 }
 
             }
+            realEstate.UpdateAt = DateTime.Now;
             realEstateRepository.updatePostRealEstate(realEstate);
          }
 
-       /* public void updatePostImageById(int id, List<ImagePostUpdateDto> dto)
+        //agency controller
+        public void updatePostRealEstateByAgency(int realEstateId, AgencyPostUpdateDTO dto)
         {
-            List<RealEstateImage> listFind = realEstateImageRepository.getAllRealEstateImageByRealEstateId(id);
-            foreach (var item in dto)
-            {
-                RealEstateImage realEstateImage = realEstateImageRepository.findRealEstateImageById(item.RealEstateId);
-                if(realEstateImage!= null)
-                {
-                    realEstateImage.ImageUrl = item.ImageUrl;
-                }
-               
-            }
-            
-        }*/
+            RealEstate realEstate = realEstateRepository.getRealEstateById(realEstateId);
+            realEstate.FirebaseId = dto.FirebaseId;
+            realEstate.ReservationId = dto.ReservationId;
+            realEstate.Status = dto.Status;
+            realEstate.UpdateAt = DateTime.Now;
+            realEstateRepository.updatePostRealEstate(realEstate);
+        }
+
+        public void updateContractPostRealEstateByAgency(int realEstateId, AgencyPostUpdateContractDTO dto)
+        {
+            RealEstate realEstate = realEstateRepository.getRealEstateById(realEstateId);
+            realEstate.Contract = dto.Contract;
+            realEstate.ReservationId = dto.ReservationId;
+            realEstate.Status = dto.Status;
+            realEstate.UpdateAt = DateTime.Now;
+            realEstateRepository.updatePostRealEstate(realEstate);
+        }
+
+        public void updateDepositContractByCustomer(int realEstateId, CustomerDepositContractDTO dto)
+        {
+            RealEstate realEstate = realEstateRepository.getRealEstateById(realEstateId);
+            realEstate.CustomerDepositContract = dto.CustomerDepositContract;          
+            realEstateRepository.updatePostRealEstate(realEstate);
+
+        }
+
+        public void updateSellContractByCustomer(int realEstateId, CustomerSellContractDTO dto)
+        {
+            RealEstate realEstate = realEstateRepository.getRealEstateById(realEstateId);
+            realEstate.CustomerSellContract = dto.CustomerSellContract;
+            realEstateRepository.updatePostRealEstate(realEstate);
+        }
+
+      
+
+        /* public void updatePostImageById(int id, List<ImagePostUpdateDto> dto)
+         {
+             List<RealEstateImage> listFind = realEstateImageRepository.getAllRealEstateImageByRealEstateId(id);
+             foreach (var item in dto)
+             {
+                 RealEstateImage realEstateImage = realEstateImageRepository.findRealEstateImageById(item.RealEstateId);
+                 if(realEstateImage!= null)
+                 {
+                     realEstateImage.ImageUrl = item.ImageUrl;
+                 }
+
+             }
+
+         }*/
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RealEstateTestApi.DTO;
 using RealEstateTestApi.IRepository;
@@ -9,6 +10,7 @@ namespace RealEstateTestApi.Controllers
 {
     [Route("api/agency/")]
     [ApiController]
+   
     public class AgencyController : ControllerBase
     {
         private IRealEstateService realEstateService;
@@ -46,11 +48,29 @@ namespace RealEstateTestApi.Controllers
 
         [HttpPut]
         [Route("updatePostById/{id}")]
-        public IActionResult updatePostById(int id, PostUpdateDto dto)
+        public IActionResult updatePostById(int id, AgencyPostUpdateDTO dto)
         {
             try
             {
-                realEstateService.updatePostRealEstateById(id, dto);
+                realEstateService.updatePostRealEstateByAgency(id, dto);
+                return Ok("Cập nhật thành công");
+            }
+            catch (Exception)
+            {
+
+                return BadRequest("Cập nhật không thành công vui lòng thử lại");
+            }
+
+        }
+
+        //3103
+        [HttpPut]
+        [Route("updateRealEstateContractByRealEstateId/{id}")]
+        public IActionResult updateRealEstateContractByRealEstateId(int id, AgencyPostUpdateContractDTO dto)
+        {
+            try
+            {
+                realEstateService.updateContractPostRealEstateByAgency(id, dto);
                 return Ok("Cập nhật thành công");
             }
             catch (Exception)

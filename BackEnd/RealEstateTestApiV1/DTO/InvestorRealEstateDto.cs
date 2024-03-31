@@ -24,6 +24,7 @@ namespace RealEstateTestApi.DTO
         public string District { get; set; } = null!;
         public string City { get; set; } = null!;
         public List<RealEstateImageDto> listRealEstateImageUrl { get; set; }
+        public DateTime? CreatedAt { get; set; }
         public int Status { get; set; }
 
 
