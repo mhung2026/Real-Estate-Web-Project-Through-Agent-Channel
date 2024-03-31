@@ -1,0 +1,20 @@
+
+
+.agency-menu {
+    margin-right: 20px;
+    /* background-color: ưi; */
+    border: 3px;
+    /* box-shadow: 3px; */
+    border-color: black;
+    color: black;
+    /* max-height: max-content; */
+    height: 100%;    /* padding: 20px; */
+    width: 340px; /* Điều chỉnh chiều rộng theo nhu cầu của bạn */
+  }
+  .menu-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    vertical-align: middle;
+
+}

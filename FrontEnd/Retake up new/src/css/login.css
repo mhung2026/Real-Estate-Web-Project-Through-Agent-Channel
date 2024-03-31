@@ -1,0 +1,332 @@
+body {
+    margin: 0;
+    color: #6a6f8c;
+    background: #c8c8c8;
+}
+
+/* *,
+:after,
+:before {
+    box-sizing: border-box
+} */
+
+/* .clearfix:after,
+.clearfix:before {
+    content: '';
+    display: table
+}
+
+.clearfix:after {
+    clear: both;
+    display: block
+} */
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+/* .login-wrap { */
+    /* width: 450px;
+    margin: auto;
+    max-width: 525px;
+    min-height: 695px;
+    position: relative; */
+    /* background: url(https://cdn.pixabay.com/photo/2016/11/18/17/46/house-1836070_1280.jpg) no-repeat center; */
+    /* box-shadow: 0 12px 15px 0 #5da034c3, 0 17px 50px 0 rgba(0, 0, 0, .19);
+    overflow-y: hidden;
+    border-radius: 15px; */
+/* } */
+
+.login-html {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 20px 20px 0px 20px;
+    /* background: #8de2acfc; */
+    margin-top: 100px;
+}
+
+.login-html .sign-in-htm,
+.login-html .sign-up-htm {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    transition: all .4s linear;
+}
+
+.login-html .sign-in,
+.login-html .sign-up,
+.login-form .group .check {
+    display: none;
+}
+
+.login-html .tab,
+.login-form .group .label,
+.login-form .group .dangnhapthanhcong {
+    text-transform: uppercase;
+}
+
+.login-html .tab {
+    font-size: 22px;
+    font-weight: bold;
+    margin-right: 15px;
+    padding-bottom: 5px;
+    margin: 0 15px 10px 0;
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+}
+
+.login-html .sign-in:checked+.tab,
+.login-html .sign-up:checked+.tab {
+    color: black;
+    border-color: #35CB6D;
+}
+
+.login-form {
+    min-height: 345px;
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.login-form .group {
+    margin-bottom: 15px;
+}
+
+.login-form .group .label,
+.login-form .group .input,
+.login-form .group .dangnhapthanhcong {
+    width: 100%;
+    color: wh;
+    display: block;
+}
+
+.login-form .group .input,
+.login-form .group .dangnhapthanhcong {
+    border: 1px solid #000;
+    /* padding:15px 20px; */
+    border-radius: 25px;
+    /* background: rgba(255, 255, 255, .1); */
+    background: rgba(131, 246, 140, 0.1);
+    /* border: 1px solid black; */
+}
+
+/* .login-form .group input[data-type="password"] {
+    text-security: circle;
+    -webkit-text-security: circle;
+} */
+
+.login-form .group .label {
+    color: #aaa;
+    font-size: 12px;
+}
+
+.login-form .group .dangnhapthanhcong {
+    background: #35CB6D;
+}
+
+.login-form .group label .icon {
+    width: 15px;
+    height: 15px;
+    border-radius: 2px;
+    position: relative;
+    display: inline-block;
+    background: rgba(255, 255, 255, .1);
+}
+
+.login-form .group label .icon:before,
+.login-form .group label .icon:after {
+    content: '';
+    width: 10px;
+    height: 2px;
+    background: #35CB6D;
+    position: absolute;
+    transition: all .2s ease-in-out 0s;
+}
+
+.login-form .group label .icon:before {
+    left: 3px;
+    width: 5px;
+    bottom: 6px;
+    transform: scale(0) rotate(0);
+}
+
+.login-form .group label .icon:after {
+    top: 6px;
+    right: 0;
+    transform: scale(0) rotate(0);
+}
+
+.login-form .group .check:checked+label {
+    color: #fff;
+}
+
+.login-form .group .check:checked+label .icon {
+    background: #1161ee;
+}
+
+.login-form .group .check:checked+label .icon:before {
+    transform: scale(1) rotate(45deg);
+}
+
+.login-form .group .check:checked+label .icon:after {
+    transform: scale(1) rotate(-45deg);
+}
+
+.login-html .sign-in:checked+.tab+.sign-up+.tab+.login-form .sign-in-htm {
+    transform: rotate(0);
+}
+
+.login-html .sign-up:checked+.tab+.login-form .sign-up-htm {
+    transform: rotate(0);
+}
+
+.hr {
+    height: 2px;
+    margin: 60px 0 50px 0;
+    background: rgba(255, 255, 255, .2);
+}
+
+.foot-lnk {
+    text-align: center;
+    /* margin-top: -20px; */
+    margin-bottom: 5px;
+    float: right;
+
+}
+
+.foot-lnk a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+
+}
+.foot-lnk a:hover {
+    color: #35CB6D;
+}
+
+.button1{
+    background-color: white;
+    color: white;
+    margin: 40px auto;
+}
+
+
+
+/* ---------------------------------- */
+
+.background img{
+    position: absolute;
+    width: 100%;
+}
+
+.form_login{
+    /* margin: 100%; */
+    padding-bottom: 50px;
+    border-bottom: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.login{
+    position: relative;
+    display: inline-block;
+    margin-top: 40px;
+    transform:translateX(-300);
+    width: 350px;
+    height: 400px;
+    background-color: rgba(255, 255, 255, 0.669);
+    border-radius: 10px;
+    /* box-shadow: 6px 1px 11px 0px #5EA034; */
+    /* border: 1px dashed #5EA034;  */
+    -webkit-box-shadow:0px 0px 14px 3px rgba(93,160,52,0.38);
+    -moz-box-shadow: 0px 0px 14px 3px rgba(93,160,52,0.38);
+    box-shadow: 0px 0px 14px 3px rgba(93,160,52,0.38);
+    
+}
+
+.label{
+    width: 290px;
+    margin-left: 30px;
+}
+
+.login_title{
+    width: 100%;
+}
+
+.login_title p{
+    position: relative;
+    font-size: 50px;
+    font-weight: 620;
+    line-height: 1.7;
+    letter-spacing: 3px;
+    margin-top: 70px;
+    margin-bottom: 0px;
+}
+
+.login p{
+    font-size: 30px;   
+    margin-top: 10px; 
+}
+
+
+.btn-sign {
+    margin: 15px 0px;
+    margin-left: 10px;
+}
+
+.btn-sign button{
+    width: 200px;
+}
+
+.Load_create{
+    margin-top: 25px;
+    width: 350px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.669);
+    border-radius: 10px;
+    box-shadow: 6px -1px 11px 0px #71717187;
+    border: #000;   
+    margin-right: 15px;
+}
+
+.Load_create p{
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+
+.Load_create h6{
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
+.Load_create button{
+    margin-top: 10px;
+    width: 100px;
+}
+.register {
+    /* display: flex; */
+    /* text-align: center; */
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.dangki{
+    text-decoration: none ;
+    
+    color: black;
+
+}
+.quenmatkhau {
+    /* display: flex; */
+    text-align: right;
+    text-decoration: none ;
+    color: black;
+    font-size: 10px;
+}

@@ -1,0 +1,131 @@
+/* Phông chữ */
+.outer-container {
+    font-family: Arial, sans-serif;
+    margin-left: 301px;
+    margin-top: -378px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    /* width: 90%; */
+}
+
+/* Tiêu đề */
+.danhsachbdscanduyet h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Bảng */
+.table-container {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+}
+
+/* Header của bảng */
+.table th {
+    background-color: #f2f2f2;
+    padding: 12px;
+    text-align: left;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Dòng trong tbody */
+.table tbody tr {
+    border-bottom: 2px solid #f2f2f2;
+}
+
+/* Ô trong bảng */
+.table td {
+    padding: 12px;
+    text-align: left;
+    border: none;
+}
+
+/* Hiệu ứng dạng zebra cho các hàng */
+.table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hiệu ứng hover cho các hàng */
+.table tbody tr:hover {
+    background-color: #e6f7ff;
+}
+
+/* Hiệu ứng hover cho cột */
+.table th:hover {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    transform: translateX(5px);
+}
+
+/* Phông chữ */
+.outer-container {
+    font-family: Arial, sans-serif;
+}
+
+/* Tiêu đề */
+.danhsachbdscanduyet h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Bảng */
+.table-container {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+}
+
+/* Header của bảng */
+.table th {
+    background-color: #f2f2f2;
+    padding: 12px;
+    text-align: left;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Dòng trong tbody */
+.table tbody tr {
+    border-bottom: 2px solid #f2f2f2;
+}
+
+/* Ô trong bảng */
+.table td {
+    padding: 12px;
+    text-align: left;
+    border: none;
+}
+
+/* Hiệu ứng dạng zebra cho các hàng */
+.table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hiệu ứng hover cho các hàng */
+.table tbody tr:hover {
+    background-color: #e6f7ff;
+}
+
+
+/* Hiệu ứng hover cho cột */
+.table th:hover {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    transform: translateX(5px);
+}
+.save{
+    background-color: #35CB6D;
+}

@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    color: #6a6f8c;
+    background: #c8c8c8;
+    font-family: Arial, sans-serif; /* Thay đổi font chữ */
+}
+.register-form {
+    width: 100%;
+    max-width: 400px; /* Điều chỉnh kích thước của form đăng ký */
+    margin: 0 auto; /* Đặt form ở giữa trang */
+    background-color: #fff; /* Màu nền của form */
+    padding: 20px; /* Khoảng cách giữa nội dung và viền của form */
+    border-radius: 10px; /* Bo góc của form */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng cho form */
+}
+
+.box-radio {
+    margin: 20px;
+}
+.status p{
+    font-weight: bold;
+    font-size: 14px;
+}
+.box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 20px;
+    margin-top: 100px;
+}
+
+.error-msg {
+    color: red;
+}
+
+.info-msg {
+    color: green;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 25px;
+    background-color: rgba(131, 246, 140, 0.1);
+    border: 1px solid black;
+    margin-bottom: 30px;
+}
+
+label {
+    /* color: #aaa; */
+    font-size: 15px;
+    text-transform: uppercase;
+    display: block;
+    /* margin-bottom: -50px; */
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.btn-success {
+    /* background-color: #35CB6D; */
+    background-color: white;
+    color: white;
+}
+
+.btn-md {
+    font-size: 16px;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Radio button styles */
+.radio-label {
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .box {
+        margin-top: 50px;
+    }
+}

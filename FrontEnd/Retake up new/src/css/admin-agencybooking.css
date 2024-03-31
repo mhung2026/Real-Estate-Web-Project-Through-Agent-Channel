@@ -1,0 +1,64 @@
+.admin-AB-container {
+    display: flex;
+    width: 100%;
+}
+
+.table-container {
+    width: 90%;
+    justify-content: center;
+    /* Center contents horizontally */
+    align-items: center;
+    /* Center contents vertically */
+}
+.custom-table {
+    width: 80%; /* Adjust as needed */
+    border-collapse: collapse;
+    border: 2px solid #359950; /* Đặt màu và độ dày viền bo khung */
+}
+.text-tongsodon{
+    margin-top: 20px;
+}
+.admin-DB-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.admin-DB-heading-container {
+    margin-top: 20px;
+    display: flex;
+    align-items: center; /* Align items horizontally */
+    margin-bottom: 20px; /* Adjust as needed */
+}
+
+.admin-DB-heading {
+    margin-top: 20px;
+    margin: 0; /* Reset margin */
+}
+
+.admin-DB-button-container {
+
+    margin-left: auto; /* Push the button to the right */
+    margin-top: 20px; /* Adjust as needed */
+   margin-right: 5%;
+}
+
+.admin-DB-button {
+font-weight: 600;
+    background-color: #359950;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Optional: Styles for the link */
+.admin-DB-button-link {
+    text-decoration: none;
+    color: inherit;
+}
+.admin-DB-table{
+    width: 90%;
+}

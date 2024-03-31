@@ -1,0 +1,56 @@
+.admin-menu {
+    margin-right: 20px;
+    background-color: #212529;
+    color: white;
+    /* max-height: max-content; */
+    height: 1000px;    /* padding: 20px; */
+    width: 340px; /* Điều chỉnh chiều rộng theo nhu cầu của bạn */
+  }
+  
+  .admin-menu img{
+    margin-left: 27px;
+    margin-top: 7px;
+    width: 70%;
+  }
+  .admin-menu hr{
+    margin: 1rem 28px;
+    height: 1px;
+    opacity: .25;
+  }
+
+  .admin-menu__welcome {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .admin-menu__list {
+ 
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+  }
+  
+  .admin-menu__item {
+    
+    margin-bottom: 5px;
+  }
+  
+  .admin-menu__link {
+    /* các kiểu chung cho link */
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 10px;
+    margin:0px 29px ;
+    transition: background-color 0.3s ease;
+}
+
+.admin-menu__link--active {
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    background: #359950;
+    border-radius: 5px;
+    padding-right: 10px;
+}

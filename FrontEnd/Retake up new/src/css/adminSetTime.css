@@ -1,0 +1,70 @@
+.admin-all-account {
+    display: flex;
+  }
+  
+  .box-allaccount {
+    margin-left: 20px;
+  }
+  
+  .setTime {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .time-buttons button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    /* border: 1px solid #ccc; */
+    border-radius: 5px;
+    cursor: pointer;
+    color: black;
+  }
+  
+  .time-buttons button.selected {
+    background-color: #359950;
+    /* color: #ddd; */
+    color: black;
+  }
+  
+  .custom-button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .custom-button:hover {
+    background-color: #359950;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    /* border: 1px solid #ddd; */
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    /* background-color: #f2f2f2; */
+  }
+  .custom-date-picker {
+    height: 20px;
+    padding-top: 20px; /* Căn chỉnh để văn bản "Chọn ngày" không bị che khuất */
+  }
+  
+  .placeholder-label {
+    position: absolute;
+    top: 0;
+    left: 10px; /* Điều chỉnh vị trí của label */
+    font-size: 12px;
+    color: #6c757d; /* Màu sắc tùy chỉnh */
+  }
+  
+  

@@ -1,0 +1,36 @@
+/* CSS */
+.thongtindanhsach {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+table {
+    border-collapse: collapse;
+    border: 1px solid #359950;
+}
+
+.thongtindanhsach th, .thongtindanhsach td {
+    padding: 10px;
+}
+
+.thongtindanhsach th {
+    background-color: #359950;
+    font-weight: bold;
+}
+
+.thongtindanhsach tr:nth-child(even) {
+    background-color: white;
+}
+
+.thongtindanhsach tr:hover {
+    background-color: #6db881c2;
+    color: white;
+    border: 0.5px solid rgb(83, 83, 83);
+}
+
+.thongtindanhsach td {
+    cursor: pointer;
+}
+

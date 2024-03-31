@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.col-md-9 {
+    width: 100%;
+    /* Đảm bảo phần danh sách chiếm toàn bộ chiều rộng */
+}
+
+.listreal {
+    /* margin-top: 100px;
+    max-width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    margin-left: -86px; */
+    margin-top: 120px;
+}
+.listreal h1 {
+    text-align: center;
+    /*  */
+    /* Căn giữa tiêu đề */
+    /* margin-bottom: 20px; */
+    /* Khoảng cách phía dưới tiêu đề */
+    
+}
+
+.listreal h2 {
+    cursor: pointer;
+    color: black;
+    transition: color 0.3s ease;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+/* ------------------ */
+.table_1 {
+    overflow: auto;
+    width: 100%;
+}
+
+.table_1 table {
+    border: 1px solid #dededf;
+    height: 100px;
+    width: 800px;
+    table-layout: auto;
+    border-collapse: collapse;
+    border-spacing: 1px;
+    text-align: center;
+}
+
+.table_1 caption {
+    caption-side: top;
+    text-align: center;
+}
+
+.table_1 th {
+    border: 1px solid #dededf;
+    background-color: #9cc581;
+    color: #000000;
+    padding: 5px;
+}
+
+.table_1 td {
+    border: 1px solid #dededf;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 20px;
+}
+/* ------------------ */
