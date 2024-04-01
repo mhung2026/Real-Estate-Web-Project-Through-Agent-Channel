@@ -68,8 +68,6 @@ builder.Services.AddScoped<IWalletRepository, WalletRepository>();
 builder.Services.AddScoped<IWalletHistoryRepository, WalletHistoryRepository>();
 builder.Services.AddScoped<IReservationTimeRepository, ReservationTimeRepository>();
 builder.Services.AddScoped<IPostingPriceRepository, PostingPriceRepository>();
-builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
-
 
 
 
@@ -89,8 +87,6 @@ builder.Services.AddScoped<IWalletService, WalletServiceImpl>();
 builder.Services.AddScoped<IWalletHistoryService, WalletHistoryServiceImpl>();
 builder.Services.AddScoped<IReservationTimeService, ReservationTimeServiceImpl>();
 builder.Services.AddScoped<IPostingPriceService, PostingPriceServiceImpl>();
-builder.Services.AddScoped<INotificationService, NotificationServiceImpl>();
-
 
 
 

@@ -156,8 +156,6 @@ namespace RealEstateTestApi.Data
             {
                 entity.ToTable("Posting_Price");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CreateAt)
                     .HasColumnType("date")
                     .HasColumnName("Create_At");

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\SP24\\RE-SWP391\\BE\\SWP_Spring24\\BackEnd\\RealEstateTestApiV1\\RealEstateTestApi.csproj": {}
+    "F:\\SP24\\RE-SWP391\\New\\SWP_Spring24\\BackEnd\\RealEstateTestApiV1\\RealEstateTestApi.csproj": {}
   },
   "projects": {
-    "F:\\SP24\\RE-SWP391\\BE\\SWP_Spring24\\BackEnd\\RealEstateTestApiV1\\RealEstateTestApi.csproj": {
+    "F:\\SP24\\RE-SWP391\\New\\SWP_Spring24\\BackEnd\\RealEstateTestApiV1\\RealEstateTestApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\SP24\\RE-SWP391\\BE\\SWP_Spring24\\BackEnd\\RealEstateTestApiV1\\RealEstateTestApi.csproj",
+        "projectUniqueName": "F:\\SP24\\RE-SWP391\\New\\SWP_Spring24\\BackEnd\\RealEstateTestApiV1\\RealEstateTestApi.csproj",
         "projectName": "RealEstateTestApi",
-        "projectPath": "F:\\SP24\\RE-SWP391\\BE\\SWP_Spring24\\BackEnd\\RealEstateTestApiV1\\RealEstateTestApi.csproj",
+        "projectPath": "F:\\SP24\\RE-SWP391\\New\\SWP_Spring24\\BackEnd\\RealEstateTestApiV1\\RealEstateTestApi.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "F:\\SP24\\RE-SWP391\\BE\\SWP_Spring24\\BackEnd\\RealEstateTestApiV1\\obj\\",
+        "outputPath": "F:\\SP24\\RE-SWP391\\New\\SWP_Spring24\\BackEnd\\RealEstateTestApiV1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
