@@ -7,6 +7,7 @@ namespace RealEstateTestApi.Models
     {
         public Account()
         {
+            Notifications = new HashSet<Notification>();
             RealEstates = new HashSet<RealEstate>();
             Reservations = new HashSet<Reservation>();
         }
@@ -24,6 +25,7 @@ namespace RealEstateTestApi.Models
 
         public virtual Role Role { get; set; } = null!;
         public virtual Wallet? Wallet { get; set; }
+        public virtual ICollection<Notification> Notifications { get; set; }
         public virtual ICollection<RealEstate> RealEstates { get; set; }
         public virtual ICollection<Reservation> Reservations { get; set; }
     }

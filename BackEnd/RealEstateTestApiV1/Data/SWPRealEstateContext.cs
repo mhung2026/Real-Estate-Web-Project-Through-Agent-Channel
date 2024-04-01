@@ -20,7 +20,9 @@ namespace RealEstateTestApi.Data
         public virtual DbSet<Account> Accounts { get; set; } = null!;
         public virtual DbSet<Direct> Directs { get; set; } = null!;
         public virtual DbSet<Location> Locations { get; set; } = null!;
+        public virtual DbSet<Notification> Notifications { get; set; } = null!;
         public virtual DbSet<Payment> Payments { get; set; } = null!;
+        public virtual DbSet<PostingPrice> PostingPrices { get; set; } = null!;
         public virtual DbSet<RealEstate> RealEstates { get; set; } = null!;
         public virtual DbSet<RealEstateImage> RealEstateImages { get; set; } = null!;
         public virtual DbSet<Reservation> Reservations { get; set; } = null!;
@@ -118,6 +120,25 @@ namespace RealEstateTestApi.Data
                     .HasColumnName("ward");
             });
 
+            modelBuilder.Entity<Notification>(entity =>
+            {
+                entity.ToTable("Notification");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.AccountId).HasColumnName("Account_Id");
+
+                entity.Property(e => e.CreateAt)
+                    .HasColumnType("date")
+                    .HasColumnName("Create_At");
+
+                entity.HasOne(d => d.Account)
+                    .WithMany(p => p.Notifications)
+                    .HasForeignKey(d => d.AccountId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Table_1_Table_1");
+            });
+
             modelBuilder.Entity<Payment>(entity =>
             {
                 entity.ToTable("Payment");
@@ -129,6 +150,17 @@ namespace RealEstateTestApi.Data
                     .HasColumnName("payment_method");
 
                 entity.Property(e => e.Status).HasColumnName("status");
+            });
+
+            modelBuilder.Entity<PostingPrice>(entity =>
+            {
+                entity.ToTable("Posting_Price");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.CreateAt)
+                    .HasColumnType("date")
+                    .HasColumnName("Create_At");
             });
 
             modelBuilder.Entity<RealEstate>(entity =>
