@@ -124,19 +124,23 @@ namespace RealEstateTestApi.Data
             {
                 entity.ToTable("Notification");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("id");
 
-                entity.Property(e => e.AccountId).HasColumnName("Account_Id");
+                entity.Property(e => e.AccountId).HasColumnName("account_id");
 
                 entity.Property(e => e.CreateAt)
                     .HasColumnType("date")
-                    .HasColumnName("Create_At");
+                    .HasColumnName("create_at");
+
+                entity.Property(e => e.Description).HasColumnName("description");
+
+                entity.Property(e => e.Status).HasColumnName("status");
 
                 entity.HasOne(d => d.Account)
                     .WithMany(p => p.Notifications)
                     .HasForeignKey(d => d.AccountId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Table_1_Table_1");
+                    .HasConstraintName("FK_Notification_Account");
             });
 
             modelBuilder.Entity<Payment>(entity =>
@@ -156,9 +160,15 @@ namespace RealEstateTestApi.Data
             {
                 entity.ToTable("Posting_Price");
 
+                entity.Property(e => e.Id).HasColumnName("id");
+
                 entity.Property(e => e.CreateAt)
                     .HasColumnType("date")
-                    .HasColumnName("Create_At");
+                    .HasColumnName("create_at");
+
+                entity.Property(e => e.Price).HasColumnName("price");
+
+                entity.Property(e => e.Status).HasColumnName("status");
             });
 
             modelBuilder.Entity<RealEstate>(entity =>

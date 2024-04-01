@@ -4,7 +4,7 @@ using RealEstateTestApi.Models;
 
 namespace RealEstateTestApi.Repository
 {
-    public class PostingPriceRepository : IPostingPriceRepository
+    public class PostingPriceRepository:IPostingPriceRepository
     {
         private SWPRealEstateContext _realEstateContext;
 
@@ -21,7 +21,7 @@ namespace RealEstateTestApi.Repository
                 _realEstateContext.SaveChanges();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 return false;
             }
@@ -36,7 +36,7 @@ namespace RealEstateTestApi.Repository
                 _realEstateContext.SaveChanges();
                 return list;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 return null;
             }

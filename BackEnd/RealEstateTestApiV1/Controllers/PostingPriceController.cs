@@ -40,7 +40,7 @@ namespace RealEstateTestApi.Controllers
             try
             {
                 bool test = _postingPriceService.CreatePostingPrice(dto);
-                if(test)
+                if (test)
                 {
                     return Ok("CreatePostingPrice thanh cong");
                 }

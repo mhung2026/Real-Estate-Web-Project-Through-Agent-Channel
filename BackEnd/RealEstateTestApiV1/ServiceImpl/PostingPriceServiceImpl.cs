@@ -2,7 +2,6 @@
 using RealEstateTestApi.IRepository;
 using RealEstateTestApi.IService;
 using RealEstateTestApi.Models;
-using RealEstateTestApi.Repository;
 
 namespace RealEstateTestApi.ServiceImpl
 {

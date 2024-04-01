@@ -1,6 +1,10 @@
-﻿namespace RealEstateTestApi.IRepository
+﻿using RealEstateTestApi.Models;
+
+namespace RealEstateTestApi.IRepository
 {
-    public class INotificationRepository
+    public interface INotificationRepository
     {
+        public List<Notification> getAllNotificationByAccount(int id);
+        public void createNotification(Notification notification);
     }
 }
